@@ -7,6 +7,8 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         histoire: resolve(__dirname, 'histoire.html'),
+        boutique: resolve(__dirname, 'boutique.html'),
+        renovation: resolve(__dirname, 'renovation.html'),
       },
     },
   },
