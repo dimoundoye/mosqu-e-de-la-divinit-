@@ -35,7 +35,82 @@
   --box-shadow-lg: 0 20px 50px rgba(0, 61, 66, 0.12);
   
   --navbar-height: 95px;
+  --color-accent: #c1b583;          /* Gold Accent */
 }
+
+/* Mode sombre déclenché par la classe .dark-theme */
+html.dark-theme {
+  /* Remplacement des fonds clairs par des fonds vert-noir profonds */
+  --color-bg-light: #071f21;         /* Même fond que le Hero/Footer */
+  --color-bg-white: #0c2a2d;         /* Fond de carte surélevé un peu plus clair */
+  
+  /* Remplacement des textes sombres par des textes clairs et beiges */
+  --color-text-dark: #f7f6f0;        /* Texte principal crème */
+  --color-text-muted: #a0b8bb;       /* Texte secondaire gris-vert doux */
+  
+  /* Adaptation de l'accentuation verte en or sable pour le contraste */
+  --color-primary: #e2d9b8;          /* Or clair */
+  --color-primary-rgb: 226, 217, 184;
+
+  /* Or un peu plus profond et contrasté pour la carte "Foi" mise en avant */
+  --color-beige: #c1b583;
+  --color-beige-dark: #aba071;
+
+  /* Or clair accent pour le mode sombre */
+  --color-accent: #e2d9b8;
+
+  /* Ombres plus sombres pour fond noir */
+  --box-shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --box-shadow-md: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --box-shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+
+/* Ajustements spécifiques pour éléments clairs en mode sombre */
+html.dark-theme .cocoon-card {
+  border: 1px solid rgba(226, 217, 184, 0.08) !important;
+}
+
+html.dark-theme .cocoon-card:hover {
+  border-color: rgba(226, 217, 184, 0.2) !important;
+}
+
+html.dark-theme .tag-pill-sm {
+  border: 1px solid rgba(226, 217, 184, 0.25) !important;
+}
+
+/* Bouton Theme Toggle dans la navbar */
+.nav-theme-toggle {
+  background: transparent;
+  border: none;
+  color: var(--color-text-light);
+  cursor: pointer;
+  opacity: 0.85;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+  padding: 0.4rem;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+}
+
+.nav-theme-toggle:hover {
+  color: var(--color-beige);
+  background-color: rgba(255, 255, 255, 0.08);
+  opacity: 1;
+}
+
+/* Cache l'icône correspondante selon le thème actif */
+html.dark-theme .nav-theme-toggle .moon-icon {
+  display: none;
+}
+html:not(.dark-theme) .nav-theme-toggle .sun-icon {
+  display: none;
+}
+
+
 
 /* Resets & Base Styles */
 *, *::before, *::after {
@@ -804,10 +879,11 @@ section[id],
 }
 
 .ring-1 { width: 100%; height: 100%; animation: spinRing 30s linear infinite; }
-.ring-2 { width: 82%; height: 82%; animation: spinRing 24s linear infinite reverse; }
-.ring-3 { width: 64%; height: 64%; animation: spinRing 18s linear infinite; }
-.ring-4 { width: 46%; height: 46%; animation: spinRing 12s linear infinite reverse; }
-.ring-5 { width: 28%; height: 28%; }
+.ring-2 { width: 85%; height: 85%; animation: spinRing 24s linear infinite reverse; }
+.ring-3 { width: 70%; height: 70%; animation: spinRing 18s linear infinite; }
+.ring-4 { width: 55%; height: 55%; animation: spinRing 12s linear infinite reverse; }
+.ring-5 { width: 40%; height: 40%; animation: spinRing 8s linear infinite; }
+
 
 @keyframes spinRing {
   to {
@@ -826,6 +902,12 @@ section[id],
   box-shadow: var(--box-shadow-md);
   z-index: 4;
 }
+
+.circle-center-logo svg {
+  width: 60%;
+  height: 60%;
+}
+
 
 .ring-label {
   position: absolute;
@@ -1862,9 +1944,30 @@ section[id],
   }
   
   .circle-center-logo {
-    width: 55px;
-    height: 55px;
+    width: 42px;
+    height: 42px;
   }
+
+  /* Redéfinir la taille des anneaux sur petit écran pour laisser plus d'espace */
+  .ring-1 { width: 100% !important; height: 100% !important; }
+  .ring-2 { width: 85% !important; height: 85% !important; }
+  .ring-3 { width: 70% !important; height: 70% !important; }
+  .ring-4 { width: 55% !important; height: 55% !important; }
+  .ring-5 { width: 40% !important; height: 40% !important; }
+
+  /* Rendre les étiquettes plus compactes */
+  .ring-label {
+    font-size: 0.52rem !important;
+    padding: 0.15rem 0.4rem !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  /* Ajuster le positionnement de ISHA sur l'anneau 5 */
+  .label-isha {
+    top: 10% !important;
+    right: 10% !important;
+  }
+
   
   .widget-live-clock {
     font-size: 0.75rem;

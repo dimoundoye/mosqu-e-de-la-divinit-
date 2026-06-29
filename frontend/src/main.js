@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
   }
   
+  initThemeToggle();
   initNavbarScroll();
   initMobileMenu();
   initHeroTabs();
@@ -19,6 +20,20 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initEventCountdown();
 });
+
+/* --------------------------------------------------------------------------
+   Theme Toggle logic
+   -------------------------------------------------------------------------- */
+function initThemeToggle() {
+  const toggleBtn = document.getElementById('theme-toggle-btn');
+  if (!toggleBtn) return;
+
+  toggleBtn.addEventListener('click', () => {
+    const isDark = document.documentElement.classList.toggle('dark-theme');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+}
+
 
 /* --------------------------------------------------------------------------
    Navbar scroll & Active pill states

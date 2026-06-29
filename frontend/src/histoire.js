@@ -6,10 +6,23 @@ document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
   }
   
+  initThemeToggle();
   initNavbarScroll();
   initMobileMenu();
   initHistoryScrollSpy();
 });
+
+/* Theme Toggle logic */
+function initThemeToggle() {
+  const toggleBtn = document.getElementById('theme-toggle-btn');
+  if (!toggleBtn) return;
+
+  toggleBtn.addEventListener('click', () => {
+    const isDark = document.documentElement.classList.toggle('dark-theme');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+}
+
 
 /* Navbar scroll hiding */
 function initNavbarScroll() {

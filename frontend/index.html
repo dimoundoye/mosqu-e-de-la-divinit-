@@ -23,6 +23,16 @@
     
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Blocking Theme Script to prevent flash of style -->
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+          document.documentElement.classList.add('dark-theme');
+        }
+      })();
+    </script>
   </head>
   <body>
     <!-- Cocoon Style Header -->
@@ -55,6 +65,10 @@
           <a href="#galerie" class="nav-link">Galerie</a>
           <span class="nav-divider"></span>
           <button class="nav-search" aria-label="Recherche"><i data-lucide="search" style="width: 16px; height: 16px;"></i></button>
+          <button class="nav-theme-toggle" id="theme-toggle-btn" aria-label="Changer le thème">
+            <i data-lucide="sun" class="sun-icon" style="width: 16px; height: 16px;"></i>
+            <i data-lucide="moon" class="moon-icon" style="width: 16px; height: 16px;"></i>
+          </button>
           <a href="#contact" class="nav-btn-cocoon">Nous Visiter</a>
         </nav>
 

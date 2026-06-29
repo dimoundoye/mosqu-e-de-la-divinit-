@@ -16,6 +16,16 @@
     
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Blocking Theme Script to prevent flash of style -->
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+          document.documentElement.classList.add('dark-theme');
+        }
+      })();
+    </script>
   </head>
   <body class="history-page-body">
     <!-- Navbar Header -->
@@ -33,13 +43,19 @@
             <rect x="15" y="80" width="70" height="8" rx="2" fill="#003D42"/>
           </svg>
           <div class="logo-text">
-            <span class="logo-subtitle">Mosquée de la Divinité</span>
+            <span class="logo-title">LA DIVINITÉ</span>
+            <span class="logo-subtitle">Mosquée d'Ouakam</span>
           </div>
         </a>
 
         <!-- Desktop back link -->
         <nav class="nav-menu" id="nav-links">
           <a href="index.html" class="nav-link"><i data-lucide="arrow-left" style="width: 14px; height: 14px; margin-right: 6px;"></i> Retour à l'accueil</a>
+          <span class="nav-divider"></span>
+          <button class="nav-theme-toggle" id="theme-toggle-btn" aria-label="Changer le thème">
+            <i data-lucide="sun" class="sun-icon" style="width: 16px; height: 16px;"></i>
+            <i data-lucide="moon" class="moon-icon" style="width: 16px; height: 16px;"></i>
+          </button>
         </nav>
 
         <!-- Toggle Mobile Menu Button -->
