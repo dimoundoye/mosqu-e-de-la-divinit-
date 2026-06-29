@@ -1,0 +1,859 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/assets/Logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boutique Officielle | Mosquée de la Divinité</title>
+    <meta name="description" content="Boutique officielle de la Mosquée de la Divinité. Chaque achat contribue directement à la préservation de ce lieu sacré. Hoodie, tote bag, bloc-note, puzzle." />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Work+Sans:wght@300;400;500;600;700&family=Noto+Naskh+Arabic:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Theme Script -->
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+          document.documentElement.classList.add('dark-theme');
+        }
+      })();
+    </script>
+
+    <!-- Shared stylesheet from frontend -->
+    <link rel="stylesheet" href="/src/style.css" />
+    <style>
+      /* ====== Boutique page specific overrides ====== */
+      .boutique-hero {
+        background: var(--color-bg-dark);
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        padding: calc(var(--navbar-height) + 4rem) 0 5rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .boutique-hero-bg {
+        position: absolute;
+        inset: 0;
+        background-image: url('/assets/DJI_0419.jpg');
+        background-size: cover;
+        background-position: center;
+        opacity: 0.12;
+        z-index: 0;
+      }
+      .boutique-hero-inner {
+        position: relative;
+        z-index: 1;
+        max-width: 760px;
+      }
+      .boutique-hero h1 {
+        font-family: var(--font-title);
+        font-size: clamp(2.8rem, 6vw, 5rem);
+        font-weight: 800;
+        color: #fff;
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+        margin-bottom: 1.5rem;
+      }
+      .boutique-hero h1 em {
+        font-style: normal;
+        color: var(--color-beige);
+      }
+      .boutique-hero p {
+        font-family: var(--font-body);
+        font-size: 1.1rem;
+        color: rgba(255,255,255,0.7);
+        max-width: 500px;
+        line-height: 1.7;
+        margin-bottom: 2.5rem;
+      }
+      .boutique-hero-btns {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      /* Filter bar */
+      .filter-bar {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        margin-bottom: 2.5rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(var(--color-primary-rgb), 0.08);
+      }
+      .filter-btn {
+        font-family: var(--font-title);
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0.6rem 1.4rem;
+        border-radius: 50px;
+        border: 1.5px solid rgba(var(--color-primary-rgb), 0.15);
+        background: transparent;
+        color: var(--color-text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .filter-btn:hover, .filter-btn.active {
+        background: var(--color-primary);
+        color: #fff;
+        border-color: var(--color-primary);
+      }
+
+      /* Product grid */
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2.5rem;
+      }
+
+      .product-card {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        transition: var(--transition-smooth);
+      }
+      .product-card:hover { transform: translateY(-6px); }
+
+      .product-media {
+        position: relative;
+        aspect-ratio: 1;
+        border-radius: var(--border-radius-md);
+        overflow: hidden;
+        background: var(--color-bg-light);
+        margin-bottom: 1.2rem;
+      }
+      .product-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+      .product-card:hover .product-media img { transform: scale(1.06); }
+
+      .product-badge {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        font-family: var(--font-title);
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        background: var(--color-beige-dark);
+        color: var(--color-bg-dark);
+        padding: 0.3rem 0.8rem;
+        border-radius: 50px;
+        z-index: 2;
+      }
+
+      .product-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(var(--color-primary-rgb), 0.72);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s;
+        z-index: 3;
+      }
+      .product-card:hover .product-overlay { opacity: 1; }
+      .product-overlay span {
+        font-family: var(--font-title);
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #fff;
+      }
+
+      .product-cat {
+        font-family: var(--font-title);
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--color-beige-dark);
+        margin-bottom: 0.3rem;
+      }
+      .product-name {
+        font-family: var(--font-title);
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--color-text-dark);
+        margin-bottom: 0.4rem;
+      }
+      .product-desc {
+        font-family: var(--font-body);
+        font-size: 0.88rem;
+        color: var(--color-text-muted);
+        line-height: 1.6;
+        margin-bottom: 1rem;
+        flex: 1;
+      }
+      .product-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        margin-top: auto;
+      }
+      .product-price {
+        font-family: var(--font-title);
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--color-primary);
+      }
+      .product-price-soft {
+        font-style: italic;
+        color: var(--color-text-muted);
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+      .btn-add-cart {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-family: var(--font-title);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.65rem 1.2rem;
+        border-radius: 50px;
+        background: var(--color-primary);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: var(--transition-fast);
+        white-space: nowrap;
+      }
+      .btn-add-cart:hover {
+        background: var(--color-bg-dark);
+        transform: scale(1.03);
+      }
+      .btn-contact-card {
+        background: transparent;
+        border: 1.5px solid var(--color-primary);
+        color: var(--color-primary);
+      }
+      .btn-contact-card:hover {
+        background: var(--color-primary);
+        color: #fff;
+      }
+
+      /* Philosophy section */
+      .philosophy-section {
+        background: var(--color-bg-dark);
+        padding: 6rem 0;
+        margin: 4rem 0 0;
+      }
+      .philosophy-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: center;
+      }
+      .philosophy-quote {
+        font-family: var(--font-title);
+        font-size: clamp(1.5rem, 2.5vw, 2rem);
+        font-weight: 300;
+        font-style: italic;
+        color: rgba(255,255,255,0.85);
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+      }
+      .philosophy-quote em { color: var(--color-beige); font-style: normal; }
+      .philosophy-sub {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        color: rgba(255,255,255,0.4);
+        font-style: italic;
+      }
+      .philosophy-pillars {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .pillar-item {
+        display: flex;
+        gap: 1.5rem;
+        align-items: flex-start;
+      }
+      .pillar-num {
+        font-family: var(--font-title);
+        font-size: 2rem;
+        font-weight: 800;
+        color: rgba(255,255,255,0.15);
+        line-height: 1;
+        flex-shrink: 0;
+        width: 3rem;
+      }
+      .pillar-text h6 {
+        font-family: var(--font-title);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--color-beige);
+        margin-bottom: 0.3rem;
+      }
+      .pillar-text p {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: rgba(255,255,255,0.5);
+        margin: 0;
+        line-height: 1.5;
+      }
+
+      /* Logistique */
+      .logistique-card {
+        background: var(--color-bg-light);
+        border-radius: var(--border-radius-lg);
+        padding: 3rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: start;
+      }
+      .logistique-title {
+        font-family: var(--font-title);
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--color-text-dark);
+        margin-bottom: 1rem;
+      }
+      .logistique-desc {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        color: var(--color-text-muted);
+        line-height: 1.7;
+        margin-bottom: 2rem;
+      }
+      .logistique-items {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+      .logistique-item {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+      }
+      .logistique-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        border: 1.5px solid var(--color-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-primary);
+        flex-shrink: 0;
+      }
+      .logistique-item-title {
+        font-family: var(--font-title);
+        font-size: 0.88rem;
+        font-weight: 700;
+        color: var(--color-text-dark);
+        margin-bottom: 0.15rem;
+      }
+      .logistique-item-sub {
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        color: var(--color-text-muted);
+      }
+
+      /* Contact form dans boutique */
+      .boutique-form {
+        background: #fff;
+        border-radius: var(--border-radius-md);
+        padding: 2.5rem;
+        border: 1px solid rgba(var(--color-primary-rgb), 0.08);
+      }
+      .boutique-form h4 {
+        font-family: var(--font-title);
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--color-primary);
+        margin-bottom: 1.5rem;
+        font-style: italic;
+      }
+      .boutique-form .form-group {
+        margin-bottom: 1rem;
+      }
+      .boutique-form input,
+      .boutique-form textarea {
+        width: 100%;
+        background: var(--color-bg-light);
+        border: 1.5px solid rgba(var(--color-primary-rgb), 0.1);
+        border-radius: var(--border-radius-sm);
+        color: var(--color-text-dark);
+        padding: 0.85rem 1rem;
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+      }
+      .boutique-form input:focus,
+      .boutique-form textarea:focus {
+        outline: none;
+        border-color: var(--color-primary);
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .products-grid { grid-template-columns: repeat(2, 1fr); }
+        .philosophy-inner,
+        .logistique-card { grid-template-columns: 1fr; gap: 3rem; }
+      }
+      @media (max-width: 640px) {
+        .products-grid { grid-template-columns: 1fr; }
+        .boutique-hero h1 { font-size: 2.5rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="navbar-header" id="navbar">
+      <div class="nav-container">
+        <a href="/" class="nav-logo">
+          <img src="/assets/Logo.png" alt="Logo" class="logo-img" />
+          <div class="logo-text">
+            <span class="logo-subtitle">Mosquée de la Divinité</span>
+          </div>
+        </a>
+        <nav class="nav-menu" id="nav-links">
+          <a href="/" class="nav-link">Accueil</a>
+          <a href="/#histoire" class="nav-link">Histoire</a>
+          <a href="/#prieres" class="nav-link">Prières</a>
+          <a href="renovation.html" class="nav-link">Rénovation</a>
+          <a href="boutique.html" class="nav-link active-pill">Boutique</a>
+          <span class="nav-divider"></span>
+          <button class="nav-theme-toggle" id="theme-toggle-btn" aria-label="Changer le thème">
+            <i data-lucide="sun" class="sun-icon" style="width: 16px; height: 16px;"></i>
+            <i data-lucide="moon" class="moon-icon" style="width: 16px; height: 16px;"></i>
+          </button>
+          <a href="/#contact" class="nav-btn-cocoon">Nous Visiter</a>
+        </nav>
+        <button class="mobile-menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ============ HERO ============ -->
+      <section class="boutique-hero" id="top">
+        <div class="boutique-hero-bg"></div>
+        <div class="container">
+          <div class="boutique-hero-inner scroll-anim">
+            <p class="hero-eyebrow">Boutique Officielle</p>
+            <h1>Porter le message.<br><em>Soutenir l'œuvre.</em></h1>
+            <p>Chaque acquisition contribue directement à la préservation et au rayonnement de la Mosquée de la Divinité. Un pont entre le spirituel et le matériel.</p>
+            <div class="boutique-hero-btns">
+              <a href="#catalogue" class="btn-capsule-gold">Explorer les gammes</a>
+              <a href="/#histoire" class="btn-capsule-outline">Notre histoire</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CATALOGUE FILTRABLE ============ -->
+      <section class="section-padding light-bg-sections" id="catalogue">
+        <div class="container">
+          <div class="section-header-cocoon scroll-anim">
+            <span class="tag-pill-sm">CATALOGUE</span>
+            <h2 class="title-display">Tous les articles</h2>
+          </div>
+
+          <!-- Filter buttons -->
+          <div class="filter-bar scroll-anim">
+            <button class="filter-btn active" data-filter="tous">Tous les objets</button>
+            <button class="filter-btn" data-filter="editions">Éditions</button>
+            <button class="filter-btn" data-filter="textile">Textile</button>
+            <button class="filter-btn" data-filter="papeterie">Papeterie</button>
+            <button class="filter-btn" data-filter="spirituel">Spirituel</button>
+          </div>
+
+          <!-- Products grid -->
+          <div class="products-grid scroll-anim" id="products-grid">
+
+            <!-- Puzzle -->
+            <div class="product-card" data-cat="editions">
+              <div class="product-media">
+                <span class="product-badge">Édition limitée</span>
+                <img src="/assets/puzzle.webp" alt="Puzzle Façade de la Mosquée" />
+                <div class="product-overlay"><span>Voir le produit</span></div>
+              </div>
+              <p class="product-cat">Éditions Limitées</p>
+              <h3 class="product-name">Puzzle · Façade</h3>
+              <p class="product-desc">Assembler la mosquée pièce par pièce. Ce que des mains ont bâti, d'autres mains le reconstituent. 500 pièces, boîte collector.</p>
+              <div class="product-footer">
+                <span class="product-price">45 000 FCFA</span>
+                <button class="btn-add-cart"><i data-lucide="shopping-bag" style="width:14px;height:14px;"></i> Commander</button>
+              </div>
+            </div>
+
+            <!-- Tote Bag -->
+            <div class="product-card" data-cat="textile">
+              <div class="product-media">
+                <img src="/assets/Shopping_Bag_Mockup_v01.jpg" alt="Tote Bag Jub" />
+                <div class="product-overlay"><span>Voir le produit</span></div>
+              </div>
+              <p class="product-cat">Textiles</p>
+              <h3 class="product-name">Tote Bag · Jub</h3>
+              <p class="product-desc">Les trois mots en calligraphie sur le fond vert de la mosquée. Le message à porter chaque jour. Toile robuste sérigraphiée.</p>
+              <div class="product-footer">
+                <span class="product-price">15 000 FCFA</span>
+                <button class="btn-add-cart"><i data-lucide="shopping-bag" style="width:14px;height:14px;"></i> Commander</button>
+              </div>
+            </div>
+
+            <!-- Hoodie -->
+            <div class="product-card" data-cat="textile">
+              <div class="product-media">
+                <img src="/assets/Hoodie.webp" alt="Hoodie Héritage" />
+                <div class="product-overlay"><span>Voir le produit</span></div>
+              </div>
+              <p class="product-cat">Textiles</p>
+              <h3 class="product-name">Hoodie · Héritage</h3>
+              <p class="product-desc">Molleton lourd, coupe architecturale et insigne brodé de Masdjidou Rabbani. Disponible en tailles S à XXL.</p>
+              <div class="product-footer">
+                <span class="product-price">25 000 FCFA</span>
+                <button class="btn-add-cart"><i data-lucide="shopping-bag" style="width:14px;height:14px;"></i> Commander</button>
+              </div>
+            </div>
+
+            <!-- Carnet -->
+            <div class="product-card" data-cat="papeterie">
+              <div class="product-media">
+                <img src="/assets/Bloc-Note.webp" alt="Carnet 1973" />
+                <div class="product-overlay"><span>Voir le produit</span></div>
+              </div>
+              <p class="product-cat">Papeterie d'art</p>
+              <h3 class="product-name">Carnet · 1973</h3>
+              <p class="product-desc">Couverture inspirée du cahier où Sangabi a dessiné la mosquée révélée en songe. Papier ivoire 120 g. Stylo inclus.</p>
+              <div class="product-footer">
+                <span class="product-price">20 000 FCFA</span>
+                <button class="btn-add-cart"><i data-lucide="shopping-bag" style="width:14px;height:14px;"></i> Commander</button>
+              </div>
+            </div>
+
+            <!-- Polo (textile) -->
+            <div class="product-card" data-cat="textile">
+              <div class="product-media">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBI2A5jsXdeHKRZ0bi_Fh6z9w0fx21daIPmd1jxEsTIZ96MXF4Q4qdgK_QqZFvXjOXqqgm-420u3WwpgFYYJBoMk5Jli-mPDCAaiFVhHXogDjZ83sZi_tqHV9pP_WMU5JbiiCW3H6n_Dl2vl7v7PcsY1PLmfgbJ_rpBTRHgGgT00k-0LPVh1qXW1OQIE2A8G4vJTJB-erA8ifbYCGBa8B0-vi15kz6izW3JuaBp2BDwfhHvF7yqQNf_VnL1j4moEoCmG3sEFU_l4KY" alt="Polo Officiel Mosquée de la Divinité" loading="lazy" />
+                <div class="product-overlay"><span>Voir le produit</span></div>
+              </div>
+              <p class="product-cat">Vêtement</p>
+              <h3 class="product-name">Polo Officiel</h3>
+              <p class="product-desc">Piqué de coton premium, broderie dorée sur la poitrine. Pour les membres et bénévoles de la mosquée.</p>
+              <div class="product-footer">
+                <span class="product-price">12 500 FCFA</span>
+                <button class="btn-add-cart"><i data-lucide="shopping-bag" style="width:14px;height:14px;"></i> Commander</button>
+              </div>
+            </div>
+
+            <!-- Thermos (textile/accessoire) -->
+            <div class="product-card" data-cat="textile">
+              <div class="product-media">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEuLeScPPhSr3rZ5oOQQzPR43g59GId3T-v1evS_6msHXKUNvcnGuFL1c-91LZ5YeDv2YUGqVBLfYPbZ7Bk5c85Z5SLm4GEmtXV8_ikRdiT-Nks7jRHyWNkq4Youp-t3IF3WOVZEBlayZVNhS4LRXn3ZU8np1xebcFhmf-JVGXKxGD2uSFafQq1yWkBkiim-NyfhsZguRXGabG5tmC5RbZhs4QA4FnmUKU7sZ0pKKQF2omQHTS-PaBuo483Ny68-FdLYmWPWF4R8g" alt="Thermos Signature Mosquée de la Divinité" loading="lazy" />
+                <div class="product-overlay"><span>Voir le produit</span></div>
+              </div>
+              <p class="product-cat">Accessoire</p>
+              <h3 class="product-name">Thermos Signature</h3>
+              <p class="product-desc">Acier inoxydable, isolation 24h. Gravé de l'emblème officiel de Masdjidou Rabbani.</p>
+              <div class="product-footer">
+                <span class="product-price">18 000 FCFA</span>
+                <button class="btn-add-cart"><i data-lucide="shopping-bag" style="width:14px;height:14px;"></i> Commander</button>
+              </div>
+            </div>
+
+            <!-- Natte de prière (spirituel) -->
+            <div class="product-card" data-cat="spirituel">
+              <div class="product-media">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdpNBB0x1VLUm5-zkqZ344kDsQEvkDHQSx0lo1SVxvbGOZXS6AqjpYFNJ8Xd5oFjrEe2Gf5kUbWB-6UXXgSE3SSqbOq6yuv1OkS5iKqQfQk5wjxXnn2ArWZeUjgPiaw8oATP3agtKsVDICXCIBSetIwyTua8U51b0ajyx-9g6i4N3mB3cNChRpqbAB1u2WYo8oMdsQr_Ei9dHatgjhUaiTKMGeFYStVkIEPSgElnkjI8g0c2wKv3vnWh10IRB-jbEOPGedIxaiddw" alt="Natte de Prière artisanale" loading="lazy" />
+                <div class="product-overlay"><span>Voir le produit</span></div>
+              </div>
+              <p class="product-cat">Spirituel</p>
+              <h3 class="product-name">Natte de Prière</h3>
+              <p class="product-desc">Tissage artisanal, motifs géométriques inspirés de la coupole centrale. Fabrication locale sénégalaise.</p>
+              <div class="product-footer">
+                <span class="product-price">18 000 FCFA</span>
+                <button class="btn-add-cart"><i data-lucide="shopping-bag" style="width:14px;height:14px;"></i> Commander</button>
+              </div>
+            </div>
+
+            <!-- Coffret Tasbih -->
+            <div class="product-card" data-cat="spirituel">
+              <div class="product-media">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEQriJ4ddVvAoxBInGZheTFLaO3v6aMT5F1l9SZMcBc4K6okg7pUWJKl5GkQgY2_nDF33l-WbaeNBXNkcqwt_TKrzzXwbkm_QLP2FoqjpSDjaJbCKSI9-mBnrv1lRNhcIUGOh9c8UgauK39RqzYZBkTlOgEyDctoOCBGfomBK4OSfPj0uVgJAw2iIwj9R4rHw3p6CYGhwEBeoU3ehxBTRrl0WLpZeiw8LgUKVDT5gWN5-6cDclxVSrzJ-O0c9Sc68Ps7IHzeQfEeU" alt="Coffret Tasbih et Parfums" loading="lazy" />
+                <div class="product-overlay"><span>Voir le produit</span></div>
+              </div>
+              <p class="product-cat">Spirituel</p>
+              <h3 class="product-name">Tasbih & Parfums</h3>
+              <p class="product-desc">Coffret précieux : bois d'ébène et essences pures de musc. Pour les occasions sacrées et les célébrations.</p>
+              <div class="product-footer">
+                <span class="product-price">35 000 FCFA</span>
+                <button class="btn-add-cart"><i data-lucide="shopping-bag" style="width:14px;height:14px;"></i> Commander</button>
+              </div>
+            </div>
+
+            <!-- Dattes de Prestige (spirituel) -->
+            <div class="product-card" data-cat="spirituel">
+              <div class="product-media">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC68NtKk33n9I93I725sljyWWRim8ZPRhtIc0lGC0FmToFW1_FPLGdznwA4GPpS-CJ5LwnnW9xzTTJv2YqaQoe5GNWv7NfZgobwzFLyOODhyD9mlX_eMKQJhQJ7W5VAKcSkCUukuSygJ-iF8DjGplnDEr_onHMVWB1Ji_IzzHumAQJwNu1WbkA-QAVDTkkNuOVBJbkjn7RfW7WxDDasSv-TQepLdbzKfs4KJichFANJHvNyGxaAQt8Uq_qIEWDumfrg9lPj-4Lc0gw" alt="Dattes de Prestige" loading="lazy" />
+                <div class="product-overlay"><span>Voir le produit</span></div>
+              </div>
+              <p class="product-cat">Spirituel</p>
+              <h3 class="product-name">Dattes de Prestige</h3>
+              <p class="product-desc">Sélection exclusive pour le mois béni et les occasions sacrées. Coffret cadeau disponible.</p>
+              <div class="product-footer">
+                <span class="product-price">12 000 FCFA</span>
+                <button class="btn-add-cart"><i data-lucide="shopping-bag" style="width:14px;height:14px;"></i> Commander</button>
+              </div>
+            </div>
+
+            <!-- Vestes Équipes (sur commande) -->
+            <div class="product-card" data-cat="textile">
+              <div class="product-media">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPA64UfGEDiaTIZpnfdSDQ9F7risBjme1VfVgu6abSED78tTutfTmskbrV9KsKBF2AfZzshfQVinXGSxgWjgC5jEjiNRBNLOdZXxbkhlmAXHDW-zAAcR7LU1yKmQAcHWOlTvOwAcll8y2o4hvop-uGHla80FHr_n7Pv3Zvmoy4cQFBYttmuXacFVZf9p49lqECXbNUAtUPtNWKpuTvqW1hc7agOxiXHCCxtn17P_W9kOffXSR4e7PUI18bervflKDS4TtO69lto8aviA" alt="Vestes Équipes officielles" loading="lazy" />
+                <div class="product-overlay"><span>Nous contacter</span></div>
+              </div>
+              <p class="product-cat">Équipement</p>
+              <h3 class="product-name">Vestes Équipes</h3>
+              <p class="product-desc">Pour les équipes Accueil, Logistique & Media. Modèles personnalisés selon le rôle. Sur commande uniquement.</p>
+              <div class="product-footer">
+                <span class="product-price product-price-soft">Sur commande</span>
+                <button class="btn-add-cart btn-contact-card"><i data-lucide="mail" style="width:14px;height:14px;"></i> Nous écrire</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PHILOSOPHIE ============ -->
+      <section class="philosophy-section">
+        <div class="container">
+          <div class="philosophy-inner">
+            <div>
+              <p class="philosophy-quote">«&nbsp;L'achat est un don avec <em>un objet en retour</em>.<br>Le don est un achat sans objet.&nbsp;»</p>
+              <p class="philosophy-sub">— Philosophie de la Boutique Officielle</p>
+            </div>
+            <div class="philosophy-pillars">
+              <div class="pillar-item">
+                <span class="pillar-num">01</span>
+                <div class="pillar-text">
+                  <h6>Pérennité</h6>
+                  <p>Financement direct de l'entretien et de la rénovation du site sacré.</p>
+                </div>
+              </div>
+              <div class="pillar-item">
+                <span class="pillar-num">02</span>
+                <div class="pillar-text">
+                  <h6>Transmission</h6>
+                  <p>Supports pédagogiques et culturels pour transmettre l'héritage aux jeunes générations.</p>
+                </div>
+              </div>
+              <div class="pillar-item">
+                <span class="pillar-num">03</span>
+                <div class="pillar-text">
+                  <h6>Patrimoine</h6>
+                  <p>Rayonnement de l'architecture islamique sénégalaise au-delà des frontières.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ LOGISTIQUE & CONTACT ============ -->
+      <section class="section-padding light-bg-sections" id="assistance">
+        <div class="container">
+          <div class="logistique-card scroll-anim">
+            <div>
+              <h3 class="logistique-title">Logistique & Retraits</h3>
+              <p class="logistique-desc">Nous assurons une livraison fluide sur tout le territoire sénégalais. Les commandes peuvent également être retirées directement au guichet officiel de la Mosquée à Ouakam.</p>
+              <div class="logistique-items">
+                <div class="logistique-item">
+                  <div class="logistique-icon"><i data-lucide="map-pin" style="width:18px;height:18px;"></i></div>
+                  <div>
+                    <p class="logistique-item-title">Point de Retrait Ouakam</p>
+                    <p class="logistique-item-sub">Lundi – Dimanche | 09h00 – 18h00</p>
+                  </div>
+                </div>
+                <div class="logistique-item">
+                  <div class="logistique-icon"><i data-lucide="truck" style="width:18px;height:18px;"></i></div>
+                  <div>
+                    <p class="logistique-item-title">Livraison Dakar & Régions</p>
+                    <p class="logistique-item-sub">Sous 24h à 72h ouvrés</p>
+                  </div>
+                </div>
+                <div class="logistique-item">
+                  <div class="logistique-icon"><i data-lucide="smartphone" style="width:18px;height:18px;"></i></div>
+                  <div>
+                    <p class="logistique-item-title">Paiement Mobile Money</p>
+                    <p class="logistique-item-sub">Orange Money, Wave, Free Money acceptés</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="boutique-form">
+              <h4>Besoin d'assistance ?</h4>
+              <form id="boutique-form" onsubmit="event.preventDefault(); document.getElementById('boutique-feedback').textContent='Message envoyé ! Nous vous répondrons sous 24h.';">
+                <div class="form-group">
+                  <input type="text" placeholder="Votre nom complet" required />
+                </div>
+                <div class="form-group">
+                  <input type="email" placeholder="Votre email" required />
+                </div>
+                <div class="form-group">
+                  <input type="tel" placeholder="Votre téléphone (+221...)" />
+                </div>
+                <div class="form-group">
+                  <textarea placeholder="Votre commande ou question..." rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn-capsule-gold" style="width:100%;justify-content:center;">Envoyer la demande</button>
+              </form>
+              <p id="boutique-feedback" style="margin-top:1rem;color:var(--color-primary);font-weight:600;font-size:0.9rem;"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer no-overlap">
+      <div class="container">
+        <div class="footer-partners-bar">
+          <span class="partner-logo">Naby Allah</span>
+          <span class="partner-logo">CEEMNA</span>
+          <span class="partner-logo">UFMNA</span>
+          <span class="partner-logo">Divinité TV</span>
+        </div>
+        <div class="footer-main-grid">
+          <div class="footer-col-brand">
+            <div class="footer-logo-row">
+              <img src="/assets/Logo.png" alt="Logo" class="logo-img" />
+              <h3 class="footer-logo-title">LA DIVINITÉ</h3>
+            </div>
+            <p class="footer-brand-addr">
+              Imm. Corniche Ouest, Baie d'Ouakam, Dakar, Sénégal<br><br>
+              <a href="mailto:mosqueedeladivinite@gmail.com" class="footer-mail-link">mosqueedeladivinite@gmail.com</a><br>
+              +221 33 848 81 21
+            </p>
+            <a href="/#contact" class="btn-footer-contact">Contactez-nous ↗</a>
+          </div>
+          <div class="footer-col-links">
+            <h4>BOUTIQUE</h4>
+            <ul>
+              <li><a href="#catalogue">Tous les articles</a></li>
+              <li><a href="#catalogue">Textile & Vêtements</a></li>
+              <li><a href="#catalogue">Éditions Limitées</a></li>
+              <li><a href="#catalogue">Spirituel & Cadeaux</a></li>
+            </ul>
+          </div>
+          <div class="footer-col-links">
+            <h4>DÉCOUVRIR</h4>
+            <ul>
+              <li><a href="/#histoire">Le rêve céleste</a></li>
+              <li><a href="/#construction">Les Minarets Jumeaux</a></li>
+              <li><a href="/#prieres">Heures de Prières</a></li>
+              <li><a href="/#galerie">Galerie photos</a></li>
+            </ul>
+          </div>
+          <div class="footer-col-links">
+            <h4>LIENS RAPIDES</h4>
+            <ul>
+              <li><a href="/">Retour à l'accueil</a></li>
+              <li><a href="renovation.html">Faire un don</a></li>
+              <li><a href="https://www.mosqueedeladivinite.org/" target="_blank" rel="noreferrer">Site Officiel ↗</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom-bar">
+          <span class="copyright">MOSQUÉE DE LA DIVINITÉ. TOUS DROITS RÉSERVÉS.</span>
+          <div class="bottom-links">
+            <a href="#">Mentions Légales</a>
+            <a href="#">Confidentialité</a>
+          </div>
+          <div class="bottom-socials">
+            <a href="https://www.youtube.com/user/divinitetv" target="_blank" rel="noreferrer" aria-label="YouTube"><i data-lucide="youtube"></i></a>
+            <a href="https://www.facebook.com/mosqueedeladivinite" target="_blank" rel="noreferrer" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+            <a href="https://www.instagram.com/mosqueedeladivinite/" target="_blank" rel="noreferrer" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Render icons
+      document.addEventListener('DOMContentLoaded', () => {
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+
+        // Theme toggle
+        const btn = document.getElementById('theme-toggle-btn');
+        if (btn) btn.addEventListener('click', () => {
+          const isDark = document.documentElement.classList.toggle('dark-theme');
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
+        // Mobile menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+        if (menuToggle && navLinks) {
+          menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+          });
+        }
+
+        // Navbar scroll
+        const navbar = document.getElementById('navbar');
+        let lastScrollY = window.scrollY;
+        window.addEventListener('scroll', () => {
+          const cur = window.scrollY;
+          navbar.classList.toggle('scrolled', cur > 50);
+          if (cur > 100) navbar.classList.toggle('nav-hidden', cur > lastScrollY);
+          else navbar.classList.remove('nav-hidden');
+          lastScrollY = cur;
+        });
+
+        // Filter logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.product-card');
+        filterBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const filter = btn.dataset.filter;
+            cards.forEach(card => {
+              card.style.display = (filter === 'tous' || card.dataset.cat === filter) ? 'flex' : 'none';
+            });
+          });
+        });
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) { e.target.classList.add('reveal-active'); observer.unobserve(e.target); }
+          });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.scroll-anim').forEach(el => observer.observe(el));
+      });
+    </script>
+  </body>
+</html>

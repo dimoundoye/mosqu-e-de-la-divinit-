@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/assets/Logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Appel à la Rénovation | Mosquée de la Divinité</title>
+    <meta name="description" content="Rejoignez le mouvement de sauvegarde de la Mosquée de la Divinité. Construite par des mains ordinaires, elle sera restaurée par des mains." />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Blocking Theme Script -->
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+          document.documentElement.classList.add('dark-theme');
+        }
+      })();
+    </script>
+
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body class="renovation-body-reset">
+    <!-- Header -->
+    <header class="navbar-header scrolled" id="navbar">
+      <div class="nav-container">
+        <a href="/" class="nav-logo">
+          <img src="/assets/Logo.png" alt="Logo" class="logo-img" />
+          <div class="logo-text">
+            <span class="logo-subtitle">Mosquée de la Divinité</span>
+          </div>
+        </a>
+        <nav class="nav-menu" id="nav-links">
+          <a href="/" class="nav-link">Accueil</a>
+          <a href="/#histoire" class="nav-link">Histoire</a>
+          <a href="/#prieres" class="nav-link">Prières</a>
+          <a href="renovation.html" class="nav-link active-pill">Rénovation</a>
+          <a href="boutique.html" class="nav-link">Boutique</a>
+          <span class="nav-divider"></span>
+          <button class="nav-theme-toggle" id="theme-toggle-btn" aria-label="Changer le thème">
+            <i data-lucide="sun" class="sun-icon" style="width: 16px; height: 16px;"></i>
+            <i data-lucide="moon" class="moon-icon" style="width: 16px; height: 16px;"></i>
+          </button>
+        </nav>
+        <button class="mobile-menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <div id="renovation-don" class="don-page">
+        <!-- ---------- HERO ---------- -->
+        <section class="don-hero">
+          <div class="sw don-hero-grid">
+            <div class="don-hero-text scroll-anim">
+              <span class="don-eyebrow"><i class="don-dot don-dot--red"></i>Appel à la communauté · Appel au monde</span>
+              <h1 class="don-hero-title">
+                Elle a été bâtie<br />par des mains.
+                <em>Elle sera restaurée<br />par des mains.</em>
+              </h1>
+              <span class="don-hero-rule"></span>
+              <p class="don-hero-sub">Le même geste. Une nouvelle génération.</p>
+              <p class="don-hero-lead">
+                Rejoignez le mouvement de sauvegarde de ce chef-d’œuvre de la Corniche de Dakar, agressé par les embruns
+                de l’Atlantique mais porté éternellement par la ferveur des hommes.
+              </p>
+              <div class="don-hero-ctas">
+                <a href="#don-form" class="don-btn don-btn--red">Prêter mes mains <i data-lucide="arrow-right" style="width:16px;height:16px;"></i></a>
+                <a href="#phases" class="don-btn don-btn--ghost">Découvrir le projet</a>
+              </div>
+            </div>
+
+            <div class="don-hero-cards scroll-anim">
+              <figure class="don-card don-card--1">
+                <img src="/assets/DJI_0681.jpg" alt="Perspective Ouakam" class="is-gray" />
+                <figcaption>Perspective Ouakam</figcaption>
+              </figure>
+              <figure class="don-card don-card--2">
+                <img src="/assets/13-Khalif-Chantier.jpg" alt="Chantier structurel" />
+                <figcaption>Chantier structurel</figcaption>
+              </figure>
+              <figure class="don-card don-card--3">
+                <img src="/assets/DJI_0419.jpg" alt="Mosaïques émeraude" />
+                <figcaption>Mosaïques émeraude</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- ---------- CORPS : contenu + formulaire sticky ---------- -->
+        <div class="sw don-body">
+          <main class="don-main">
+            <!-- Mains ordinaires -->
+            <section class="don-sec scroll-anim">
+              <h2 class="don-h2 don-h2--anchor">
+                La Mosquée de la Divinité a été construite par des mains ordinaires.
+              </h2>
+              <div class="don-hands">
+                <div class="don-hand">
+                  <span class="don-hand-k">Geste de bâtisseur</span>
+                  <p class="don-hand-v">« Des mains qui ont porté des sacs de ciment. »</p>
+                </div>
+                <div class="don-hand">
+                  <span class="don-hand-k">Dévouement physique</span>
+                  <p class="don-hand-v">« Des mains qui ont grimpé à 45 mètres de hauteur. »</p>
+                </div>
+                <div class="don-hand">
+                  <span class="don-hand-k">Force collective</span>
+                  <p class="don-hand-v">« Des mains qui ont nourri les bénévoles jour après jour pendant cinq années. »</p>
+                </div>
+              </div>
+              <p class="don-p">
+                Une communauté entière s’est mobilisée pour bâtir ce qui est aujourd’hui l’un des monuments religieux et
+                patrimoniaux les plus emblématiques de Dakar.
+              </p>
+            </section>
+
+            <!-- Aujourd'hui / Dégradation -->
+            <section class="don-sec scroll-anim">
+              <div class="don-today">
+                <span class="don-watermark">1992</span>
+                <p class="don-p">
+                  Aujourd’hui, l’air marin, le soleil de la Corniche et le temps ont laissé leurs marques sur la mosquée.
+                  Le béton, les mosaïques et les minarets portent les traces de plus de trente années face à l’Atlantique.
+                </p>
+              </div>
+
+              <div class="don-alert">
+                <i data-lucide="alert-triangle" class="don-alert-ico"></i>
+                <h3 class="don-alert-title">La mosquée se dégrade.</h3>
+                <p class="don-alert-1">Ce n’est pas une alarme.</p>
+                <p class="don-alert-2">C’est une réalité.</p>
+              </div>
+
+              <div class="don-transmit">
+                <p>
+                  Et cette réalité appelle le même geste qu’en 1992 : choisir de préserver ce qui a été reçu afin de
+                  pouvoir le transmettre.
+                </p>
+                <span class="don-transmit-rule"></span>
+                <p class="don-transmit-gold">Car un patrimoine ne se transmet pas tout seul.</p>
+              </div>
+            </section>
+
+            <!-- Phases -->
+            <section class="don-sec scroll-anim" id="phases">
+              <div class="don-sec-head">
+                <span class="don-eyebrow don-eyebrow--gold"><i class="don-dot don-dot--gold"></i>Projections d’avenir</span>
+                <h2 class="don-h2">Un projet en <em>plusieurs phases</em></h2>
+              </div>
+
+              <!-- Phase 1 -->
+              <div class="don-ph">
+                <figure class="don-ph-media">
+                  <div class="don-ph-media-inner">
+                    <img src="/assets/image3-mosquee.jpg" alt="Restaurer la Mosquée" />
+                  </div>
+                  <div class="don-ph-badge don-ph-badge--red">PHASE 1</div>
+                </figure>
+                <div class="don-ph-body don-ph-body--anchor">
+                  <h3 class="don-ph-title">Restaurer la<br />Mosquée</h3>
+                  <p class="don-ph-text">
+                    Le cœur spirituel du site nécessite une intervention d'urgence. Des fondations en béton armé à la consolidation des minarets, chaque geste vise à pérenniser la structure sans en altérer l'essence.
+                  </p>
+                  <ul class="don-ph-list don-ph-list--red">
+                    <li><i data-lucide="check-circle" style="color:var(--don-red)"></i> Réfection des mosaïques traditionnelles</li>
+                    <li><i data-lucide="check-circle" style="color:var(--don-red)"></i> Traitement anti-corrosion des armatures</li>
+                    <li><i data-lucide="check-circle" style="color:var(--don-red)"></i> Étanchéité complète des dômes et terrasses</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Phase 2 -->
+              <div class="don-ph don-ph--rev">
+                <div class="don-ph-body don-ph-body--anchor-r">
+                  <h3 class="don-ph-title">Le Complexe<br />Mouhamed Seyni<br />Gueye</h3>
+                  <p class="don-ph-text">
+                    Au-delà de la pierre, nous bâtissons un lieu de vie et de savoir. L'extension accueillera une résidence pour les pèlerins, un centre de conférences moderne et un institut islamique d'excellence.
+                  </p>
+                  <div class="don-ph-tags">
+                    <span class="don-ph-tag">CENTRE DE CONFÉRENCES</span>
+                    <span class="don-ph-tag">RÉSIDENCE PÈLERINS</span>
+                    <span class="don-ph-tag">INSTITUT ISLAMIQUE</span>
+                  </div>
+                </div>
+                <figure class="don-ph-media">
+                  <div class="don-ph-media-inner">
+                    <img src="/assets/Avant-Projet.png" alt="Le Complexe Mouhamed Seyni Gueye" />
+                  </div>
+                  <div class="don-ph-media-inner">
+                    <img src="/assets/Rendu-AvantP.png" alt="Le Complexe Mouhamed Seyni Gueye Rendu" />
+                  </div>
+                  <div class="don-ph-badge don-ph-badge--teal">PHASE 2</div>
+                </figure>
+              </div>
+            </section>
+
+            <!-- Trois façons de contribuer -->
+            <section class="don-sec scroll-anim">
+              <div class="don-sec-head">
+                <span class="don-eyebrow don-eyebrow--gold"><i class="don-dot don-dot--gold"></i>Mobilisation collective</span>
+                <h2 class="don-h2">Trois façons de <em>contribuer</em></h2>
+              </div>
+
+              <div class="don-ways">
+                <!-- Don -->
+                <div class="don-way">
+                  <div class="don-way-head">
+                    <span class="don-way-ico don-way-ico--red"><i data-lucide="heart"></i></span>
+                    <span class="don-way-tag">Direct</span>
+                  </div>
+                  <h4 class="don-way-title">Faire un don</h4>
+                  <p class="don-way-lead">Chaque contribution compte.</p>
+                  <p class="don-way-text">
+                    Qu’elle vienne d’un fidèle, d’un habitant du quartier, d’un Sénégalais de la diaspora, d’un visiteur
+                    ou d’un ami du Sénégal.
+                  </p>
+                  <div class="don-way-chip">Wave · OM · Carte · Virement</div>
+                  <a href="#don-form" class="don-way-btn don-way-btn--red">Je fais un don</a>
+                </div>
+
+                <!-- Boutique -->
+                <div class="don-way">
+                  <div class="don-way-head">
+                    <span class="don-way-tag don-way-tag--solid">Boutique solidaire</span>
+                  </div>
+                  <h4 class="don-way-title">Acheter à la boutique</h4>
+                  <p class="don-way-text">
+                    Puzzles, carnets, reproductions d’archives, objets inspirés du patrimoine de la mosquée.
+                  </p>
+                  <div class="don-way-chip don-way-chip--gold">
+                    Chaque achat contribue directement aux projets de préservation et de développement.
+                  </div>
+                  <p class="don-way-ship"><i data-lucide="shopping-bag" style="width:14px;height:14px;"></i> Livraison au Sénégal · Retrait à la mosquée.</p>
+                  <a href="boutique.html" class="don-way-btn don-way-btn--teal">Visiter la boutique</a>
+                </div>
+
+                <!-- Partager -->
+                <div class="don-way">
+                  <div class="don-way-head">
+                    <span class="don-way-ico"><i data-lucide="share-2"></i></span>
+                    <span class="don-way-tag">Vocal</span>
+                  </div>
+                  <h4 class="don-way-title">Partager l’appel</h4>
+                  <p class="don-way-text">
+                    La mosquée a été construite quartier par quartier, famille par famille. Sa restauration aussi.
+                  </p>
+                  <p class="don-way-quote">« Partager cet appel c’est déjà contribuer. »</p>
+                  <button type="button" id="share-btn" class="don-way-btn don-way-btn--ghost">
+                    <i data-lucide="share-2" style="width:14px;height:14px;"></i> Partager l’appel
+                  </button>
+                </div>
+              </div>
+            </section>
+
+            <!-- Rapport d'activité & Transparence -->
+            <div class="don-report scroll-anim">
+              <div class="don-report-head">
+                <i data-lucide="shield-check" class="don-report-icon"></i>
+                <span>RAPPORT D'ACTIVITÉ & TRANSPARENCE</span>
+              </div>
+              <p class="don-report-text">
+                Le plan architectural détaillé, le calendrier des travaux et le budget prévisionnel seront publiés dès leur finalisation.
+              </p>
+              <p class="don-report-text">
+                Les fonds collectés, leur affectation et l'avancement du chantier seront rendus publics.
+              </p>
+            </div>
+
+            <!-- Fonds de sauvegarde — progression -->
+            <div class="don-fonds scroll-anim">
+              <div class="don-fonds-head">
+                <div>
+                  <span class="don-fonds-eyebrow">Restaurons le monument</span>
+                  <h3 class="don-fonds-title">Fonds de Sauvegarde Structurelle</h3>
+                </div>
+                <span class="don-fonds-pct">42% du but</span>
+              </div>
+              <div class="don-fonds-bar"><i style="width: 42%;"></i></div>
+              <div class="don-fonds-stats">
+                <div>
+                  <span class="don-fonds-k">Total collecté</span>
+                  <p class="don-fonds-v">42 150 000 FCFA</p>
+                </div>
+                <div>
+                  <span class="don-fonds-k">Objectif global</span>
+                  <p class="don-fonds-v don-fonds-v--muted">100 000 000 FCFA</p>
+                </div>
+              </div>
+              <p class="don-fonds-note">
+                <i data-lucide="info" style="width:16px;height:16px;"></i>
+                Les budgets sont administrés de manière transparente par le comité de la Mosquée d’Ouakam. Tous les fonds
+                servent exclusivement aux travaux d’ingénierie et de gros-œuvre maritime.
+              </p>
+            </div>
+          </main>
+
+          <!-- ---------- Formulaire de contribution (sticky) ---------- -->
+          <aside class="don-aside scroll-anim" id="don-form">
+            <form class="don-form" id="renovation-form">
+              <div class="don-form-head">
+                <i data-lucide="heart" class="don-form-heart"></i>
+                <h3>Faire une contribution</h3>
+              </div>
+
+              <span class="don-label">Montant du don (FCFA)</span>
+              <div class="don-amounts" id="amounts-container">
+                <button type="button" class="don-amount" data-amount="5000">5 000 F</button>
+                <button type="button" class="don-amount" data-amount="15000">15 000 F</button>
+                <button type="button" class="don-amount is-active" data-amount="25000">25 000 F</button>
+                <button type="button" class="don-amount" data-amount="50000">50 000 F</button>
+                <button type="button" class="don-amount don-amount--free" id="free-amount-btn">Montant Libre</button>
+              </div>
+              <input
+                type="number"
+                min="500"
+                step="500"
+                id="custom-amount-input"
+                class="don-input don-input--amount"
+                placeholder="Saisir un montant en FCFA"
+                style="display: none;"
+              />
+
+              <span class="don-label">Méthode de paiement</span>
+              <div class="don-methods" id="methods-container">
+                <button type="button" class="don-method is-active" data-method="Wave">WAVE</button>
+                <button type="button" class="don-method don-method--orange" data-method="Orange">ORANGE</button>
+                <button type="button" class="don-method" data-method="CB / VISA">CB / VISA</button>
+              </div>
+
+              <span class="don-label">Vos informations personnelles</span>
+              <input type="text" class="don-input" placeholder="Nom complet ou Famille" required />
+              <input type="tel" class="don-input" placeholder="Téléphone (WhatsApp de préférence)" />
+
+              <button type="submit" class="don-submit" id="submit-btn">
+                Contribuer · 25 000 F via Wave
+              </button>
+
+              <div id="thanks-msg" class="don-thanks" style="display: none;"></div>
+
+              <p class="don-form-note">
+                Transaction sécurisée · Les fonds soutiennent exclusivement la restauration et la transmission.
+              </p>
+            </form>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer no-overlap">
+      <div class="container">
+        <div class="footer-partners-bar">
+          <span class="partner-logo">Naby Allah</span>
+          <span class="partner-logo">CEEMNA</span>
+          <span class="partner-logo">UFMNA</span>
+          <span class="partner-logo">Divinité TV</span>
+        </div>
+        <div class="footer-main-grid">
+          <div class="footer-col-brand">
+            <div class="footer-logo-row">
+              <img src="/assets/Logo.png" alt="Logo" class="logo-img" />
+              <h3 class="footer-logo-title">LA DIVINITÉ</h3>
+            </div>
+            <p class="footer-brand-addr">
+              Imm. Corniche Ouest, Baie d'Ouakam, Dakar, Sénégal<br><br>
+              <a href="mailto:mosqueedeladivinite@gmail.com" class="footer-mail-link">mosqueedeladivinite@gmail.com</a><br>
+              +221 33 848 81 21
+            </p>
+            <a href="/#contact" class="btn-footer-contact">Contactez-nous ↗</a>
+          </div>
+          <div class="footer-col-links">
+            <h4>RÉNOVATION</h4>
+            <ul>
+              <li><a href="#phases">Phase 1 : Restauration</a></li>
+              <li><a href="#phases">Phase 2 : Le Complexe</a></li>
+              <li><a href="#don-form">Faire un don</a></li>
+              <li><a href="boutique.html">Boutique solidaire</a></li>
+            </ul>
+          </div>
+          <div class="footer-col-links">
+            <h4>DÉCOUVRIR</h4>
+            <ul>
+              <li><a href="/#histoire">Le rêve céleste</a></li>
+              <li><a href="/#construction">Les Minarets Jumeaux</a></li>
+              <li><a href="/#prieres">Heures de Prières</a></li>
+              <li><a href="/#galerie">Galerie photos</a></li>
+            </ul>
+          </div>
+          <div class="footer-col-links">
+            <h4>LIENS RAPIDES</h4>
+            <ul>
+              <li><a href="/">Retour à l'accueil</a></li>
+              <li><a href="boutique.html">Boutique Officielle</a></li>
+              <li><a href="https://www.mosqueedeladivinite.org/" target="_blank" rel="noreferrer">Site Officiel ↗</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom-bar">
+          <span class="copyright">MOSQUÉE DE LA DIVINITÉ. TOUS DROITS RÉSERVÉS.</span>
+          <div class="bottom-links">
+            <a href="#">Mentions Légales</a>
+            <a href="#">Confidentialité</a>
+          </div>
+          <div class="bottom-socials">
+            <a href="https://www.youtube.com/user/divinitetv" target="_blank" rel="noreferrer" aria-label="YouTube"><i data-lucide="youtube"></i></a>
+            <a href="https://www.facebook.com/mosqueedeladivinite" target="_blank" rel="noreferrer" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+            <a href="https://www.instagram.com/mosqueedeladivinite/" target="_blank" rel="noreferrer" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+
+        // Theme toggle
+        const btn = document.getElementById('theme-toggle-btn');
+        if (btn) btn.addEventListener('click', () => {
+          const isDark = document.documentElement.classList.toggle('dark-theme');
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
+        // Mobile menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+        if (menuToggle && navLinks) {
+          menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+          });
+        }
+
+        // Form logic
+        let currentAmount = 25000;
+        let currentMethod = 'Wave';
+        let isCustom = false;
+
+        const amountBtns = document.querySelectorAll('.don-amount:not(.don-amount--free)');
+        const freeBtn = document.getElementById('free-amount-btn');
+        const customInput = document.getElementById('custom-amount-input');
+        const methodBtns = document.querySelectorAll('.don-method');
+        const submitBtn = document.getElementById('submit-btn');
+        const thanksMsg = document.getElementById('thanks-msg');
+        const renoForm = document.getElementById('renovation-form');
+
+        function updateBtnText() {
+          const formatted = currentAmount.toLocaleString('fr-FR');
+          submitBtn.textContent = `Contribuer · ${formatted} F via ${currentMethod}`;
+        }
+
+        amountBtns.forEach(b => {
+          b.addEventListener('click', () => {
+            document.querySelectorAll('.don-amount').forEach(el => el.classList.remove('is-active'));
+            b.classList.add('is-active');
+            customInput.style.display = 'none';
+            isCustom = false;
+            currentAmount = parseInt(b.dataset.amount, 10);
+            updateBtnText();
+          });
+        });
+
+        if (freeBtn) {
+          freeBtn.addEventListener('click', () => {
+            document.querySelectorAll('.don-amount').forEach(el => el.classList.remove('is-active'));
+            freeBtn.classList.add('is-active');
+            customInput.style.display = 'block';
+            customInput.focus();
+            isCustom = true;
+          });
+        }
+
+        if (customInput) {
+          customInput.addEventListener('input', (e) => {
+            currentAmount = parseInt(e.target.value, 10) || 0;
+            updateBtnText();
+          });
+        }
+
+        methodBtns.forEach(m => {
+          m.addEventListener('click', () => {
+            methodBtns.forEach(el => el.classList.remove('is-active'));
+            m.classList.add('is-active');
+            currentMethod = m.dataset.method;
+            updateBtnText();
+          });
+        });
+
+        if (renoForm) {
+          renoForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formatted = currentAmount.toLocaleString('fr-FR');
+            thanksMsg.style.display = 'block';
+            thanksMsg.textContent = `Merci ! Votre intention de don de ${formatted} F via ${currentMethod} a bien été enregistrée. Un membre du mouvement Naby Allah vous recontactera.`;
+          });
+        }
+
+        // Share button
+        const shareBtn = document.getElementById('share-btn');
+        if (shareBtn) {
+          shareBtn.addEventListener('click', async () => {
+            const shareData = {
+              title: 'Mosquée de la Divinité — Rénovation',
+              text: 'Rejoignez le mouvement de sauvegarde de la Mosquée de la Divinité.',
+              url: window.location.href,
+            };
+            try {
+              if (navigator.share) await navigator.share(shareData);
+              else if (navigator.clipboard) {
+                await navigator.clipboard.writeText(shareData.url);
+                alert('Lien copié dans le presse-papier !');
+              }
+            } catch (err) {}
+          });
+        }
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) { e.target.classList.add('reveal-active'); observer.unobserve(e.target); }
+          });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.scroll-anim').forEach(el => observer.observe(el));
+      });
+    </script>
+  </body>
+</html>

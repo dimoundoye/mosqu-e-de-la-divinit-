@@ -32,24 +32,16 @@
     <header class="navbar-header scrolled" id="navbar">
       <div class="nav-container">
         <a href="index.html" class="nav-logo">
-          <svg class="logo-svg" viewBox="0 0 100 100" width="40" height="40">
-            <path d="M 50 15 L 53 25 L 47 25 Z" fill="#D4AF37"/>
-            <rect x="48" y="25" width="4" height="25" fill="#D4AF37"/>
-            <path d="M 30 50 A 20 20 0 0 1 70 50 Z" fill="#003D42"/>
-            <rect x="25" y="45" width="6" height="35" fill="#003D42"/>
-            <rect x="69" y="45" width="6" height="35" fill="#003D42"/>
-            <path d="M 25 45 L 28 35 L 31 45 Z" fill="#D4AF37"/>
-            <path d="M 69 45 L 72 35 L 75 45 Z" fill="#D4AF37"/>
-            <rect x="15" y="80" width="70" height="8" rx="2" fill="#003D42"/>
-          </svg>
+          <img src="/assets/Logo.png" alt="Logo" class="logo-img" />
           <div class="logo-text">
             <span class="logo-subtitle">Mosquée de la Divinité</span>
           </div>
         </a>
 
-        <!-- Desktop back link -->
         <nav class="nav-menu" id="nav-links">
-          <a href="index.html" class="nav-link"><i data-lucide="arrow-left" style="width: 14px; height: 14px; margin-right: 6px;"></i> Retour à l'accueil</a>
+          <a href="/" class="nav-link">Accueil</a>
+          <a href="renovation.html" class="nav-link">Rénovation</a>
+          <a href="boutique.html" class="nav-link">Boutique</a>
           <span class="nav-divider"></span>
           <button class="nav-theme-toggle" id="theme-toggle-btn" aria-label="Changer le thème">
             <i data-lucide="sun" class="sun-icon" style="width: 16px; height: 16px;"></i>
@@ -256,9 +248,81 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer-history-page">
-      <div class="container text-center">
-        <p>&copy; 2026 Mosquée de la Divinité. Tous droits réservés. Bâtie par la force de la foi.</p>
+    <!-- Footer -->
+    <footer class="app-footer no-overlap">
+      <div class="container">
+        
+        <!-- Partner Logo Bar -->
+        <div class="footer-partners-bar">
+          <span class="partner-logo">Naby Allah</span>
+          <span class="partner-logo">CEEMNA</span>
+          <span class="partner-logo">UFMNA</span>
+          <span class="partner-logo">Divinité TV</span>
+        </div>
+
+        <div class="footer-main-grid">
+          <!-- Brand Info -->
+          <div class="footer-col-brand">
+            <div class="footer-logo-row">
+              <img src="/assets/Logo.png" alt="Logo" class="logo-img" />
+              <h3 class="footer-logo-title">LA DIVINITÉ</h3>
+            </div>
+            <p class="footer-brand-addr">
+              Imm. Corniche Ouest, Baie d'Ouakam, Dakar, Sénégal<br><br>
+              <a href="mailto:mosqueedeladivinite@gmail.com" class="footer-mail-link">mosqueedeladivinite@gmail.com</a><br>
+              +221 33 848 81 21
+            </p>
+            <a href="index.html#contact" class="btn-footer-contact">Contactez-nous ↗</a>
+          </div>
+
+          <!-- Links Col 1 -->
+          <div class="footer-col-links">
+            <h4>NOS ACTIONS</h4>
+            <ul>
+              <li><a href="index.html#communaute">Éducation & CEEMNA</a></li>
+              <li><a href="index.html#communaute">Dons de Ramadan</a></li>
+              <li><a href="index.html#communaute">Nettoyage Set Setal</a></li>
+              <li><a href="index.html#communaute">Événements Annuels</a></li>
+            </ul>
+          </div>
+
+          <!-- Links Col 2 -->
+          <div class="footer-col-links">
+            <h4>DÉCOUVRIR</h4>
+            <ul>
+              <li><a href="index.html#histoire">Le rêve céleste</a></li>
+              <li><a href="index.html#construction">Les Minarets Jumeaux</a></li>
+              <li><a href="index.html#prieres">Heures de Prières</a></li>
+              <li><a href="index.html#galerie">Galerie photos</a></li>
+            </ul>
+          </div>
+
+          <!-- Links Col 3 -->
+          <div class="footer-col-links">
+            <h4>LIENS RAPIDES</h4>
+            <ul>
+              <li><a href="https://www.mosqueedeladivinite.org/" target="_blank" rel="noreferrer">Site Officiel original ↗</a></li>
+              <li><a href="https://www.youtube.com/user/divinitetv" target="_blank" rel="noreferrer">Chaîne YouTube</a></li>
+              <li><a href="https://www.facebook.com/mosqueedeladivinite" target="_blank" rel="noreferrer">Page Facebook</a></li>
+              <li><a href="renovation.html">Faire un don</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Footer Bottom Bar -->
+        <div class="footer-bottom-bar">
+          <span class="copyright">MOSQUÉE DE LA DIVINITÉ. TOUS DROITS RÉSERVÉS.</span>
+          <div class="bottom-links">
+            <a href="#">Mentions Légales</a>
+            <a href="#">Confidentialité</a>
+          </div>
+          <div class="bottom-socials">
+            <a href="https://www.youtube.com/user/divinitetv" target="_blank" rel="noreferrer" aria-label="YouTube"><i data-lucide="youtube"></i></a>
+            <a href="https://www.facebook.com/mosqueedeladivinite" target="_blank" rel="noreferrer" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+            <a href="https://www.instagram.com/mosqueedeladivinite/" target="_blank" rel="noreferrer" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+          </div>
+        </div>
+
       </div>
     </footer>
 

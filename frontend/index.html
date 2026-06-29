@@ -2,24 +2,24 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/assets/hero_sunset.png" />
+    <link rel="icon" type="image/png" href="/assets/Logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <!-- SEO Meta Tags -->
-    <title>Mosquée de la Divinité | Portfolio & Révélation Céleste à Ouakam</title>
-    <meta name="description" content="Découvrez la majestueuse Mosquée de la Divinité à Ouakam, Dakar. Explorez son histoire unique née d'un rêve céleste, son architecture face à l'océan, et la vie de sa communauté." />
-    <meta name="keywords" content="Mosquée de la Divinité, Ouakam, Dakar, Sénégal, architecture islamique, Sangabi, Mouhamed Seyni Gueye, religion, tourisme Sénégal, prières Dakar" />
+    <title>Mosquée de la Divinité | Masdjidou Rabbani · Ouakam, Dakar</title>
+    <meta name="description" content="Découvrez la majestueuse Mosquée de la Divinité à Ouakam, Dakar. Née d'un rêve céleste reçu par Sangabi en 1973 — deux minarets de 45m face à l'océan Atlantique." />
+    <meta name="keywords" content="Mosquée de la Divinité, Masdjidou Rabbani, Ouakam, Dakar, Sénégal, architecture islamique, Sangabi, Mouhamed Seyni Gueye, Naby Allah, prières Dakar" />
     
     <!-- Open Graph (Social Sharing) -->
-    <meta property="og:title" content="Mosquée de la Divinité | Ouakam, Dakar" />
-    <meta property="og:description" content="Un chef-d'œuvre architectural et spirituel édifié sur la côte atlantique de Dakar. Découvrez son histoire et sa communauté." />
-    <meta property="og:image" content="/assets/hero_sunset.png" />
+    <meta property="og:title" content="Mosquée de la Divinité | Masdjidou Rabbani · Ouakam, Dakar" />
+    <meta property="og:description" content="Un chef-d'œuvre architectural et spirituel édifié sur la côte atlantique de Dakar. Deux minarets de 45m, une coupole de 80t, née d'une révélation divine en 1973." />
+    <meta property="og:image" content="/assets/mosquee_aerienne.jpg" />
     <meta property="og:type" content="website" />
     
     <!-- Google Fonts: Poppins (headings) & Work Sans (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Work+Sans:wght@300;400;500;600;700&family=Noto+Naskh+Arabic:wght@400;600&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -39,17 +39,7 @@
     <header class="navbar-header" id="navbar">
       <div class="nav-container">
         <a href="#" class="nav-logo" id="nav-logo-btn">
-          <svg class="logo-svg" viewBox="0 0 100 100" width="40" height="40">
-            <!-- Mosque Silhouette Logo -->
-            <path d="M 50 15 L 53 25 L 47 25 Z" fill="#D4AF37"/>
-            <rect x="48" y="25" width="4" height="25" fill="#D4AF37"/>
-            <path d="M 30 50 A 20 20 0 0 1 70 50 Z" fill="#003D42"/>
-            <rect x="25" y="45" width="6" height="35" fill="#003D42"/>
-            <rect x="69" y="45" width="6" height="35" fill="#003D42"/>
-            <path d="M 25 45 L 28 35 L 31 45 Z" fill="#D4AF37"/>
-            <path d="M 69 45 L 72 35 L 75 45 Z" fill="#D4AF37"/>
-            <rect x="15" y="80" width="70" height="8" rx="2" fill="#003D42"/>
-          </svg>
+          <img src="/assets/Logo.png" alt="Logo" class="logo-img" />
           <div class="logo-text">
             <span class="logo-subtitle">Mosquée de la Divinité</span>
           </div>
@@ -60,11 +50,12 @@
           <a href="#" class="nav-link active-pill">Accueil</a>
           <a href="#histoire" class="nav-link">Histoire</a>
           <a href="#communaute" class="nav-link">Communauté</a>
-          <a href="#architecture" class="nav-link">Architecture</a>
-          <a href="#prieres" class="nav-link">Widget Prières</a>
+          <a href="#prieres" class="nav-link">Prières</a>
+          <a href="renovation.html" class="nav-link">Rénovation</a>
           <a href="#galerie" class="nav-link">Galerie</a>
+          <a href="boutique.html" class="nav-link">Boutique</a>
+
           <span class="nav-divider"></span>
-          <button class="nav-search" aria-label="Recherche"><i data-lucide="search" style="width: 16px; height: 16px;"></i></button>
           <button class="nav-theme-toggle" id="theme-toggle-btn" aria-label="Changer le thème">
             <i data-lucide="sun" class="sun-icon" style="width: 16px; height: 16px;"></i>
             <i data-lucide="moon" class="moon-icon" style="width: 16px; height: 16px;"></i>
@@ -84,24 +75,29 @@
     <!-- App Container -->
     <main id="app-content">
       
-      <!-- Hero Section (Cocoon style) -->
+      <!-- ================================================================
+           HERO — Vidéo aérienne en fond + stats en bas
+           ================================================================ -->
       <section class="hero-section" id="home">
         <div class="hero-bg-wrapper">
-          <img src="/assets/mosquee_aerienne.jpg" alt="Mosquée de la Divinité vue aérienne majestueuse" class="hero-bg-img" />
+          <video class="hero-bg-video" autoplay muted loop playsinline>
+            <source src="/assets/hero3.mp4" type="video/mp4" />
+          </video>
           <div class="hero-overlay"></div>
         </div>
         <div class="hero-container container">
-          
-          <!-- Cocoon Capsule Button Group -->
-          <div class="hero-actions scroll-anim">
-            <a href="#histoire" class="btn-capsule-gold">Découvrir l'histoire</a>
-            <div class="btn-arrow-round">
-              <i data-lucide="arrow-up-right"></i>
+          <div class="hero-content scroll-anim">
+            <span class="hero-eyebrow">Ouakam · Dakar · Sénégal</span>
+            <h1 class="hero-title">Masdjidou Rabbani</h1>
+            <p class="hero-subtitle">«&nbsp;Dans la nuit du <span class="hero-highlight">28 au 29 juin 1973</span>, une voix ordonna à Sangabi de suivre une maquette lumineuse jusqu'à la baie de Ouakam.&nbsp;»</p>
+            <div class="hero-actions">
+              <a href="#histoire" class="btn-capsule-gold">Découvrir l'histoire</a>
+              <a href="renovation.html" class="btn-capsule-outline">Faire un don</a>
             </div>
           </div>
         </div>
 
-        <!-- Cocoon Hero Translucent Bottom Tabs (Matches Screenshot 2) -->
+        <!-- Hero Bottom Tabs -->
         <div class="hero-bottom-tabs">
           <div class="tabs-container container">
             <button class="hero-tab-btn active" data-target="#histoire">
@@ -110,86 +106,308 @@
             <button class="hero-tab-btn" data-target="#communaute">
               <span>ACTIONS COMMUNAUTAIRES</span>
             </button>
-            <button class="hero-tab-btn" data-target="#architecture">
-              <span>ARCHITECTURE DU SACRÉ</span>
+            <button class="hero-tab-btn" data-target="#prieres">
+              <span>HORAIRES DE PRIÈRES</span>
+            </button>
+            <button class="hero-tab-btn" data-target="#renovation">
+              <span>RÉNOVATION EN COURS</span>
             </button>
           </div>
         </div>
       </section>
 
-      <!-- Section Histoire (Matches Cocoon's Mission / Identity / Value cards) -->
+
+
+      <!-- ================================================================
+           SECTION HISTOIRE — Née d'un rêve divin
+           ================================================================ -->
       <section class="section-padding light-bg-sections" id="histoire">
         <div class="container">
           <div class="section-header-cocoon scroll-anim">
             <span class="tag-pill-sm">HISTOIRE & VISION</span>
-            <h2 class="title-display">Une révélation divine,<br>une œuvre collective</h2>
-            <p class="section-desc-cocoon" style="margin-top: 1.5rem; max-width: 600px; color: var(--color-text-muted); font-size: 1.05rem; line-height: 1.6;">Découvrez comment le songe de Sangabi a pris vie sur les falaises de Ouakam grâce au dévouement exceptionnel d'une communauté soudée.</p>
+            <h2 class="title-display">Née d'un rêve <em>divin</em></h2>
+            <p class="section-desc-cocoon">Une mosquée sur la Corniche de Ouakam. Deux minarets de 45 mètres face à l'océan. Une coupole de 80 tonnes suspendue dans l'air marin.</p>
           </div>
           
-          <div class="cards-3-column-grid">
-            
-            <!-- Card 1: Rêve -->
+          <div class="histoire-layout-grid">
+            <!-- Colonne gauche : texte -->
+            <div class="histoire-text-col scroll-anim">
+              <p>Elle existe parce qu'un homme a reçu un message, un ordre, une vision, et a choisi de ne pas le garder pour lui.</p>
+              <p>Cet homme s'appelle <strong>Mouhamed Gorgui Seyni Gueye</strong>, dit Sangabi.</p>
+              <p>Depuis sa révélation de 1973, Sangabi a dessiné la mosquée telle qu'il l'avait vue. Cheikh Ngom, architecte de renom, a traduit fidèlement ses esquisses en plans.</p>
+              <p>Mais la construction elle-même, chaque pierre posée, chaque minaret érigé, chaque sac de ciment porté, c'est la communauté qui l'a faite. De ses mains. Quartier par quartier. Famille par famille.</p>
+              <blockquote class="histoire-blockquote">
+                «&nbsp;La vision venait d'en haut. Les esquisses venaient de Sangabi. L'édifice venait de la communauté.&nbsp;»
+              </blockquote>
+              <a href="histoire.html" class="btn-capsule-gold" style="display:inline-flex; margin-top: 2rem;">Lire l'histoire complète ↗</a>
+            </div>
+
+            <!-- Colonne droite : grille d'images -->
+            <div class="histoire-imgs-col scroll-anim">
+              <div class="hist-img-grid">
+                <div class="hist-img-tall">
+                  <img src="/assets/Khalife Jeune.jpg" alt="Le Khalife dans sa jeunesse" />
+                </div>
+                <div class="hist-img-stack">
+                  <img src="/assets/Le khalife en reconnaissance sur le site.jpg" alt="Sangabi en reconnaissance sur le site" />
+                  <img src="/assets/Avant Mosquée.jpg" alt="Le site avant la construction" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cards 3 colonnes -->
+          <div class="cards-3-column-grid" style="margin-top: 5rem;">
             <a href="histoire.html" class="cocoon-card scroll-anim">
               <div class="card-header-row">
                 <span class="card-pill-tag">RÊVE</span>
-                <div class="card-arrow-btn">
-                  <i data-lucide="arrow-up-right"></i>
-                </div>
+                <div class="card-arrow-btn"><i data-lucide="arrow-up-right"></i></div>
               </div>
               <h3 class="card-title">Une vision céleste descendue du ciel</h3>
               <div class="card-img-container">
                 <img src="/assets/dream_reveal.png" alt="Rêve de Sangabi" class="card-img-standard" />
               </div>
-              <div class="card-read-more-btn">
-                <span>Voir plus</span>
-                <i data-lucide="arrow-right"></i>
-              </div>
+              <div class="card-read-more-btn"><span>Voir plus</span><i data-lucide="arrow-right"></i></div>
             </a>
 
-            <!-- Card 2: Foi (Golden highlight card with arched image) -->
             <a href="histoire.html" class="cocoon-card highlight-gold scroll-anim">
               <div class="card-header-row">
                 <span class="card-pill-tag tag-dark">RÉVÉLATION</span>
-                <div class="card-arrow-btn arrow-dark">
-                  <i data-lucide="arrow-up-right"></i>
-                </div>
+                <div class="card-arrow-btn arrow-dark"><i data-lucide="arrow-up-right"></i></div>
               </div>
               <h3 class="card-title text-dark">Mouhamed Seyni Gueye Sangabi, messager</h3>
-              
-              <!-- Arched Image Frame style from Cocoon Identity card -->
               <div class="card-img-container arch-frame">
-                <img src="/assets/hero_sunset.png" alt="Sangabi Révélation" class="card-img-arch" />
+                <img src="/assets/Khalife de Dieu.jpg" alt="Sangabi – Khalife de Dieu" class="card-img-arch" />
               </div>
-              <div class="card-read-more-btn">
-                <span>Voir plus</span>
-                <i data-lucide="arrow-right"></i>
-              </div>
+              <div class="card-read-more-btn"><span>Voir plus</span><i data-lucide="arrow-right"></i></div>
             </a>
 
-            <!-- Card 3: Unité -->
             <a href="histoire.html" class="cocoon-card scroll-anim">
               <div class="card-header-row">
                 <span class="card-pill-tag">UNITÉ</span>
-                <div class="card-arrow-btn">
-                  <i data-lucide="arrow-up-right"></i>
+                <div class="card-arrow-btn"><i data-lucide="arrow-up-right"></i></div>
+              </div>
+              <h3 class="card-title">Bâtie de mains nues par la communauté</h3>
+              <div class="card-img-container">
+                <img src="/assets/A mains nues 2.jpg" alt="Construction à mains nues" class="card-img-standard" />
+              </div>
+              <div class="card-read-more-btn"><span>Voir plus</span><i data-lucide="arrow-right"></i></div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           SECTION SANGABI — Biographie
+           ================================================================ -->
+      <section class="section-padding" id="sangabi">
+        <div class="container">
+          <div class="sangabi-layout-grid">
+            <div class="sangabi-img-col scroll-anim">
+              <div class="sangabi-img-wrapper">
+                <img src="/assets/Khalife de Dieu.jpg" alt="Mouhamed Gorgui Seyni Gueye, dit Sangabi" />
+              </div>
+              <div class="sangabi-caption">
+                <span class="caption-tag">Khalifatou Lahi Fil Ardi</span>
+                <p>Mouhamed Gorgui Seyni Gueye</p>
+              </div>
+            </div>
+            <div class="sangabi-text-col scroll-anim">
+              <span class="tag-pill-sm">LE FONDATEUR</span>
+              <h2 class="title-display" style="font-size: clamp(2rem, 3.5vw, 3rem); margin-bottom: 2rem;">Sangabi — <em>L'Homme de la Révélation</em></h2>
+              <div class="sangabi-bio-text">
+                <p>Né à Dakar, formé au dessin industriel au Lycée Maurice Delafosse, ancien comptable chez BTP Augier. Il a participé à la construction de la Grande Mosquée de Touba.</p>
+                <p>En 1963, Dieu lui ordonna une retraite spirituelle. Il se retira du monde. Sans revenus ni moyens. Quatorze ans de silence intérieur.</p>
+                <p>Sa femme, <strong>Sokhna Sagar Diagne</strong>, l'accompagna à travers ces années d'épreuve avec une foi et une dignité inébranlables.</p>
+                <p>Durant cette retraite, Dieu l'investit comme Khalife de Dieu sur Terre. Et dans la nuit du 28 au 29 juin 1973, la mosquée lui fut révélée en songe. Une maquette lumineuse parachutée du ciel. <em>ALLAHOU AKBAR en lettres d'or sur la porte de droite.</em></p>
+                <p>Le 1er octobre 1997, la mosquée était debout. Sangabi aussi. Dix ans plus tard, le 12 mars 2007, il s'en alla. L'œuvre et le message sont toujours là.</p>
+              </div>
+              <div class="sangabi-principes">
+                <span class="tag-pill-sm" style="margin-bottom: 1.5rem; display:inline-block;">LES 3 PRINCIPES</span>
+                <div class="principes-grid">
+                  <div class="principe-item">
+                    <span class="principe-sym">☽</span>
+                    <strong>Jub</strong>
+                    <p>La rectitude</p>
+                  </div>
+                  <div class="principe-item">
+                    <span class="principe-sym">☽</span>
+                    <strong>Ragal Yàlla</strong>
+                    <p>La crainte de Dieu</p>
+                  </div>
+                  <div class="principe-item">
+                    <span class="principe-sym">☽</span>
+                    <strong>Sellal</strong>
+                    <p>La réconciliation</p>
+                  </div>
                 </div>
               </div>
-              <h3 class="card-title">Bâtie par l'élan collectif des fidèles</h3>
-              <div class="card-img-container">
-                <img src="/assets/architecture_minarets.png" alt="Construction de la mosquée" class="card-img-standard" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           SECTION CONSTRUCTION — Timeline
+           ================================================================ -->
+      <section class="section-padding light-bg-sections" id="construction">
+        <div class="container">
+          <div class="section-header-cocoon scroll-anim">
+            <span class="tag-pill-sm">CHRONOLOGIE</span>
+            <h2 class="title-display">De la révélation<br>à la pierre</h2>
+            <p class="section-desc-cocoon">Cinq années de labeur collectif, une coupole de 80 tonnes, deux minarets de 45 mètres. Une épopée de foi construite de mains nues.</p>
+          </div>
+
+          <div class="timeline-grid scroll-anim">
+            <div class="tl-item">
+              <div class="tl-year">1973</div>
+              <div class="tl-card">
+                <h4>La Révélation</h4>
+                <p>Dans la nuit du 28 au 29 juin 1973, Sangabi reçoit la vision de la mosquée sous forme de maquette lumineuse descendue du ciel.</p>
               </div>
-              <div class="card-read-more-btn">
-                <span>Voir plus</span>
-                <i data-lucide="arrow-right"></i>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">1979</div>
+              <div class="tl-card">
+                <h4>Reconnaissance du site</h4>
+                <p>Le 31 décembre 1979, première manifestation sur le site de la Corniche de Ouakam. L'emplacement est confirmé selon les révélations.</p>
               </div>
-            </a>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">1992</div>
+              <div class="tl-card">
+                <img src="/assets/13-Khalif-Chantier.jpg" alt="Sangabi sur le chantier" class="tl-img" />
+                <h4>Première Pierre</h4>
+                <p>29 janvier 1992 : cérémonie officielle. Les travaux débutent le 20 mai. La communauté choisit de bâtir.</p>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">1992–1997</div>
+              <div class="tl-card">
+                <img src="/assets/A mains nues 2.jpg" alt="Construction à mains nues" class="tl-img" />
+                <h4>La Construction</h4>
+                <p>Cinq ans et cinq mois. Sans machines ni subventions. Les minarets de 45 m. Le pont Al Sirat. La coupole de 80 tonnes.</p>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">1997</div>
+              <div class="tl-card">
+                <img src="/assets/1er Octobre.jpg" alt="Inauguration 1er Octobre 1997" class="tl-img" />
+                <h4>Inauguration — 1er Octobre</h4>
+                <p>La Mosquée de la Divinité ouvre ses portes. Ce qui a été reçu en songe est maintenant debout dans la pierre.</p>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">Aujourd'hui</div>
+              <div class="tl-card">
+                <h4>La Mosquée vivante</h4>
+                <p>Prières quotidiennes, événements, archive en construction, rénovation à venir. Le message perdure.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           SECTION COMMUNAUTÉ — Actions & Services
+           ================================================================ -->
+      <!-- ================================================================
+           SECTION EXPOSITION — Du Songe à la Mosquée
+           ================================================================ -->
+      <section class="section-padding bg-white-section" id="exposition">
+        <div class="container">
+          <!-- Layout : texte à gauche / galerie mosaïque à droite -->
+          <div class="expo-layout scroll-anim">
+            <!-- Texte à gauche -->
+            <div class="expo-text">
+              <div class="expo-eyebrow">Exposition</div>
+              <h2 class="expo-title">Du Songe à la Mosquée.</h2>
+              <span class="expo-rule"></span>
+              <p class="expo-desc">Une exposition permanente retrace l'histoire de la mosquée, de la révélation en songe de 1973 à aujourd'hui. Des photographies d'archives officielles du Mouvement Naby Allah témoignent d'une construction hors du commun.</p>
+              <a href="#contact" class="btn-capsule-dark-green" style="margin-top: 2rem; display: inline-flex;">Planifier une visite →</a>
+            </div>
+
+            <!-- Galerie mosaïque à droite (2 colonnes décalées) -->
+            <div class="expo-gallery">
+              <div class="expo-col">
+                <div class="expo-tile expo-tile-tall">
+                  <img src="/assets/Exposition.jpg" alt="Exposition de la mosquée" loading="lazy" />
+                </div>
+                <div class="expo-tile expo-tile-short">
+                  <img src="/assets/exposition 3.jpg" alt="Photographie d'archive du Mouvement Naby Allah" loading="lazy" />
+                </div>
+              </div>
+              <div class="expo-col expo-col-offset">
+                <div class="expo-tile expo-tile-short">
+                  <img src="/assets/ecposition 4.jpg" alt="Le site avant la construction de la mosquée" loading="lazy" />
+                </div>
+                <div class="expo-tile expo-tile-tall">
+                  <img src="/assets/Exposition-2.jpg" alt="Archives de la mosquée" loading="lazy" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Thèmes I → VI -->
+          <div class="expo-themes-grid scroll-anim">
+
+            <div class="et">
+              <span class="et-num">I</span>
+              <div>
+                <div class="et-title">Le Songe <span class="et-date">· 1973</span></div>
+                <p class="et-body">La nuit du 28 au 29 juin. La maquette lumineuse. ALLAHOU AKBAR en lettres d'or. Un homme dessine ce qu'il a vu. Il attend.</p>
+              </div>
+            </div>
+
+            <div class="et">
+              <span class="et-num">II</span>
+              <div>
+                <div class="et-title">La Reconnaissance du site <span class="et-date">· 1979</span></div>
+                <p class="et-body">L'emplacement confirmé selon les révélations. Le 31 décembre 1979, première manifestation sur le site.</p>
+              </div>
+            </div>
+
+            <div class="et">
+              <span class="et-num">III</span>
+              <div>
+                <div class="et-title">La Première Pierre <span class="et-date">· 1992</span></div>
+                <p class="et-body">29 janvier 1992. Cérémonie officielle. Les travaux débutent le 20 mai. Une communauté choisit de bâtir.</p>
+              </div>
+            </div>
+
+            <div class="et">
+              <span class="et-num">IV</span>
+              <div>
+                <div class="et-title">La Construction <span class="et-date">· 1992–1997</span></div>
+                <p class="et-body">Cinq ans et cinq mois. Sans machines ni subventions. Les minarets de 45 m. Le pont Al Sirat. La coupole de 80 tonnes.</p>
+              </div>
+            </div>
+
+            <div class="et">
+              <span class="et-num">V</span>
+              <div>
+                <div class="et-title">L'Inauguration <span class="et-date">· 1er octobre 1997</span></div>
+                <p class="et-body">La Mosquée de la Divinité ouvre ses portes. Ce qui a été reçu en songe est maintenant debout dans la pierre.</p>
+              </div>
+            </div>
+
+            <div class="et">
+              <span class="et-num">VI</span>
+              <div>
+                <div class="et-title">Aujourd'hui</div>
+                <p class="et-body">La mosquée vivante — prières quotidiennes, événements, archive en construction, rénovation à venir.</p>
+              </div>
+            </div>
 
           </div>
         </div>
       </section>
 
-      <!-- Section Services (Communauté & Activités) -->
+      <!-- ================================================================
+           SECTION COMMUNAUTÉ — Actions & Services
+           ================================================================ -->
       <section class="section-padding" id="communaute">
+
         <div class="container">
           <div class="section-header-cocoon scroll-anim">
             <span class="tag-pill-sm">ACTIVITÉS</span>
@@ -198,76 +416,56 @@
 
           <!-- Services 4 Grid -->
           <div class="services-4-grid">
-            
-            <!-- Service 1 -->
             <div class="service-card scroll-anim">
-              <div class="service-icon-circle">
-                <i data-lucide="graduation-cap"></i>
-              </div>
+              <div class="service-icon-circle"><i data-lucide="graduation-cap"></i></div>
               <div class="service-img-wrapper">
                 <img src="/assets/dream_reveal.png" alt="Éducation" />
               </div>
               <div class="service-bottom-bar">
                 <h4>Éducation & CEEMNA</h4>
-                <div class="service-arrow">
-                  <i data-lucide="arrow-up-right"></i>
-                </div>
+                <div class="service-arrow"><i data-lucide="arrow-up-right"></i></div>
               </div>
             </div>
 
-            <!-- Service 2 -->
             <div class="service-card scroll-anim">
-              <div class="service-icon-circle">
-                <i data-lucide="handshake"></i>
-              </div>
+              <div class="service-icon-circle"><i data-lucide="handshake"></i></div>
               <div class="service-img-wrapper">
-                <img src="/assets/hero_sunset.png" alt="Ramadan" />
+                <img src="/assets/Korite.jpg" alt="Ramadan" />
               </div>
               <div class="service-bottom-bar">
                 <h4>Solidarité Ramadan</h4>
-                <div class="service-arrow">
-                  <i data-lucide="arrow-up-right"></i>
-                </div>
+                <div class="service-arrow"><i data-lucide="arrow-up-right"></i></div>
               </div>
             </div>
 
-            <!-- Service 3 -->
             <div class="service-card scroll-anim">
-              <div class="service-icon-circle">
-                <i data-lucide="sparkles"></i>
-              </div>
+              <div class="service-icon-circle"><i data-lucide="sparkles"></i></div>
               <div class="service-img-wrapper">
                 <img src="/assets/architecture_minarets.png" alt="Nettoyage" />
               </div>
               <div class="service-bottom-bar">
                 <h4>Preservation Set Setal</h4>
-                <div class="service-arrow">
-                  <i data-lucide="arrow-up-right"></i>
-                </div>
+                <div class="service-arrow"><i data-lucide="arrow-up-right"></i></div>
               </div>
             </div>
 
-            <!-- Service 4 -->
             <div class="service-card scroll-anim">
-              <div class="service-icon-circle">
-                <i data-lucide="calendar"></i>
-              </div>
+              <div class="service-icon-circle"><i data-lucide="calendar"></i></div>
               <div class="service-img-wrapper">
-                <img src="/assets/hero_sunset.png" alt="Événements" />
+                <img src="/assets/Tabaski.jpg" alt="Événements" />
               </div>
               <div class="service-bottom-bar">
                 <h4>Événements Annuels</h4>
-                <div class="service-arrow">
-                  <i data-lucide="arrow-up-right"></i>
-                </div>
+                <div class="service-arrow"><i data-lucide="arrow-up-right"></i></div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
-      <!-- Section Réalisations (Architecture, Concentric Circles & Interactive List) -->
+      <!-- ================================================================
+           SECTION ARCHITECTURE — Grands chiffres & liste interactive
+           ================================================================ -->
       <section class="section-padding light-bg-sections" id="architecture">
         <div class="container">
           <div class="section-header-cocoon scroll-anim">
@@ -276,26 +474,15 @@
           </div>
 
           <div class="realisations-layout-grid">
-            <!-- Concentric Circle Graphic (CSS Animated) -->
+            <!-- Concentric Circle Graphic -->
             <div class="realisations-concentric-visual scroll-anim">
               <div class="concentric-container">
-                <div class="circle-ring ring-1">
-                  <span class="ring-label label-fajr">FAJR</span>
-                </div>
-                <div class="circle-ring ring-2">
-                  <span class="ring-label label-dhuhr">DHUHR</span>
-                </div>
-                <div class="circle-ring ring-3">
-                  <span class="ring-label label-asr">ASR</span>
-                </div>
-                <div class="circle-ring ring-4">
-                  <span class="ring-label label-maghrib">MAGHRIB</span>
-                </div>
-                <div class="circle-ring ring-5">
-                  <span class="ring-label label-isha">ISHA</span>
-                </div>
+                <div class="circle-ring ring-1"><span class="ring-label label-fajr">FAJR</span></div>
+                <div class="circle-ring ring-2"><span class="ring-label label-dhuhr">DHUHR</span></div>
+                <div class="circle-ring ring-3"><span class="ring-label label-asr">ASR</span></div>
+                <div class="circle-ring ring-4"><span class="ring-label label-maghrib">MAGHRIB</span></div>
+                <div class="circle-ring ring-5"><span class="ring-label label-isha">ISHA</span></div>
                 <div class="circle-center-logo">
-                  <!-- Tiny Golden Dome Silhouette -->
                   <svg viewBox="0 0 100 100" width="50" height="50">
                     <path d="M 50 20 L 52 32 L 48 32 Z" fill="#D4AF37"/>
                     <path d="M 30 60 A 20 20 0 0 1 70 60 Z" fill="#D4AF37"/>
@@ -305,39 +492,37 @@
               </div>
             </div>
 
-            <!-- List of Achievements (Interactive) -->
+            <!-- List of Achievements -->
             <div class="realisations-list-container scroll-anim">
               <ul class="realisations-custom-list">
                 <li>
                   <a href="#prieres" class="list-item-link">
                     <span>Les Heures de Prières de Dakar</span>
-                    <div class="list-item-arrow">
-                      <i data-lucide="arrow-up-right"></i>
-                    </div>
+                    <div class="list-item-arrow"><i data-lucide="arrow-up-right"></i></div>
                   </a>
                 </li>
                 <li>
-                  <a href="#galerie" class="list-item-link">
+                  <a href="histoire.html" class="list-item-link">
                     <span>Visiter les Deux Minarets Jumeaux (45m)</span>
-                    <div class="list-item-arrow">
-                      <i data-lucide="arrow-up-right"></i>
-                    </div>
+                    <div class="list-item-arrow"><i data-lucide="arrow-up-right"></i></div>
                   </a>
                 </li>
                 <li>
-                  <a href="#histoire" class="list-item-link">
-                    <span>Histoire de la construction (1992-1997)</span>
-                    <div class="list-item-arrow">
-                      <i data-lucide="arrow-up-right"></i>
-                    </div>
+                  <a href="#construction" class="list-item-link">
+                    <span>Histoire de la construction (1992–1997)</span>
+                    <div class="list-item-arrow"><i data-lucide="arrow-up-right"></i></div>
                   </a>
                 </li>
                 <li>
                   <a href="#communaute" class="list-item-link">
                     <span>L'Union des Femmes Naby Allah</span>
-                    <div class="list-item-arrow">
-                      <i data-lucide="arrow-up-right"></i>
-                    </div>
+                    <div class="list-item-arrow"><i data-lucide="arrow-up-right"></i></div>
+                  </a>
+                </li>
+                <li>
+                  <a href="renovation.html" class="list-item-link">
+                    <span>Projet de rénovation — Contribuer</span>
+                    <div class="list-item-arrow"><i data-lucide="arrow-up-right"></i></div>
                   </a>
                 </li>
               </ul>
@@ -347,24 +532,24 @@
         </div>
       </section>
 
-
-      <!-- Section Widget Prières & Témoignages (Matches Cocoon's double-column testimonials box) -->
+      <!-- ================================================================
+           SECTION PRIÈRES & WIDGET — Horaires temps réel
+           ================================================================ -->
       <section class="section-padding" id="prieres">
         <div class="container">
           <div class="section-header-cocoon scroll-anim">
             <span class="tag-pill-sm">PRIÈRES & SPIRITUALITÉ</span>
             <h2 class="title-display">Rythmer sa vie spirituelle<br>au gré du soleil</h2>
-            <p class="section-desc-cocoon" style="margin-top: 1.5rem; max-width: 600px; color: var(--color-text-muted); font-size: 1.05rem; line-height: 1.6;">Consultez les horaires de prières de Dakar en temps réel et laissez-vous guider par la sagesse et les enseignements du fondateur Sangabi.</p>
+            <p class="section-desc-cocoon">Consultez les horaires de prières de Dakar en temps réel et laissez-vous guider par la sagesse et les enseignements du fondateur Sangabi.</p>
           </div>
           
           <div class="double-column-widget-grid">
-            
-            <!-- Left Column: Testimonial/Quote Card -->
+            <!-- Left Column: Quote Card -->
             <div class="testimonial-visual-card scroll-anim">
-              <img src="/assets/hero_sunset.png" alt="Mosquée de la Divinité Intérieur" class="testimonial-img" />
+              <img src="/assets/Sirat.jpg" alt="Le pont Al-Sirat à l'intérieur de la mosquée" class="testimonial-img" />
               <div class="testimonial-quote-box">
                 <div class="quote-icon"><i data-lucide="quote" style="width: 32px; height: 32px; color: var(--color-beige-dark);"></i></div>
-                <p class="quote-text">"La mosquée n'est pas seulement un monument de pierre. C'est le reflet de l'obéissance à un commandement divin reçu au bord de cet océan."</p>
+                <p class="quote-text">«&nbsp;La mosquée n'est pas seulement un monument de pierre. C'est le reflet de l'obéissance à un commandement divin reçu au bord de cet océan.&nbsp;»</p>
                 <div class="quote-author-row">
                   <div class="author-avatar"><i data-lucide="user" style="width: 20px; height: 20px;"></i></div>
                   <div class="author-info">
@@ -375,7 +560,7 @@
               </div>
             </div>
 
-            <!-- Right Column: Gold Widget Box (Matches the right gold card on Cocoon testimonials) -->
+            <!-- Right Column: Gold Widget Box -->
             <div class="gold-widget-card scroll-anim">
               <div class="widget-card-header">
                 <span class="widget-card-tag">HORAIRES SACRÉS</span>
@@ -398,54 +583,50 @@
 
               <!-- Compact Vertical Prayer List -->
               <div class="prayer-vertical-list">
-                
                 <div class="prayer-row-item" id="prayer-fajr" data-prayer="fajr">
                   <span class="p-num">01</span>
                   <span class="p-name">Fajr (L'Aube)</span>
                   <span class="p-arabic">الفجر</span>
                   <span class="p-time" id="time-fajr">05:29</span>
                 </div>
-
                 <div class="prayer-row-item" id="prayer-dhuhr" data-prayer="dhuhr">
                   <span class="p-num">02</span>
                   <span class="p-name">Dhuhr (Le Midi)</span>
                   <span class="p-arabic">الظهر</span>
                   <span class="p-time" id="time-dhuhr">14:15</span>
                 </div>
-
                 <div class="prayer-row-item" id="prayer-asr" data-prayer="asr">
                   <span class="p-num">03</span>
                   <span class="p-name">Asr (L'Après-midi)</span>
                   <span class="p-arabic">العصر</span>
                   <span class="p-time" id="time-asr">17:00</span>
                 </div>
-
                 <div class="prayer-row-item" id="prayer-maghrib" data-prayer="maghrib">
                   <span class="p-num">04</span>
                   <span class="p-name">Maghrib (Le Coucher)</span>
                   <span class="p-arabic">المغرب</span>
                   <span class="p-time" id="time-maghrib">19:50</span>
                 </div>
-
                 <div class="prayer-row-item" id="prayer-isha" data-prayer="isha">
                   <span class="p-num">05</span>
                   <span class="p-name">Isha (La Nuit)</span>
                   <span class="p-arabic">العشاء</span>
                   <span class="p-time" id="time-isha">20:50</span>
                 </div>
-
               </div>
 
               <div class="widget-bottom-btn">
                 <a href="#contact" class="btn-capsule-dark-green">Planifier une visite guidée</a>
               </div>
             </div>
-
           </div>
+        </div>
       </section>
 
-      <!-- Section Événements à venir -->
-      <section class="section-padding" id="evenements">
+      <!-- ================================================================
+           SECTION ÉVÉNEMENTS — Agenda avec compte à rebours
+           ================================================================ -->
+      <section class="section-padding light-bg-sections" id="evenements">
         <div class="container">
           <div class="section-header-cocoon scroll-anim">
             <span class="tag-pill-sm">AGENDA</span>
@@ -453,8 +634,7 @@
           </div>
 
           <div class="agenda-layout-grid">
-            
-            <!-- Featured Main Event Card (Centenaire) -->
+            <!-- Featured Main Event Card -->
             <div class="featured-event-card scroll-anim">
               <div class="event-image-side">
                 <img src="/assets/centenaire_poster.jpg" alt="Centenaire de la naissance de Mouhamed Seyni Gueye" class="event-poster-img" />
@@ -463,13 +643,10 @@
               <div class="event-details-side">
                 <div class="event-badge-tag">ÉVÉNEMENT MAJEUR</div>
                 <h3 class="event-main-title">Centenaire de la naissance de Mouhamed Seyni Gueye</h3>
-                <span class="event-subtitle">Khalifatou Lahi Fil Ardi - 100 ans d'héritage, de foi et de transmission</span>
+                <span class="event-subtitle">Khalifatou Lahi Fil Ardi — 100 ans d'héritage, de foi et de transmission</span>
                 
-                <p class="event-description">
-                  À l'occasion du centenaire de la naissance de Mouhamed Seyni Gueye, nous vous invitons chaleureusement à une journée solennelle de recueillement, de prières et de commémoration de son héritage spirituel.
-                </p>
+                <p class="event-description">À l'occasion du centenaire de la naissance de Mouhamed Seyni Gueye, nous vous invitons chaleureusement à une journée solennelle de recueillement, de prières et de commémoration de son héritage spirituel.</p>
                 
-                <!-- Event Info Grid (Date, time, location) -->
                 <div class="event-meta-info-grid">
                   <div class="meta-item">
                     <span class="meta-icon"><i data-lucide="calendar"></i></span>
@@ -500,7 +677,7 @@
               </div>
             </div>
 
-            <!-- List of other smaller events -->
+            <!-- Countdown Card -->
             <div class="secondary-events-col scroll-anim event-countdown-card">
               <span class="countdown-tag">COMPTE À REBOURS</span>
               <h3 class="side-events-title font-title">Temps restant</h3>
@@ -540,12 +717,15 @@
                 </button>
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
-      <!-- Section Galerie (Lightbox Gallery) -->
+
+
+      <!-- ================================================================
+           SECTION GALERIE — Lightbox Masonry Gallery
+           ================================================================ -->
       <section class="section-padding light-bg-sections" id="galerie">
         <div class="container">
           <div class="section-header-cocoon scroll-anim">
@@ -556,134 +736,154 @@
           <!-- Masonry Gallery Grid -->
           <div class="gallery-grid scroll-anim">
             
-            <div class="gallery-item" data-image="/assets/mosquee_aerienne.jpg" data-caption="Majestueuse vue aérienne de la Mosquée de la Divinité et de la baie d'Ouakam.">
+            <div class="gallery-item" data-image="/assets/DJI_0419.jpg" data-caption="Vue aérienne de la Mosquée de la Divinité sur la Corniche de Ouakam, face à l'Océan Atlantique.">
               <div class="gallery-img-wrapper">
-                <img src="/assets/mosquee_aerienne.jpg" alt="Mosquée de la Divinité - Vue aérienne" />
-                <div class="gallery-hover-overlay">
-                  <span>Agrandir</span>
-                </div>
+                <img src="/assets/DJI_0419.jpg" alt="Mosquée de la Divinité – Vue aérienne" />
+                <div class="gallery-hover-overlay"><span>Agrandir</span></div>
               </div>
-              <div class="gallery-info">
-                <h4>Vue Aérienne</h4>
-                <p>Écrin de foi au bord de l'océan</p>
-              </div>
+              <div class="gallery-info"><h4>Vue Aérienne</h4><p>Écrin de foi au bord de l'océan</p></div>
             </div>
 
-            <div class="gallery-item" data-image="/assets/dream_reveal.png" data-caption="Vision artistique de la descente de la mosquée depuis les cieux dans la nuit de juin 1973.">
+            <div class="gallery-item" data-image="/assets/DJI_0681.jpg" data-caption="Vue aérienne de la Mosquée de la Divinité révélant ses minarets jumeaux de 45 mètres.">
               <div class="gallery-img-wrapper">
-                <img src="/assets/dream_reveal.png" alt="Descente céleste en rêve" />
-                <div class="gallery-hover-overlay">
-                  <span>Agrandir</span>
-                </div>
+                <img src="/assets/DJI_0681.jpg" alt="Les deux minarets jumeaux vus du ciel" />
+                <div class="gallery-hover-overlay"><span>Agrandir</span></div>
               </div>
-              <div class="gallery-info">
-                <h4>La Vision Céleste</h4>
-                <p>Représentation spirituelle</p>
-              </div>
+              <div class="gallery-info"><h4>Les Minarets Jumeaux</h4><p>45 mètres vers le ciel</p></div>
             </div>
 
-            <div class="gallery-item" data-image="/assets/architecture_minarets.png" data-caption="Syllogisme géométrique et minarets blancs s'élevant vers l'azur.">
+            <div class="gallery-item" data-image="/assets/Sirat.jpg" data-caption="Le pont Al-Sirat de la mosquée, reproduction du pont qui enjambe l'enfer selon la tradition islamique.">
               <div class="gallery-img-wrapper">
-                <img src="/assets/architecture_minarets.png" alt="Détail des Minarets" />
-                <div class="gallery-hover-overlay">
-                  <span>Agrandir</span>
-                </div>
+                <img src="/assets/Sirat.jpg" alt="Le pont Al-Sirat" />
+                <div class="gallery-hover-overlay"><span>Agrandir</span></div>
               </div>
-              <div class="gallery-info">
-                <h4>L'Élévation</h4>
-                <p>Détails architecturaux</p>
-              </div>
+              <div class="gallery-info"><h4>Le Pont Al-Sirat</h4><p>Architecture sacrée</p></div>
             </div>
 
-            <!-- Prayer Type 1: JUMAA -->
-            <div class="gallery-item" data-image="/assets/jumaa.png" data-caption="JUMAA : La prière solennelle collective du vendredi midi, pilier hebdomadaire de rassemblement, de fraternité et de dévotion commune pour tous les fidèles de la presqu'île d'Ouakam.">
+            <div class="gallery-item" data-image="/assets/Jumaa.jpg" data-caption="JUMAA : La prière solennelle collective du vendredi midi — pilier hebdomadaire de rassemblement pour tous les fidèles.">
               <div class="gallery-img-wrapper">
-                <img src="/assets/jumaa.png" alt="Prière du Vendredi Jumaa" />
-                <div class="gallery-hover-overlay">
-                  <span>Agrandir</span>
-                </div>
+                <img src="/assets/Jumaa.jpg" alt="Prière du Vendredi Jumaa" />
+                <div class="gallery-hover-overlay"><span>Agrandir</span></div>
               </div>
-              <div class="gallery-info">
-                <h4>Prière Jumaa</h4>
-                <p>Prière du Vendredi</p>
-              </div>
+              <div class="gallery-info"><h4>Prière Jumaa</h4><p>Prière du Vendredi</p></div>
             </div>
 
-            <!-- Prayer Type 2: FAY FAAT -->
-            <div class="gallery-item" data-image="/assets/fay_faat.png" data-caption="FAY FAAT : Les cinq offices quotidiens obligatoires (Fajr, Dhuhr, Asr, Maghrib, Isha) qui rythment la journée de chaque fidèle, maintenant une connexion spirituelle constante et ininterrompue avec le Créateur.">
+            <div class="gallery-item" data-image="/assets/Fayfaat.jpg" data-caption="FAY FAAT : Les cinq offices quotidiens obligatoires qui rythment la journée de chaque fidèle.">
               <div class="gallery-img-wrapper">
-                <img src="/assets/fay_faat.png" alt="Prières Quotidiennes Fay Faat" />
-                <div class="gallery-hover-overlay">
-                  <span>Agrandir</span>
-                </div>
+                <img src="/assets/Fayfaat.jpg" alt="Prières Quotidiennes Fay Faat" />
+                <div class="gallery-hover-overlay"><span>Agrandir</span></div>
               </div>
-              <div class="gallery-info">
-                <h4>Fay Faat</h4>
-                <p>Prières Quotidiennes</p>
-              </div>
+              <div class="gallery-info"><h4>Fay Faat</h4><p>Prières Quotidiennes</p></div>
             </div>
 
-            <!-- Prayer Type 3: EID EL FITR / ADHA -->
-            <div class="gallery-item" data-image="/assets/eid.png" data-caption="EID EL FITR / ADHA : La célébration des deux grandes fêtes musulmanes, moments de prières collectives en plein air, de profonde gratitude, de partage d'aumône et de rassemblements communautaires joyeux.">
+            <div class="gallery-item" data-image="/assets/Korite.jpg" data-caption="EID EL FITR : La grande fête de la rupture du jeûne, moment de prières collectives et de rassemblements joyeux.">
               <div class="gallery-img-wrapper">
-                <img src="/assets/eid.png" alt="Prière de l'Eid" />
-                <div class="gallery-hover-overlay">
-                  <span>Agrandir</span>
-                </div>
+                <img src="/assets/Korite.jpg" alt="Fête de la Korité — Eid el Fitr" />
+                <div class="gallery-hover-overlay"><span>Agrandir</span></div>
               </div>
-              <div class="gallery-info">
-                <h4>Eid el Fitr & Adha</h4>
-                <p>Grandes Fêtes Islamiques</p>
-              </div>
+              <div class="gallery-info"><h4>Korité — Eid el Fitr</h4><p>Grande fête islamique</p></div>
             </div>
 
-            <!-- Prayer Type 4: LAYLATUL XADR -->
-            <div class="gallery-item" data-image="/assets/laylatul_xadr.png" data-caption="LAYLATUL XADR : La Nuit du Destin, moment d'intenses prières nocturnes, de lectures sacrées et d'invocations ferventes, commémorant la descente et la révélation première du Coran.">
+            <div class="gallery-item" data-image="/assets/Leylatul Qadr.jpg" data-caption="LAYLATUL QADR : La Nuit du Destin, moment d'intenses prières nocturnes commémorant la première révélation du Coran.">
               <div class="gallery-img-wrapper">
-                <img src="/assets/laylatul_xadr.png" alt="Nuit de la Révélation Laylatul Xadr" />
-                <div class="gallery-hover-overlay">
-                  <span>Agrandir</span>
-                </div>
+                <img src="/assets/Leylatul Qadr.jpg" alt="Nuit de la Révélation Laylatul Qadr" />
+                <div class="gallery-hover-overlay"><span>Agrandir</span></div>
               </div>
-              <div class="gallery-info">
-                <h4>Laylatul Xadr</h4>
-                <p>La Nuit du Destin</p>
-              </div>
+              <div class="gallery-info"><h4>Laylatul Qadr</h4><p>La Nuit du Destin</p></div>
             </div>
 
-            <!-- Prayer Type 5: MAWLUUD -->
-            <div class="gallery-item" data-image="/assets/mawluud.png" data-caption="MAWLUUD : La commémoration solennelle de la naissance du Prophète Mouhammad (PSL), animée par de vibrantes veillées religieuses, des poèmes spirituels de louanges et des conférences sur sa vie.">
+            <div class="gallery-item" data-image="/assets/Malwloud.jpg" data-caption="MAWLUUD : La commémoration de la naissance du Prophète Mouhammad (PSL), animée par des veillées religieuses et des poèmes de louanges.">
               <div class="gallery-img-wrapper">
-                <img src="/assets/mawluud.png" alt="Célébration Mawluud" />
-                <div class="gallery-hover-overlay">
-                  <span>Agrandir</span>
-                </div>
+                <img src="/assets/Malwloud.jpg" alt="Célébration Mawluud" />
+                <div class="gallery-hover-overlay"><span>Agrandir</span></div>
               </div>
-              <div class="gallery-info">
-                <h4>Mawluud</h4>
-                <p>Commémoration Spirituelle</p>
-              </div>
+              <div class="gallery-info"><h4>Mawluud</h4><p>Commémoration Spirituelle</p></div>
             </div>
 
-            <!-- Prayer Type 6: JOURNÉES DE PRIÈRES -->
-            <div class="gallery-item" data-image="/assets/journees_prieres.png" data-caption="JOURNÉES DE PRIÈRES : Des rassemblements spéciaux organisés périodiquement par la communauté pour prier collectivement pour la paix mondiale, l'unité sociale et la prospérité partagée de la Oumma.">
+            <div class="gallery-item" data-image="/assets/Journées prieres.jpg" data-caption="JOURNÉES DE PRIÈRES : Des rassemblements périodiques de la communauté pour prier collectivement pour la paix mondiale.">
               <div class="gallery-img-wrapper">
-                <img src="/assets/journees_prieres.png" alt="Journées collectives de prières" />
-                <div class="gallery-hover-overlay">
-                  <span>Agrandir</span>
-                </div>
+                <img src="/assets/Journées prieres.jpg" alt="Journées collectives de prières" />
+                <div class="gallery-hover-overlay"><span>Agrandir</span></div>
               </div>
-              <div class="gallery-info">
-                <h4>Journées de Prières</h4>
-                <p>Invocations et Union</p>
-              </div>
+              <div class="gallery-info"><h4>Journées de Prières</h4><p>Invocations et Union</p></div>
             </div>
 
           </div>
         </div>
       </section>
 
-      <!-- Section Contact (Overlaps the footer) -->
+      <!-- ================================================================
+           SECTION BOUTIQUE — Produits officiels
+           ================================================================ -->
+      <section class="section-padding" id="boutique">
+        <div class="container">
+          <div class="section-header-cocoon scroll-anim">
+            <span class="tag-pill-sm">BOUTIQUE OFFICIELLE</span>
+            <h2 class="title-display">Souvenirs & Articles<br>de la Mosquée</h2>
+            <p class="section-desc-cocoon">Chaque achat contribue directement au financement de la rénovation et à la préservation de ce lieu sacré.</p>
+          </div>
+
+          <div class="boutique-grid scroll-anim">
+            
+            <div class="boutique-card">
+              <div class="boutique-thumb">
+                <img src="/assets/Hoodie.webp" alt="Hoodie Mosquée de la Divinité" />
+                <div class="boutique-hover"><span>Voir le produit</span></div>
+              </div>
+              <div class="boutique-info">
+                <h4>Hoodie Officiel</h4>
+                <p class="boutique-price">35 000 FCFA</p>
+                <p class="boutique-sub">Coton premium, broderie officielle</p>
+              </div>
+            </div>
+
+            <div class="boutique-card">
+              <div class="boutique-thumb">
+                <img src="/assets/Shopping_Bag_Mockup_v01.jpg" alt="Sac Mosquée de la Divinité" />
+                <div class="boutique-hover"><span>Voir le produit</span></div>
+              </div>
+              <div class="boutique-info">
+                <h4>Tote Bag Officiel</h4>
+                <p class="boutique-price">8 500 FCFA</p>
+                <p class="boutique-sub">Toile durable, logo imprimé</p>
+              </div>
+            </div>
+
+            <div class="boutique-card">
+              <div class="boutique-thumb">
+                <img src="/assets/Bloc-Note.webp" alt="Bloc-Note Mosquée de la Divinité" />
+                <div class="boutique-hover"><span>Voir le produit</span></div>
+              </div>
+              <div class="boutique-info">
+                <h4>Bloc-Note & Stylo</h4>
+                <p class="boutique-price">5 000 FCFA</p>
+                <p class="boutique-sub">Edition limitée, couverture rigide</p>
+              </div>
+            </div>
+
+            <div class="boutique-card">
+              <div class="boutique-thumb">
+                <img src="/assets/puzzle.webp" alt="Puzzle Mosquée de la Divinité" />
+                <div class="boutique-hover"><span>Voir le produit</span></div>
+              </div>
+              <div class="boutique-info">
+                <h4>Puzzle — La Mosquée</h4>
+                <p class="boutique-price">12 000 FCFA</p>
+                <p class="boutique-sub">500 pièces, boîte collector</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div style="text-align: center; margin-top: 3rem;" class="scroll-anim">
+            <a href="boutique.html" class="btn-capsule-gold">Commander ou Renseigner ↗</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           SECTION CONTACT — Formulaire de visite
+           ================================================================ -->
       <section class="contact-overlap-section" id="contact">
         <div class="container">
           <div class="contact-card-overlap scroll-anim">
@@ -729,7 +929,7 @@
 
             <!-- Right side: Contact Visual & Phone Box -->
             <div class="contact-visual-side">
-              <img src="/assets/hero_sunset.png" alt="Visite Mosquée" class="contact-side-img" />
+              <img src="/assets/mosquee_aerienne.jpg" alt="Visite Mosquée" class="contact-side-img" />
               <div class="contact-phone-callout">
                 <div class="callout-icon"><i data-lucide="phone"></i></div>
                 <div class="callout-text-col">
@@ -769,7 +969,10 @@
         <div class="footer-main-grid">
           <!-- Brand Info -->
           <div class="footer-col-brand">
-            <h3 class="footer-logo-title">LA DIVINITÉ</h3>
+            <div class="footer-logo-row">
+              <img src="/assets/Logo.png" alt="Logo" class="logo-img" />
+              <h3 class="footer-logo-title">LA DIVINITÉ</h3>
+            </div>
             <p class="footer-brand-addr">
               Imm. Corniche Ouest, Baie d'Ouakam, Dakar, Sénégal<br><br>
               <a href="mailto:mosqueedeladivinite@gmail.com" class="footer-mail-link">mosqueedeladivinite@gmail.com</a><br>
@@ -794,7 +997,7 @@
             <h4>DÉCOUVRIR</h4>
             <ul>
               <li><a href="#histoire">Le rêve céleste</a></li>
-              <li><a href="#architecture">Les Minarets Jumeaux</a></li>
+              <li><a href="#construction">Les Minarets Jumeaux</a></li>
               <li><a href="#prieres">Heures de Prières</a></li>
               <li><a href="#galerie">Galerie photos</a></li>
             </ul>
@@ -804,9 +1007,10 @@
           <div class="footer-col-links">
             <h4>LIENS RAPIDES</h4>
             <ul>
-              <li><a href="https://www.mosqueedeladivinite.org/" target="_blank">Site Officiel original ↗</a></li>
-              <li><a href="https://www.youtube.com/user/divinitetv" target="_blank">Chaîne YouTube</a></li>
-              <li><a href="https://www.facebook.com/mosqueedeladivinite" target="_blank">Page Facebook</a></li>
+              <li><a href="https://www.mosqueedeladivinite.org/" target="_blank" rel="noreferrer">Site Officiel original ↗</a></li>
+              <li><a href="https://www.youtube.com/user/divinitetv" target="_blank" rel="noreferrer">Chaîne YouTube</a></li>
+              <li><a href="https://www.facebook.com/mosqueedeladivinite" target="_blank" rel="noreferrer">Page Facebook</a></li>
+              <li><a href="renovation.html">Faire un don</a></li>
             </ul>
           </div>
         </div>
@@ -819,11 +1023,9 @@
             <a href="#">Confidentialité</a>
           </div>
           <div class="bottom-socials">
-            <a href="#" aria-label="X">X</a>
-            <a href="#" aria-label="LinkedIn">LN</a>
-            <a href="#" aria-label="Facebook">FB</a>
-            <a href="#" aria-label="Instagram">IG</a>
-            <a href="#" aria-label="TikTok">TK</a>
+            <a href="https://www.youtube.com/user/divinitetv" target="_blank" rel="noreferrer" aria-label="YouTube"><i data-lucide="youtube"></i></a>
+            <a href="https://www.facebook.com/mosqueedeladivinite" target="_blank" rel="noreferrer" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+            <a href="https://www.instagram.com/mosqueedeladivinite/" target="_blank" rel="noreferrer" aria-label="Instagram"><i data-lucide="instagram"></i></a>
           </div>
         </div>
 
