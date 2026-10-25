@@ -1,0 +1,98 @@
+/* ============================================================
+   Design tokens — charte graphique de la Mosquée de la Divinité
+   (Identité_MosquéedelaDivinité_3.pdf)
+   Couleurs primaires : blanc, noir, #123E43 ; secondaires : #C11616,
+   dégradés sarcelle, or et rouge. Typographie : Poppins (corps de texte
+   de la charte), Noto Naskh Arabic pour l'arabe.
+   ============================================================ */
+:root {
+  /* ---- Couleurs primaires ---- */
+  --teal: #123e43; /* couleur maîtresse du logo */
+  --teal-ink: #0f363b;
+  --teal-deep: #0f363b; /* aplats sombres (cartes, rideau) */
+  --night: #0b1d2c; /* « noir » de la charte (N100) */
+  --teal-2: #006464; /* dégradé sarcelle */
+  --teal-soft: #3b7f7a; /* dégradé sarcelle, ton clair */
+  --teal-tint: #e4eeec;
+
+  /* ---- Couleurs secondaires ---- */
+  --gold: #eaba10;
+  --gold-soft: #edd688; /* or lisible sur fond sombre */
+  --gold-pale: #fffacb;
+  --gold-deep: #9c7a0e; /* or assombri pour un texte sur fond clair */
+  --red: #c11616;
+  --red-soft: #e84f4e;
+  --red-pale: #f37f7c;
+
+  /* ---- Fonds ---- */
+  --ivory: #ffffff; /* blanc de la charte : fond de base */
+  --paper: #f7fafa;
+  --sand: #eef4f3;
+  --ivory-deep: #e6eeed; /* fond d'attente des images */
+
+  /* ---- Encres ---- */
+  --ink: #0b1d2c;
+  --ink-2: #1b2a33; /* texte courant : foncé pour la lisibilité */
+  --ink-3: #47535b; /* texte secondaire, foncé lui aussi */
+  --line: rgba(18, 62, 67, 0.14);
+  --line-soft: rgba(18, 62, 67, 0.07);
+  --line-strong: rgba(18, 62, 67, 0.3);
+
+  /* ---- Sur fond sombre ---- */
+  --on-dark: #ffffff;
+  --on-dark-2: rgba(255, 255, 255, 0.92);
+  --on-dark-3: rgba(255, 255, 255, 0.78);
+  --on-dark-line: rgba(255, 255, 255, 0.16);
+
+  /* ---- Dégradés de la charte ---- */
+  --grad-teal: linear-gradient(135deg, #3b7f7a 0%, #006464 52%, #123e43 100%);
+  --grad-teal-dark: linear-gradient(160deg, #123e43 0%, #0f363b 55%, #006464 140%);
+  --grad-gold: linear-gradient(180deg, #fffacb 0%, #edd688 47.5%, #eaba10 92%);
+  --grad-gold-h: linear-gradient(90deg, #fffacb 0%, #edd688 47.5%, #eaba10 92%);
+  --grad-red: linear-gradient(180deg, #f37f7c 0%, #e84f4e 25%, #c11616 48%, #e84f4e 75%, #f37f7c 100%);
+
+  /* Mot d'accent des titres : sarcelle sur clair, dégradé or sur sombre */
+  --accent: var(--teal-2);
+
+  /* ---- Typographie ---- */
+  --font-sans: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: var(--font-sans);
+  --font-arabic: 'Noto Naskh Arabic', 'Traditional Arabic', serif;
+
+  /* Échelle agrandie pour la lisibilité : texte courant ≈ 19–21 px, petits textes ≥ 14 px */
+  --step--2: clamp(0.88rem, 0.86rem + 0.1vw, 0.94rem);
+  --step--1: clamp(1rem, 0.97rem + 0.15vw, 1.08rem);
+  --step-0: clamp(1.2rem, 1.14rem + 0.25vw, 1.32rem);
+  --step-1: clamp(1.32rem, 1.22rem + 0.4vw, 1.52rem);
+  --step-2: clamp(1.36rem, 1.2rem + 0.65vw, 1.72rem);
+  --step-3: clamp(1.6rem, 1.33rem + 1.15vw, 2.35rem);
+  --step-4: clamp(1.9rem, 1.48rem + 1.85vw, 3.1rem);
+  --step-5: clamp(2.2rem, 1.58rem + 2.75vw, 4.1rem);
+  --step-6: clamp(2.5rem, 1.58rem + 4.1vw, 5.4rem);
+
+  /* ---- Espacements & grille ---- */
+  --gutter: clamp(1.15rem, 0.5rem + 2.6vw, 2.75rem);
+  /* Espaces resserrés : moins de vide entre deux sections et entre les blocs */
+  --section: clamp(3rem, 2.2rem + 3vw, 5.25rem);
+  --block: clamp(1.75rem, 1.3rem + 1.5vw, 2.75rem);
+  --max-width: 1440px;
+  --nav-height: 4.75rem;
+  --radius-sm: 8px;
+  --radius: 16px;
+  --radius-lg: 26px;
+
+  /* ---- Mouvement ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+
+  /* ---- Profondeur ---- */
+  /* Aucune ombre portée : les photos et les blocs restent posés, sans effet de flottement */
+  --shadow-soft: none;
+  --shadow-lift: none;
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --nav-height: 4.25rem;
+  }
+}

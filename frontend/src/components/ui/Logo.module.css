@@ -1,0 +1,32 @@
+.logo {
+  display: inline-block;
+  flex: 0 0 auto;
+  height: auto;
+}
+
+/* Icône de la charte : carré arrondi sarcelle, emblème blanc */
+.tile {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  aspect-ratio: 1;
+  border-radius: 22%;
+  background: var(--teal);
+  color: #fff;
+}
+
+/* Variante sur fond sombre : emblème seul, sans cadre */
+.frame {
+  background: transparent;
+  color: inherit;
+}
+
+.tileEmblem {
+  width: 64%;
+  height: auto;
+}
+
+/* Sans cadre, l'emblème occupe la place pour garder la même présence */
+.frame .tileEmblem {
+  width: 90%;
+}

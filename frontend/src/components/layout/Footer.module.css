@@ -1,0 +1,122 @@
+.footer {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--night);
+  color: var(--on-dark);
+}
+
+.pattern {
+  opacity: 0.05;
+}
+
+.grid {
+  position: relative;
+  display: grid;
+  gap: 2.5rem;
+  padding-block: clamp(3.5rem, 2.5rem + 3vw, 5.5rem) clamp(2rem, 1.5rem + 2vw, 3rem);
+}
+
+.brand {
+  display: grid;
+  justify-items: start;
+  align-content: start;
+  gap: 1.4rem;
+}
+
+.logo {
+  width: clamp(5.5rem, 4.6rem + 3vw, 7.5rem);
+  color: var(--ivory);
+}
+
+.tagline {
+  max-width: 19rem;
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-style: normal;
+  line-height: 1.45;
+  color: var(--on-dark-2);
+}
+
+.heading {
+  margin-bottom: 1.15rem;
+  font-family: var(--font-sans);
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+}
+
+.list {
+  display: grid;
+  gap: 0.65rem;
+  font-size: var(--step--1);
+  color: var(--on-dark-2);
+}
+
+.link,
+.social {
+  position: relative;
+  transition: color 0.4s var(--ease-out);
+}
+
+.link:hover,
+.social:hover {
+  color: var(--ivory);
+}
+
+.social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.social svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  opacity: 0.8;
+}
+
+.supportText {
+  max-width: 20rem;
+  margin-bottom: 1.25rem;
+  font-size: var(--step--1);
+  color: var(--on-dark-2);
+}
+
+.supportActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+}
+
+.bottom {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  padding-block: 1.5rem calc(1.75rem + env(safe-area-inset-bottom));
+  /* Place réservée au bouton flottant « haut de page » */
+  padding-right: calc(var(--gutter) + 4rem);
+  font-size: var(--step--2);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+}
+
+@media (min-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1100px) {
+  .grid {
+    grid-template-columns: 1.35fr 0.85fr 0.85fr 1.15fr;
+    gap: var(--gutter);
+  }
+}

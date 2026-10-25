@@ -1,0 +1,115 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 990;
+  overflow-y: auto;
+  background:
+    radial-gradient(ellipse 80% 50% at 80% 0%, rgba(234, 186, 16, 0.08), transparent 70%),
+    var(--teal-deep);
+  color: var(--ivory);
+  --switch-bg: var(--ivory);
+  --switch-fg: var(--teal-deep);
+}
+
+.pattern {
+  opacity: 0.06;
+}
+
+.inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2.5rem;
+  min-height: 100%;
+  padding-top: calc(var(--nav-height) + 3vh);
+  padding-bottom: calc(2.25rem + env(safe-area-inset-bottom));
+}
+
+.links {
+  display: grid;
+}
+
+.item {
+  overflow: hidden;
+}
+
+.itemInner {
+  display: block;
+}
+
+.link {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding-block: 0.7rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 1.2rem + 3.2vw, 2.6rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: var(--on-dark-2);
+  transition: color 0.4s var(--ease-out);
+}
+
+.link:hover {
+  color: var(--ivory);
+}
+
+.active {
+  color: var(--gold-soft);
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.75rem;
+}
+
+.meta {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.lang {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.metaLabel {
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+}
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.socials a {
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  border: 1px solid var(--on-dark-line);
+  color: var(--on-dark-2);
+  font-size: 1rem;
+  transition:
+    color 0.4s var(--ease-out),
+    border-color 0.4s var(--ease-out),
+    background-color 0.4s var(--ease-out);
+}
+
+.socials a:hover {
+  color: var(--teal-deep);
+  background: var(--ivory);
+  border-color: var(--ivory);
+}

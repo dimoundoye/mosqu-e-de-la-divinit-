@@ -1,0 +1,867 @@
+/* ============================================================
+   PAGE DONS — Paiements & Dons Officiels
+   ============================================================ */
+.page {
+  min-height: 100vh;
+  background: var(--ivory);
+}
+
+/* ---- En-tête sombre ---- */
+.header {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding-top: calc(var(--nav-height) + clamp(2.5rem, 1.5rem + 3vw, 4.5rem));
+  padding-bottom: clamp(6rem, 4rem + 5vw, 9rem);
+  background:
+    radial-gradient(ellipse 60% 70% at 85% 0%, rgba(234, 186, 16, 0.12), transparent 70%),
+    var(--teal-deep);
+  color: var(--on-dark);
+}
+
+.headerPattern {
+  opacity: 0.07;
+}
+
+.headerInner {
+  position: relative;
+  display: grid;
+  justify-items: start;
+  gap: 1.25rem;
+}
+
+.title {
+  font-size: clamp(2.1rem, 1rem + 3.8vw, 4.6rem);
+  line-height: 1.06;
+  color: var(--ivory);
+}
+
+.lead {
+  max-width: 42rem;
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-style: normal;
+  line-height: 1.35;
+  color: var(--on-dark-2);
+}
+
+/* ---- Corps : remonte sur l'en-tête ---- */
+.body {
+  position: relative;
+  z-index: 1;
+  margin-top: clamp(-4.5rem, -3rem - 2vw, -2.5rem);
+  padding-bottom: var(--section);
+}
+
+/* ---- Onglets ---- */
+.tabs {
+  display: flex;
+  gap: 0.3rem;
+  width: min(42rem, 100%);
+  margin: 0 auto clamp(1.5rem, 1rem + 1.5vw, 2.5rem);
+  padding: 0.35rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: var(--shadow-lift);
+}
+
+.tab {
+  display: inline-flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-width: 0;
+  min-height: 3.1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  color: var(--ink-2);
+  font-size: var(--step--1);
+  font-weight: 600;
+  transition:
+    background-color 0.4s var(--ease-out),
+    color 0.4s var(--ease-out);
+}
+
+.tab:hover {
+  color: var(--teal);
+}
+
+.tabActive,
+.tabActive:hover {
+  background: var(--teal);
+  color: var(--ivory);
+}
+
+.tabActive svg {
+  color: var(--gold);
+}
+
+/* ---- Onglet Mobile Money ---- */
+.mobileLayout {
+  display: grid;
+  gap: clamp(1rem, 0.6rem + 1.5vw, 2rem);
+  align-items: start;
+}
+
+.formCard,
+.bankPanel {
+  padding: clamp(1.4rem, 1rem + 1.5vw, 2.25rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+}
+
+.step {
+  display: grid;
+  gap: 0.9rem;
+  padding-bottom: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.stepLast {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.stepHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+}
+
+.stepLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: var(--step--1);
+  font-weight: 700;
+  color: var(--teal);
+}
+
+.stepNum {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--teal);
+  color: var(--ivory);
+  font-size: 0.82rem;
+}
+
+.currentAmount {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: 700;
+  color: var(--gold-deep);
+  font-variant-numeric: lining-nums;
+}
+
+.operators {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.operator {
+  display: grid;
+  justify-items: start;
+  gap: 0.35rem;
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--paper);
+  text-align: left;
+  transition:
+    border-color 0.3s var(--ease-out),
+    background-color 0.3s var(--ease-out),
+    box-shadow 0.3s var(--ease-out);
+}
+
+.operator:hover {
+  border-color: var(--teal);
+}
+
+.operatorActive,
+.operatorActive:hover {
+  border-color: var(--teal);
+  background: var(--teal-tint);
+  box-shadow: 0 0 0 1px var(--teal);
+}
+
+.operatorName {
+  margin-top: 0.35rem;
+  font-weight: 700;
+}
+
+.nameWave {
+  color: var(--teal);
+}
+
+.nameOrange {
+  color: var(--red);
+}
+
+.operatorDesc {
+  font-size: var(--step--1);
+  color: var(--ink-3);
+}
+
+/* Pastilles des opérateurs (logo ou lettre de repli) */
+.brand {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 2.75rem;
+  height: 2.75rem;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.brandSmall {
+  width: 1.9rem;
+  height: 1.9rem;
+  font-size: 0.82rem;
+}
+
+.brandWave {
+  background: #20bce8;
+  color: #063e50;
+}
+
+.brandOrange {
+  background: #ff7900;
+  color: #fff;
+}
+
+/* Pastille portant un vrai logo : le logo apporte ses propres couleurs */
+.brandImage {
+  padding: 0;
+  background: #fff;
+}
+
+.brandImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.amounts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.amount {
+  min-height: 3rem;
+  padding: 0.5rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  color: var(--ink-2);
+  font-size: var(--step--1);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  transition:
+    background-color 0.3s var(--ease-out),
+    color 0.3s var(--ease-out),
+    border-color 0.3s var(--ease-out);
+}
+
+.amount:hover {
+  border-color: var(--teal);
+}
+
+.amountActive,
+.amountActive:hover {
+  border-color: var(--teal);
+  background: var(--teal);
+  color: var(--gold-soft);
+}
+
+.customWrap {
+  position: relative;
+}
+
+.customSuffix {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  font-size: var(--step--2);
+  font-weight: 700;
+  color: var(--ink-3);
+  transform: translateY(-50%);
+}
+
+.input {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.7rem 0.95rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: var(--step--1);
+  transition:
+    border-color 0.3s var(--ease-out),
+    box-shadow 0.3s var(--ease-out);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(18, 62, 67, 0.12);
+}
+
+.mono {
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+}
+
+.grid2 {
+  display: grid;
+  gap: 0.75rem;
+}
+
+/* ---- Carte de paiement (QR) ---- */
+.side {
+  display: grid;
+  gap: 1rem;
+}
+
+.payCard {
+  display: grid;
+  gap: 1.1rem;
+  padding: clamp(1.4rem, 1rem + 1.2vw, 2rem);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(ellipse 80% 60% at 100% 0%, rgba(234, 186, 16, 0.12), transparent 70%),
+    linear-gradient(160deg, var(--teal) 0%, var(--teal-deep) 100%);
+  color: var(--on-dark);
+  box-shadow: var(--shadow-lift);
+}
+
+.payHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.payBrand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: var(--step-0);
+  font-weight: 700;
+  letter-spacing: 0;
+  color: var(--ivory);
+}
+
+.payAmount {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--gold-soft);
+  font-variant-numeric: lining-nums;
+}
+
+.qrBox {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  background: var(--ivory);
+}
+
+.qrBox p {
+  font-size: var(--step--1);
+  font-weight: 600;
+  text-align: center;
+  color: var(--teal);
+}
+
+.qr {
+  padding: 0.6rem;
+  border-radius: var(--radius-sm);
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+}
+
+.qr img,
+.qrPlaceholder {
+  width: clamp(10rem, 8rem + 6vw, 12.5rem);
+  aspect-ratio: 1;
+}
+
+.qrPlaceholder {
+  background: var(--ivory-deep);
+  animation: blink 1.2s ease-in-out infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.payAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  min-height: 3.2rem;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  font-size: var(--step--1);
+  font-weight: 700;
+  transition: filter 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+}
+
+.payAction:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+
+.payWave {
+  background: var(--gold);
+  color: var(--teal-deep);
+}
+
+.payOm {
+  background: var(--red);
+  color: #fff;
+}
+
+.merchant {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--on-dark-line);
+  border-radius: var(--radius-sm);
+  background: rgba(246, 241, 231, 0.06);
+}
+
+.merchantLabel {
+  display: block;
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+}
+
+.merchantValue {
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  font-weight: 700;
+  color: var(--ivory);
+}
+
+.receipt {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  width: 100%;
+  min-height: 2.9rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid rgba(240, 205, 92, 0.4);
+  border-radius: 999px;
+  color: var(--ivory);
+  font-size: var(--step--1);
+  font-weight: 600;
+  transition:
+    background-color 0.3s var(--ease-out),
+    border-color 0.3s var(--ease-out);
+}
+
+.receipt svg {
+  color: var(--gold);
+}
+
+.receipt:hover {
+  border-color: var(--gold);
+  background: rgba(246, 241, 231, 0.06);
+}
+
+.copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex: 0 0 auto;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(18, 62, 67, 0.07);
+  color: var(--teal);
+  font-size: var(--step--2);
+  font-weight: 700;
+  transition: background-color 0.3s var(--ease-out);
+}
+
+.copy:hover {
+  background: rgba(18, 62, 67, 0.14);
+}
+
+.copyLight {
+  background: rgba(246, 241, 231, 0.1);
+  color: var(--gold-soft);
+}
+
+.copyLight:hover {
+  background: rgba(246, 241, 231, 0.18);
+}
+
+/* ---- Aide WhatsApp ---- */
+.help {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+}
+
+.helpTitle {
+  display: block;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.helpText {
+  font-size: var(--step--1);
+  color: var(--ink-3);
+}
+
+.whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex: 0 0 auto;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(5, 150, 105, 0.12);
+  color: #047857;
+  font-size: var(--step--2);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition:
+    background-color 0.3s var(--ease-out),
+    color 0.3s var(--ease-out);
+}
+
+.whatsapp:hover {
+  background: #059669;
+  color: #fff;
+}
+
+/* ---- Onglet Virement ---- */
+.bankHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.25rem 2rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.bankBrand {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.pamecas {
+  position: relative;
+  font-family: Georgia, serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+  color: #111;
+}
+
+.pamecas::after {
+  content: '✦✦✦';
+  display: block;
+  margin: -0.55rem 0 0 4.3rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  color: #6f982d;
+}
+
+.pamecasTag {
+  font-size: var(--step--2);
+  font-weight: 600;
+  color: var(--ink-3);
+}
+
+.bankTitle {
+  margin-top: 0.4rem;
+  font-size: var(--step-3);
+  line-height: 1.05;
+  color: var(--teal);
+}
+
+.copyAll {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.9rem;
+  padding: 0.6rem 1.15rem;
+  border-radius: 999px;
+  background: var(--red);
+  color: #fff;
+  font-size: var(--step--1);
+  font-weight: 700;
+  transition: background-color 0.3s var(--ease-out);
+}
+
+.copyAll:hover {
+  background: #a11010;
+}
+
+.bankGrid {
+  display: grid;
+  gap: 1rem;
+}
+
+.bankField {
+  display: grid;
+  align-content: start;
+  gap: 0.4rem;
+  min-width: 0;
+  padding: 1.15rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+
+.bankRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.fieldHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.fieldLabel {
+  display: block;
+  font-size: var(--step--2);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.fieldStrong {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.fieldMuted {
+  font-size: var(--step--1);
+  color: var(--ink-3);
+}
+
+.ribBlocks {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.4rem;
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  font-size: var(--step--1);
+  text-align: center;
+}
+
+.ribBlocks div {
+  min-width: 0;
+  padding: 0.5rem 0.25rem;
+  overflow-wrap: anywhere;
+  border-radius: var(--radius-sm);
+  background: var(--ivory-deep);
+  color: var(--ink);
+}
+
+.ribBlocks span {
+  display: block;
+  margin-bottom: 0.15rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--ink-3);
+}
+
+.ribKey {
+  font-weight: 700;
+  color: var(--gold-deep) !important;
+}
+
+.iban {
+  padding: 0.6rem 0.75rem;
+  overflow-wrap: anywhere;
+  border-radius: var(--radius-sm);
+  background: var(--ivory-deep);
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  font-size: var(--step-0);
+  font-weight: 700;
+  color: var(--gold-deep);
+}
+
+.bic {
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+}
+
+.reference {
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  font-size: var(--step--1);
+  font-weight: 700;
+  color: #047857;
+  overflow-wrap: anywhere;
+}
+
+/* ---- Fenêtre de reçu ---- */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(7, 29, 32, 0.62);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.modal {
+  display: grid;
+  gap: 1rem;
+  width: min(28rem, 100%);
+  padding: 1.75rem;
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+  box-shadow: 0 40px 100px -30px rgba(0, 0, 0, 0.55);
+}
+
+.modalHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.modalHead h3 {
+  font-size: var(--step-2);
+  color: var(--teal);
+}
+
+.modalClose {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: rgba(18, 62, 67, 0.06);
+  color: var(--teal);
+}
+
+.modalText {
+  color: var(--ink-2);
+}
+
+.modalAmount {
+  color: var(--gold-deep);
+}
+
+.modalNote {
+  font-size: var(--step--1);
+  font-style: normal;
+  color: var(--ink-3);
+}
+
+.modalButton {
+  min-height: 2.9rem;
+  border-radius: 999px;
+  background: var(--teal);
+  color: var(--ivory);
+  font-weight: 600;
+  transition: background-color 0.3s var(--ease-out);
+}
+
+.modalButton:hover {
+  background: var(--teal-deep);
+}
+
+/* ---- Responsive ---- */
+@media (min-width: 560px) {
+  .grid2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .mobileLayout {
+    grid-template-columns: minmax(0, 1.35fr) minmax(20rem, 1fr);
+  }
+
+  .side {
+    position: sticky;
+    top: calc(var(--nav-height) + 1.5rem);
+  }
+
+  .bankGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 559px) {
+  .tab {
+    gap: 0.4rem;
+    padding-inline: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .amounts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ribBlocks {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .help {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

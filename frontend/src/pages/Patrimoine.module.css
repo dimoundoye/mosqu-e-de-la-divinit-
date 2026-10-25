@@ -1,0 +1,316 @@
+/* ============================================================
+   PAGE PATRIMOINE — Archives & Mémoire
+   ============================================================ */
+
+/* ---- L'héritage de Sangabi ---- */
+.legacy {
+  padding-block: clamp(2rem, 1rem + 3vw, 4rem) var(--section);
+  background: var(--ivory);
+}
+
+.legacyGrid {
+  display: grid;
+  gap: var(--block);
+  align-items: center;
+}
+
+.legacyFigure {
+  display: grid;
+  justify-items: center;
+}
+
+/* Tirage photo : marge blanche, légère inclinaison */
+.print {
+  position: relative;
+  width: min(100%, 30rem);
+  aspect-ratio: 3 / 4;
+  padding: 0.85rem;
+  border-radius: var(--radius-sm);
+  background: #fff;
+  box-shadow: var(--shadow-lift);
+  transform: rotate(1.2deg);
+  transition: transform 0.8s var(--ease-out);
+}
+
+.print img {
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+}
+
+.print:hover {
+  transform: rotate(0deg) translateY(-6px);
+}
+
+.legacyText {
+  display: grid;
+  justify-items: start;
+  gap: 1.75rem;
+}
+
+.legacyQuote {
+  font-family: var(--font-display);
+  font-size: var(--step-4);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.05;
+  color: var(--teal);
+}
+
+.legacyBody {
+  display: grid;
+  gap: 1rem;
+  max-width: 36rem;
+  font-size: var(--step-1);
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+/* ---- Compteurs ---- */
+.stats {
+  padding-block: clamp(3.5rem, 2.5rem + 3vw, 6rem);
+  background: var(--sand);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem 1.5rem;
+}
+
+.stat {
+  display: grid;
+  justify-items: center;
+  gap: 0.35rem;
+  padding-top: 1.5rem;
+  text-align: center;
+}
+
+.statNum {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 2rem + 3vw, 4.6rem);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--red);
+  transition: transform 0.5s var(--ease-out);
+}
+
+.stat:hover .statNum {
+  transform: translateY(-4px);
+}
+
+.pulse {
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.statLabel {
+  margin-top: 0.35rem;
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.statSub {
+  font-family: var(--font-display);
+  font-size: var(--step-0);
+  font-style: normal;
+  color: var(--ink-3);
+}
+
+.statLive {
+  grid-column: 1 / -1;
+}
+
+/* ---- Médiathèque ---- */
+.media {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding-block: var(--section);
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 0%, rgba(234, 186, 16, 0.08), transparent 70%),
+    var(--night);
+  color: var(--on-dark);
+}
+
+.mediaPattern {
+  opacity: 0.045;
+}
+
+.mediaInner {
+  position: relative;
+}
+
+.mediaHead {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: var(--block);
+}
+
+.mediaHeadMain {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.mediaTitle {
+  font-size: var(--step-6);
+  line-height: 1.06;
+  color: var(--ivory);
+}
+
+.mediaNote {
+  max-width: 28rem;
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-style: normal;
+  line-height: 1.5;
+  color: var(--on-dark-2);
+}
+
+.mediaGrid {
+  display: grid;
+  gap: clamp(1rem, 0.6rem + 1.5vw, 2rem);
+}
+
+.mediaMain,
+.mediaThumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: #000;
+}
+
+.mediaMain iframe,
+.mediaThumb iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.mediaSide {
+  display: grid;
+  gap: clamp(1rem, 0.6rem + 1.5vw, 2rem);
+}
+
+.mediaCard {
+  display: grid;
+  align-content: center;
+  gap: 0.6rem;
+  padding: clamp(1.5rem, 1rem + 1.5vw, 2.25rem);
+  border: 1px solid var(--on-dark-line);
+  border-radius: var(--radius);
+  background: rgba(246, 241, 231, 0.04);
+  transition:
+    background-color 0.5s var(--ease-out),
+    transform 0.5s var(--ease-out);
+}
+
+.mediaCard:hover {
+  background: rgba(246, 241, 231, 0.07);
+  transform: translateY(-3px);
+}
+
+.mediaCardIcon {
+  margin-bottom: 0.4rem;
+  color: var(--gold);
+}
+
+.mediaCard h3 {
+  font-size: var(--step-3);
+  line-height: 1;
+  color: var(--ivory);
+}
+
+.mediaCard p {
+  color: var(--on-dark-2);
+}
+
+.progress {
+  position: relative;
+  height: 3px;
+  margin-top: 0.5rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--on-dark-line);
+}
+
+.progress i {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 33%;
+  background: var(--gold);
+}
+
+.mediaCardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-self: start;
+  margin-top: 0.4rem;
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--gold-soft);
+  transition: gap 0.4s var(--ease-out);
+}
+
+.mediaCardLink:hover {
+  gap: 0.9rem;
+}
+
+.mediaCta {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--block);
+}
+
+@media (min-width: 700px) {
+  .statsGrid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .statLive {
+    grid-column: auto;
+  }
+}
+
+@media (min-width: 960px) {
+  .legacyGrid {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(3rem, 1rem + 5vw, 7rem);
+  }
+
+  .mediaHead {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    align-items: end;
+    gap: var(--gutter);
+  }
+
+  .mediaNote {
+    justify-self: end;
+  }
+
+  .mediaGrid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .mediaMain {
+    grid-column: span 8;
+  }
+
+  .mediaSide {
+    grid-column: span 4;
+  }
+
+  .mediaThumb {
+    grid-column: span 4;
+  }
+}

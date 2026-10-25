@@ -1,0 +1,227 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 1000;
+  color: var(--ink);
+  transition:
+    background-color 0.5s var(--ease-out),
+    border-color 0.5s var(--ease-out),
+    color 0.5s var(--ease-out);
+}
+
+.scrolled {
+  background: color-mix(in srgb, var(--ivory) 84%, transparent);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  backdrop-filter: blur(16px) saturate(1.3);
+}
+
+.onDark {
+  color: var(--ivory);
+  --switch-bg: var(--ivory);
+  --switch-fg: var(--teal-deep);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  height: var(--nav-height);
+}
+
+/* ---- Marque ---- */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+  border-radius: var(--radius-sm);
+}
+
+/* Icône de la charte : carré sarcelle sur clair, contour blanc sur la vidéo */
+.logo {
+  width: 2.75rem;
+}
+
+.brandText {
+  display: grid;
+  min-width: 0;
+  line-height: 1.1;
+}
+
+.brandName {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+}
+
+.brandSub {
+  margin-top: 0.15rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  transition: color 0.5s var(--ease-out);
+}
+
+.onDark .brandSub {
+  color: var(--gold-soft);
+}
+
+/* ---- Liens ---- */
+.nav {
+  display: none;
+}
+
+.links {
+  display: flex;
+  gap: clamp(0.85rem, -1.6rem + 3vw, 2.1rem);
+}
+
+.link {
+  position: relative;
+  display: inline-block;
+  padding-block: 0.4rem;
+  /* Taille fixe (16 px) : les huit liens tiennent sur une ligne dès 1360 px */
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: nowrap;
+  color: inherit;
+  opacity: 0.92;
+  transition: opacity 0.4s var(--ease-out);
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.1rem;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.link:hover,
+.active {
+  opacity: 1;
+}
+
+.link:hover::after,
+.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Page courante : pastille rouge de la charte */
+.active::before {
+  content: '';
+  position: absolute;
+  left: -0.7rem;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--red);
+  transform: translateY(-50%);
+}
+
+/* ---- Actions ---- */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.lang {
+  display: none;
+}
+
+.menuButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.3rem 0.5rem 0.8rem;
+  border-radius: 999px;
+  font-size: var(--step--1);
+  font-weight: 500;
+  color: inherit;
+}
+
+.burger {
+  position: relative;
+  display: grid;
+  gap: 5px;
+  width: 1.45rem;
+}
+
+.burger span {
+  display: block;
+  height: 1.5px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.burgerOpen span:first-child {
+  transform: translateY(3.25px) rotate(45deg);
+}
+
+.burgerOpen span:last-child {
+  transform: translateY(-3.25px) rotate(-45deg);
+}
+
+@media (max-width: 559px) {
+  .donate {
+    display: none;
+  }
+
+  .menuLabel {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .brandName {
+    font-size: 1.12rem;
+  }
+
+  .brandSub {
+    letter-spacing: 0.18em;
+  }
+
+  .logo {
+    width: 2.2rem;
+  }
+}
+
+@media (min-width: 760px) {
+  .lang {
+    display: inline-flex;
+  }
+}
+
+/* Huit liens : la barre complète a besoin de toute la largeur d'un écran de bureau */
+@media (min-width: 1360px) {
+  .bar {
+    gap: 1rem;
+  }
+
+  .brand {
+    flex-shrink: 0;
+  }
+
+  .nav {
+    display: block;
+  }
+
+  .menuButton {
+    display: none;
+  }
+}

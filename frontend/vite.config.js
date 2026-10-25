@@ -1,15 +1,12 @@
-import { defineConfig } from 'vite';
-import { resolve } from 'path';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
+// https://vite.dev/config/
+// Les styles sont écrits en modules CSS (un fichier par composant) sur la
+// base des jetons de src/styles/tokens.css : plus besoin de Tailwind.
 export default defineConfig({
+  plugins: [react()],
   build: {
-    rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'index.html'),
-        histoire: resolve(__dirname, 'histoire.html'),
-        boutique: resolve(__dirname, 'boutique.html'),
-        renovation: resolve(__dirname, 'renovation.html'),
-      },
-    },
+    cssMinify: 'esbuild',
   },
-});
+})

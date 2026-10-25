@@ -1,0 +1,42 @@
+.button {
+  position: fixed;
+  right: clamp(0.9rem, 0.5rem + 1vw, 1.5rem);
+  bottom: calc(clamp(0.9rem, 0.5rem + 1vw, 1.5rem) + env(safe-area-inset-bottom));
+  z-index: 250;
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background: var(--teal-deep);
+  color: var(--ivory);
+  box-shadow: var(--shadow-soft);
+  transition: background-color 0.4s var(--ease-out);
+}
+
+.button:hover {
+  background: var(--teal);
+}
+
+.ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.track,
+.progress {
+  fill: none;
+  stroke-width: 2;
+}
+
+.track {
+  stroke: rgba(246, 241, 231, 0.14);
+}
+
+.progress {
+  stroke: var(--gold);
+  stroke-linecap: round;
+}

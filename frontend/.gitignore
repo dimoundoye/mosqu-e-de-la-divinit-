@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Sauvegarde des images HD originales (ne pas déployer)
+src/assets/_originaux_hd/
+src/assets/photo/_originaux_hd/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

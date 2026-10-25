@@ -1,0 +1,46 @@
+.page {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 100vh; /* repli : navigateurs sans unité svh */
+  min-height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+  padding-block: calc(var(--nav-height) + 3rem) 4rem;
+  background:
+    radial-gradient(ellipse 60% 55% at 50% 40%, rgba(234, 186, 16, 0.1), transparent 70%),
+    var(--night);
+  color: var(--on-dark);
+}
+
+.pattern {
+  opacity: 0.06;
+}
+
+.inner {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.title {
+  font-size: var(--step-6);
+  line-height: 1.06;
+  color: var(--ivory);
+}
+
+.text {
+  max-width: 34rem;
+  font-size: var(--step-1);
+  color: var(--on-dark-2);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}

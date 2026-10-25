@@ -1,0 +1,39 @@
+/* Couleurs de la pastille active, à surcharger par le parent sur fond sombre :
+   --switch-bg (fond) et --switch-fg (texte). */
+.switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 999px;
+  border: 1px solid rgba(128, 128, 128, 0.35); /* repli : navigateurs sans color-mix() */
+  border: 1px solid color-mix(in srgb, currentColor 24%, transparent);
+}
+
+.option {
+  min-width: 2.35rem;
+  min-height: 1.9rem;
+  padding: 0 0.6rem;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: inherit;
+  opacity: 0.7;
+  transition:
+    background-color 0.4s var(--ease-out),
+    color 0.4s var(--ease-out),
+    opacity 0.4s var(--ease-out);
+}
+
+.option:hover {
+  opacity: 1;
+}
+
+.active {
+  opacity: 1;
+  background: var(--switch-bg, var(--teal));
+  color: var(--switch-fg, var(--ivory));
+}

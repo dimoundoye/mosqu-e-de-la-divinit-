@@ -1,0 +1,17 @@
+.frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+
+.clip {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--ivory-deep);
+}
+
+.inner {
+  position: absolute;
+  inset: 0;
+}

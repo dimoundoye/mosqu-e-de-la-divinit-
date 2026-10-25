@@ -1,0 +1,105 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding-block: var(--section);
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(234, 186, 16, 0.1), transparent 70%),
+    var(--teal);
+  color: var(--on-dark);
+}
+
+.pattern {
+  opacity: 0.08;
+}
+
+.inner {
+  position: relative;
+}
+
+.head {
+  display: grid;
+  justify-items: center;
+  gap: 1.25rem;
+  margin-bottom: var(--block);
+  text-align: center;
+}
+
+.title {
+  font-size: var(--step-6);
+  line-height: 1.06;
+  color: var(--ivory);
+}
+
+.pillars {
+  display: grid;
+}
+
+.pillar {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 0.6rem;
+  padding: clamp(2rem, 1.5rem + 2vw, 3.5rem) clamp(1rem, 0.5rem + 2vw, 2.5rem);
+  text-align: center;
+}
+
+/* Calligraphie : chaque pilier sa matière (plein, or, évidé) */
+.ar {
+  margin-bottom: 0.5rem;
+  font-size: clamp(3.4rem, 2.4rem + 4vw, 6rem);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.emerald {
+  color: var(--ivory);
+}
+
+.red {
+  background: linear-gradient(180deg, #f8e3a0, var(--gold) 60%, #b8890a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 22px rgba(234, 186, 16, 0.3));
+}
+
+.hollow {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--gold-soft);
+  paint-order: stroke fill;
+}
+
+.name {
+  font-size: var(--step-4);
+  line-height: 1;
+  color: var(--ivory);
+}
+
+.trans {
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+}
+
+.body {
+  max-width: 21rem;
+  margin-top: 0.6rem;
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-style: normal;
+  line-height: 1.5;
+  color: var(--on-dark-2);
+}
+
+@media (min-width: 960px) {
+  .pillars {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .mid {
+    background: linear-gradient(180deg, rgba(246, 241, 231, 0.05), transparent 70%);
+  }
+}

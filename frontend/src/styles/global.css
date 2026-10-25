@@ -1,0 +1,205 @@
+/* ============================================================
+   Base globale : reset, typographie, utilitaires partagés.
+   Les styles propres à chaque composant vivent dans son module CSS.
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Ancres natives (sans Lenis) : le titre ne passe pas sous la navigation */
+  scroll-padding-top: calc(var(--nav-height) + 1rem);
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  font-size: var(--step-0);
+  line-height: 1.65;
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--ivory);
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+picture,
+video,
+svg,
+iframe {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* Titres : Poppins de la charte, graisse forte et approche resserrée */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: inherit;
+  text-wrap: balance;
+}
+
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  line-height: 1.25;
+  color: inherit;
+}
+
+/* Mot d'accent : même police en graisse légère, sarcelle sur clair */
+em {
+  font-style: normal;
+}
+
+h1 em,
+h2 em,
+h3 em {
+  font-weight: 300;
+  color: var(--accent);
+}
+
+/* Sur fond sombre : le mot d'accent prend le dégradé or de la charte */
+.on-dark h1 em,
+.on-dark h2 em,
+.on-dark h3 em {
+  font-weight: 400;
+  background: var(--grad-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+[lang='ar'] {
+  font-family: var(--font-arabic);
+  letter-spacing: 0;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--teal-deep);
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Barre de défilement discrète, aux couleurs de la charte */
+@supports selector(::-webkit-scrollbar) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--ivory);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--teal-soft);
+    border-radius: 999px;
+    border: 2px solid var(--ivory);
+  }
+}
+
+/* Conteneur de page */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Fond sombre : textes clairs et accent or */
+.on-dark {
+  --accent: var(--gold-soft);
+  color: var(--on-dark);
+}
+
+/* Texte en dégradé or (charte) */
+.gold-text {
+  background: var(--grad-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 3000;
+  padding: 0.75rem 1.25rem;
+  background: var(--teal-deep);
+  color: var(--ivory);
+  border-radius: 999px;
+  transform: translateY(-200%);
+  transition: transform 0.3s var(--ease-out);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

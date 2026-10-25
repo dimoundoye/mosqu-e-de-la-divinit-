@@ -1,0 +1,114 @@
+.section {
+  position: relative;
+  padding-block: var(--section);
+  background: var(--ivory);
+}
+
+.head {
+  display: grid;
+  gap: 1.25rem;
+  margin-bottom: var(--block);
+}
+
+.title {
+  font-size: var(--step-6);
+  line-height: 1.06;
+  color: var(--teal);
+}
+
+.grid {
+  display: grid;
+  gap: var(--block);
+}
+
+.story {
+  display: grid;
+  align-content: start;
+  gap: 1.75rem;
+}
+
+.lead {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: var(--teal);
+  text-wrap: balance;
+}
+
+.body {
+  display: grid;
+  gap: 1.1rem;
+  max-width: 34rem;
+  font-size: var(--step-0);
+  line-height: 1.75;
+  color: var(--ink-2);
+}
+
+.body strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* Mosaïque d'archives : portrait à gauche, deux vues empilées à droite */
+.gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(0.75rem, 0.5rem + 1vw, 1.25rem);
+  align-items: start;
+}
+
+.tall {
+  width: 100%;
+}
+
+.stack {
+  display: grid;
+  gap: clamp(0.75rem, 0.5rem + 1vw, 1.25rem);
+  padding-top: clamp(2rem, 1rem + 4vw, 5rem);
+}
+
+/* Citation : elle s'illumine mot à mot au défilement */
+.quote {
+  position: relative;
+  display: grid;
+  justify-items: start;
+  margin-top: var(--section);
+  padding-top: clamp(2rem, 1.5rem + 2vw, 3rem);
+}
+
+.mark {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 2.5rem + 6vw, 7.5rem);
+  line-height: 0.6;
+  color: var(--gold);
+  margin-bottom: -0.1em;
+}
+
+.quoteText {
+  max-width: 22em;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 0.9rem + 2.5vw, 3.2rem);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  color: var(--teal);
+}
+
+@media (min-width: 960px) {
+  .head {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: clamp(3rem, 1rem + 5vw, 7rem);
+    align-items: start;
+  }
+
+  .story {
+    position: sticky;
+    top: calc(var(--nav-height) + 2rem);
+  }
+}

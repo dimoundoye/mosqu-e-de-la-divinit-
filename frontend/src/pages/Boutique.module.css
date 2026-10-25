@@ -1,0 +1,757 @@
+/* ============================================================
+   PAGE BOUTIQUE — « Porter le message. Soutenir l'œuvre. »
+   ============================================================ */
+.page {
+  background: var(--ivory);
+}
+
+.h2 {
+  font-size: var(--step-5);
+  line-height: 1.06;
+  color: var(--teal);
+}
+
+.h3 {
+  font-size: var(--step-4);
+  line-height: 1;
+  color: var(--teal);
+}
+
+.lead {
+  max-width: 34rem;
+  font-size: var(--step-1);
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+/* ============================================================
+   Catalogue filtrable
+   ============================================================ */
+.catalogue {
+  padding-block: clamp(3rem, 2rem + 3vw, 5rem) var(--section);
+  background: var(--paper);
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  padding-bottom: clamp(1.75rem, 1.25rem + 1.5vw, 2.75rem);
+  margin-bottom: clamp(1.75rem, 1.25rem + 1.5vw, 2.75rem);
+}
+
+.filter {
+  min-height: 2.75rem;
+  padding: 0.6rem 1.35rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--ink-2);
+  transition:
+    background-color 0.4s var(--ease-out),
+    color 0.4s var(--ease-out),
+    border-color 0.4s var(--ease-out);
+}
+
+.filter:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
+.filterActive,
+.filterActive:hover {
+  border-color: var(--teal);
+  background: var(--teal);
+  color: var(--ivory);
+}
+
+/* Colonnes calculées et non figées à 4 : le catalogue vient du dashboard,
+   et filtrer sur une gamme de deux articles laissait deux colonnes vides.
+   La largeur mini (17rem) plafonne naturellement à 4 colonnes. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(17rem, 100%), 1fr));
+  gap: clamp(1rem, 0.6rem + 1.5vw, 1.75rem);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  transition:
+    transform 0.6s var(--ease-out),
+    box-shadow 0.6s var(--ease-out);
+}
+
+.media {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--ivory-deep);
+}
+
+.media img {
+  position: absolute;
+  inset: 0;
+  transition: transform 1.2s var(--ease-out), opacity 0.9s var(--ease-out);
+}
+
+/* Produit détouré : fond blanc, image contenue (même hauteur de rangée) */
+.mediaContain {
+  background: #fff;
+}
+
+.mediaContain img {
+  padding: 1.5rem;
+}
+
+.mediaEmpty {
+  display: grid;
+  place-items: center;
+  background: #fff;
+  color: rgba(234, 186, 16, 0.5);
+}
+
+.badge {
+  position: absolute;
+  top: 0.9rem;
+  left: 0.9rem;
+  z-index: 2;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: var(--red);
+  color: #fff;
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.discover {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-out);
+}
+
+.discover span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.15rem;
+  border-radius: 999px;
+  background: rgba(11, 44, 48, 0.86);
+  color: var(--ivory);
+  font-size: var(--step--1);
+  font-weight: 600;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: clamp(1.15rem, 0.9rem + 0.8vw, 1.6rem);
+}
+
+.cat {
+  margin-bottom: 0.5rem;
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.name {
+  margin-bottom: 0.6rem;
+  font-size: var(--step-2);
+  line-height: 1.05;
+  color: var(--teal);
+  transition: color 0.4s var(--ease-out);
+}
+
+.desc {
+  flex: 1;
+  margin-bottom: 1.1rem;
+  font-size: var(--step--1);
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.priceLabel {
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.price {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--teal);
+  font-variant-numeric: lining-nums;
+}
+
+.add {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  min-height: 2.9rem;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  background: var(--teal);
+  color: var(--ivory);
+  font-size: var(--step--1);
+  font-weight: 600;
+  transition: background-color 0.4s var(--ease-out);
+}
+
+.add:hover {
+  background: var(--teal-deep);
+}
+
+.addOk,
+.addOk:hover {
+  background: #0f8a68;
+}
+
+.addOff,
+.addOff:hover {
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--line-strong);
+  color: var(--ink-3);
+  cursor: not-allowed;
+}
+
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lift);
+  }
+
+  .card:hover .media img {
+    transform: scale(1.04);
+  }
+
+  .card:hover .mediaContain img {
+    transform: none;
+  }
+
+  .card:hover .discover {
+    opacity: 1;
+  }
+
+  .card:hover .name {
+    color: var(--gold-deep);
+  }
+}
+
+/* ---- États du catalogue ---- */
+.state {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  padding: clamp(3rem, 2rem + 4vw, 5.5rem) 1rem;
+  text-align: center;
+  color: var(--line-strong);
+}
+
+.state p {
+  max-width: 30rem;
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-style: normal;
+  color: var(--ink-3);
+}
+
+/* Squelette plutôt qu'une ligne de texte : la page garde sa mise en
+   page pendant le chargement au lieu de sauter quand la grille arrive. */
+.skeleton {
+  pointer-events: none;
+}
+
+.skeletonMedia,
+.skeletonLine {
+  background: linear-gradient(100deg, var(--ivory-deep) 30%, var(--paper) 50%, var(--ivory-deep) 70%);
+  background-size: 220% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+.skeletonMedia {
+  aspect-ratio: 3 / 4;
+}
+
+.skeletonBody {
+  display: grid;
+  gap: 0.65rem;
+  padding: 1.4rem;
+}
+
+.skeletonLine {
+  height: 0.7rem;
+  border-radius: 3px;
+}
+
+.skeletonShort {
+  width: 45%;
+}
+
+.skeletonButton {
+  height: 2.75rem;
+  margin-top: 0.5rem;
+  border-radius: 999px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 180% 0;
+  }
+  100% {
+    background-position: -20% 0;
+  }
+}
+
+/* ============================================================
+   Gamme Yeete
+   ============================================================ */
+.yeete {
+  padding-block: var(--section);
+  background: var(--ivory);
+}
+
+.yeeteGrid {
+  display: grid;
+  gap: var(--block);
+  align-items: center;
+}
+
+.yeeteText {
+  display: grid;
+  justify-items: start;
+  gap: 1.25rem;
+}
+
+.yeeteVisual {
+  position: relative;
+  width: min(100%, 30rem);
+  margin-inline: auto;
+}
+
+/* Photo en arche, rappel des portes de la mosquée */
+.arch {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 999px 999px var(--radius) var(--radius);
+  background: var(--ivory-deep);
+  box-shadow: var(--shadow-lift);
+}
+
+.arch img {
+  position: absolute;
+  inset: 0;
+}
+
+.yeeteBadge {
+  position: absolute;
+  right: -0.75rem;
+  bottom: 1.5rem;
+  display: grid;
+  justify-items: center;
+  gap: 0.15rem;
+  padding: 1.1rem 1.5rem;
+  border-radius: var(--radius);
+  background: var(--gold);
+  color: var(--teal-deep);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+}
+
+.yeeteBadge p {
+  font-size: clamp(1.8rem, 1.4rem + 1.4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.yeeteBadge span {
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   Textile & Spirituelle
+   ============================================================ */
+.textile {
+  padding-block: var(--section);
+  background: var(--paper);
+}
+
+.headRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem 2rem;
+  margin-bottom: var(--block);
+}
+
+.headMain {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.spiritual {
+  padding-block: var(--section);
+  background: var(--ivory);
+}
+
+.centerHead {
+  display: grid;
+  justify-items: center;
+  gap: 1.25rem;
+  margin-bottom: var(--block);
+  text-align: center;
+}
+
+.spiritGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
+  gap: clamp(1.5rem, 1rem + 2vw, 3rem);
+}
+
+.spirit {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  max-width: 24rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.spiritPhoto {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+  border-radius: var(--radius);
+  background: var(--ivory-deep);
+}
+
+.spiritPhoto img {
+  position: absolute;
+  inset: 0;
+  transition: transform 1.2s var(--ease-out), opacity 0.9s var(--ease-out);
+}
+
+.spirit:hover .spiritPhoto img {
+  transform: scale(1.05);
+}
+
+.spiritName {
+  font-size: var(--step-3);
+  font-style: normal;
+  color: var(--teal);
+}
+
+.spiritText {
+  max-width: 30ch;
+  font-size: var(--step--1);
+  color: var(--ink-2);
+}
+
+/* ============================================================
+   Signalétique — 60 / 40
+   ============================================================ */
+.sign {
+  padding-block: var(--section);
+  background: var(--paper);
+}
+
+.signGrid {
+  display: grid;
+  gap: var(--block);
+}
+
+.signLeft {
+  display: grid;
+  gap: 1.25rem;
+  align-content: start;
+}
+
+.signProducts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 0.6rem + 2vw, 2.5rem);
+  margin-top: 1.5rem;
+}
+
+.signProduct {
+  display: grid;
+  align-content: start;
+  gap: 0.5rem;
+}
+
+.signOffset {
+  padding-top: clamp(1.5rem, 1rem + 4vw, 4.5rem);
+}
+
+.signPhoto {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+  border-radius: var(--radius);
+  background: var(--ivory-deep);
+}
+
+.signPhoto img {
+  position: absolute;
+  inset: 0;
+}
+
+.signProduct h3 {
+  font-size: var(--step-2);
+  color: var(--teal);
+}
+
+.signProduct p {
+  font-size: var(--step--1);
+  color: var(--ink-2);
+}
+
+.signRight {
+  position: relative;
+  display: grid;
+  align-content: center;
+  gap: 1rem;
+  padding: clamp(1.75rem, 1.25rem + 2.5vw, 3.5rem);
+  border-radius: var(--radius-lg);
+  background: var(--teal-deep);
+  color: var(--on-dark);
+}
+
+.quote {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--ivory);
+}
+
+.quoteSub {
+  padding-bottom: 1.5rem;
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+}
+
+.points {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.point {
+  display: grid;
+  gap: 1rem;
+  align-items: start;
+}
+
+.point h3 {
+  font-size: var(--step-1);
+  font-weight: 600;
+  color: var(--ivory);
+}
+
+.point p {
+  font-size: var(--step--1);
+  color: var(--on-dark-2);
+}
+
+/* ============================================================
+   Logistique & Assistance
+   ============================================================ */
+.logistics {
+  padding-block: var(--section);
+  background: var(--ivory);
+}
+
+.logiCard {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(1.75rem, 1.25rem + 3vw, 4rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+}
+
+.logiWatermark {
+  position: absolute;
+  right: -3rem;
+  top: 8%;
+  width: 22rem;
+  height: 22rem;
+  color: rgba(234, 186, 16, 0.12);
+  pointer-events: none;
+}
+
+.logiGrid {
+  position: relative;
+  display: grid;
+  gap: var(--block);
+}
+
+.logiText {
+  display: grid;
+  align-content: start;
+  gap: 1.25rem;
+}
+
+.logiList {
+  display: grid;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.logiItem {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.logiIcon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 2.9rem;
+  height: 2.9rem;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  color: var(--gold-deep);
+}
+
+.logiItem b {
+  display: block;
+  font-weight: 600;
+  color: var(--teal);
+}
+
+.logiItem span {
+  font-size: var(--step--1);
+  color: var(--ink-2);
+}
+
+.form {
+  padding: clamp(1.4rem, 1rem + 1.5vw, 2.25rem);
+  border-radius: var(--radius);
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+}
+
+.form h3 {
+  margin-bottom: 1.1rem;
+  font-size: var(--step-3);
+  font-style: normal;
+  color: var(--teal);
+}
+
+.form form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  color: var(--ink);
+  transition:
+    border-color 0.3s var(--ease-out),
+    box-shadow 0.3s var(--ease-out);
+}
+
+.form textarea {
+  min-height: 6.5rem;
+  resize: vertical;
+}
+
+.form input::placeholder,
+.form textarea::placeholder {
+  color: var(--ink-3);
+}
+
+.form input:focus,
+.form textarea:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(18, 62, 67, 0.12);
+}
+
+@media (min-width: 960px) {
+  .yeeteGrid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(3rem, 1rem + 5vw, 7rem);
+  }
+
+  .signGrid {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: clamp(2.5rem, 1rem + 4vw, 6rem);
+    align-items: center;
+  }
+
+  .logiGrid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+/* Mobile : une carte par ligne, visuel moins haut pour garder le rythme */
+@media (max-width: 560px) {
+  .media,
+  .skeletonMedia {
+    aspect-ratio: 4 / 3;
+  }
+
+  .mediaContain img {
+    padding: 1rem;
+  }
+
+  .yeeteBadge {
+    right: 0.5rem;
+  }
+}

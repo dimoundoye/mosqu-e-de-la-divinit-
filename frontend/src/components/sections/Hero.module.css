@@ -1,0 +1,211 @@
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: max(100vh, 42rem); /* repli : navigateurs sans unité svh */
+  min-height: max(100svh, 42rem);
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--night);
+  color: var(--on-dark);
+}
+
+/* ---- Vidéo ---- */
+.media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  will-change: transform;
+}
+
+/* Voiles de lisibilité : haut (navigation), bas et gauche (texte).
+   La vidéo passe par des plans très clairs (ciel, façades blanches). */
+.shade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(7, 29, 32, 0.62) 0%, rgba(7, 29, 32, 0) 24%),
+    linear-gradient(0deg, rgba(7, 29, 32, 0.96) 0%, rgba(7, 29, 32, 0.72) 30%, rgba(7, 29, 32, 0.2) 62%, rgba(7, 29, 32, 0) 78%),
+    linear-gradient(90deg, rgba(7, 29, 32, 0.66) 0%, rgba(7, 29, 32, 0.15) 55%, rgba(7, 29, 32, 0) 75%);
+}
+
+/* ---- Texte ---- */
+/* Le titre commence juste sous la ligne médiane de l'écran */
+.content {
+  position: relative;
+  flex: 1;
+  display: grid;
+  align-content: start;
+  padding-top: calc(50vh + 1rem); /* repli : navigateurs sans unité svh */
+  padding-top: calc(max(50svh, 21rem) + 1rem);
+  padding-bottom: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+}
+
+.copy {
+  display: grid;
+  justify-items: start;
+  gap: clamp(1rem, 0.8rem + 0.8vw, 1.5rem);
+  max-width: 54rem;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+}
+
+.star {
+  width: 1rem;
+  height: 1rem;
+  color: var(--gold);
+}
+
+.title {
+  font-size: clamp(2.5rem, 0.9rem + 5.4vw, 6.2rem);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  color: var(--ivory);
+}
+
+/* Titre entièrement blanc : annule l'accent doré global des fonds sombres */
+.hero .title em {
+  background: none;
+  color: var(--ivory);
+}
+
+.subtitle {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.9rem;
+  font-size: var(--step--1);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--on-dark-2);
+}
+
+.quote {
+  max-width: 38rem;
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-style: normal;
+  line-height: 1.35;
+  color: var(--on-dark-2);
+}
+
+.date {
+  color: var(--gold-soft);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.4rem;
+}
+
+/* ---- Repères chiffrés ---- */
+.statsWrap {
+  position: relative;
+  padding-bottom: clamp(1.5rem, 1rem + 1.5vw, 2.5rem);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.stat {
+  display: grid;
+  align-content: start;
+  gap: 0.35rem;
+  padding: 1.25rem 1.25rem 0 0;
+}
+
+.stat + .stat {
+  padding-left: clamp(1rem, 0.5rem + 1.5vw, 2rem);
+}
+
+.statNum {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--ivory);
+}
+
+.statLabel {
+  font-size: var(--step--2);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+}
+
+@media (max-width: 899px) {
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stat:nth-child(3) {
+    padding-left: 0;
+  }
+
+  .stat:nth-child(n + 3) {
+    padding-top: 1.1rem;
+    margin-top: 1.1rem;
+  }
+}
+
+@media (max-width: 559px) {
+  .quote {
+    font-size: var(--step-1);
+  }
+
+  .actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+
+  .actions > :first-child {
+    grid-column: 1 / -1;
+  }
+
+  /* Deux boutons côte à côte : libellés courts, sans pastille fléchée */
+  .secondary,
+  .actions > :nth-child(2) {
+    justify-content: center;
+    padding-inline: 0.75rem;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .secondary > span:last-child,
+  .actions > :nth-child(2) > span:last-child {
+    display: none;
+  }
+
+  .shade {
+    background:
+      linear-gradient(180deg, rgba(7, 29, 32, 0.6) 0%, rgba(7, 29, 32, 0) 22%),
+      linear-gradient(0deg, rgba(7, 29, 32, 0.97) 0%, rgba(7, 29, 32, 0.8) 42%, rgba(7, 29, 32, 0.25) 72%, rgba(7, 29, 32, 0.1) 100%);
+  }
+}

@@ -1,0 +1,179 @@
+.section {
+  position: relative;
+  padding-block: var(--section);
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 30%, rgba(234, 186, 16, 0.07), transparent 70%),
+    var(--night);
+  color: var(--on-dark);
+}
+
+.sticky {
+  position: relative;
+}
+
+.pattern {
+  opacity: 0.045;
+}
+
+.track {
+  position: relative;
+}
+
+.intro {
+  display: grid;
+  gap: 1.25rem;
+  padding-inline: var(--gutter);
+  margin-bottom: var(--block);
+}
+
+.title {
+  font-size: var(--step-6);
+  line-height: 1.06;
+  color: var(--ivory);
+}
+
+/* ---- Étapes : liste verticale (mobile) ---- */
+.steps {
+  position: relative;
+  display: grid;
+  gap: 2.5rem;
+  padding-inline: calc(var(--gutter) + 2.25rem) var(--gutter);
+}
+
+.step {
+  position: relative;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.year {
+  font-family: var(--font-display);
+  font-size: var(--step-4);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  background: linear-gradient(180deg, #f8e3a0, var(--gold) 70%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.node {
+  position: absolute;
+  top: 0.55rem;
+  left: -2.25rem;
+  display: grid;
+  place-items: center;
+  width: 1.15rem;
+  height: 1.15rem;
+  color: var(--gold);
+  background: var(--night);
+}
+
+.nodeStar {
+  width: 100%;
+  height: 100%;
+}
+
+.stepTitle {
+  font-size: var(--step-2);
+  line-height: 1.1;
+  color: var(--ivory);
+}
+
+.stepBody {
+  max-width: 34rem;
+  font-size: var(--step--1);
+  line-height: 1.7;
+  color: var(--on-dark-2);
+}
+
+/* ---- Version épinglée (grand écran) : défilement horizontal ---- */
+.pinned {
+  padding-block: 0;
+}
+
+.pinned .sticky {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.pinned .track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  padding-inline: var(--gutter) 10vw;
+  will-change: transform;
+}
+
+.pinned .intro {
+  flex: 0 0 auto;
+  width: min(34rem, 38vw);
+  margin-bottom: 0;
+  padding-inline: 0 clamp(2rem, 1rem + 4vw, 6rem);
+}
+
+.pinned .steps {
+  display: flex;
+  gap: 0;
+  padding-inline: 0;
+}
+
+/* La largeur suit l'année la plus longue (« 1992–1997 ») ou le texte */
+.pinned .step {
+  --year-size: clamp(2.4rem, 1.7rem + 2.2vw, 3.6rem);
+  flex: 0 0 auto;
+  width: max-content;
+  padding-right: clamp(2.5rem, 1.5rem + 3vw, 5rem);
+  align-content: start;
+  gap: 0;
+}
+
+.pinned .stepTitle,
+.pinned .stepBody {
+  width: clamp(16rem, 11rem + 9vw, 21rem);
+}
+
+.pinned .steps {
+  --year-size: clamp(2.4rem, 1.7rem + 2.2vw, 3.6rem);
+}
+
+.pinned .year {
+  height: var(--year-size);
+  font-size: var(--year-size);
+  white-space: nowrap;
+}
+
+.pinned .node {
+  position: relative;
+  top: auto;
+  left: auto;
+  margin-block: 0.6rem 1.75rem;
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.pinned .stepTitle {
+  margin-bottom: 0.75rem;
+}
+
+.progress {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: 2.5rem;
+  height: 1px;
+  background: var(--on-dark-line);
+}
+
+.progressFill {
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform-origin: left;
+}

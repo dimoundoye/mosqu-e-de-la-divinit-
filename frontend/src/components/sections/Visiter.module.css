@@ -1,0 +1,132 @@
+.section {
+  position: relative;
+  padding-block: var(--section);
+  background: var(--ivory);
+}
+
+.head {
+  display: grid;
+  gap: 1.25rem;
+  margin-bottom: var(--block);
+}
+
+.title {
+  font-size: var(--step-6);
+  line-height: 1.06;
+  color: var(--teal);
+}
+
+.photo {
+  width: 100%;
+}
+
+/* ---- Carte d'informations pratiques ---- */
+.card {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 2rem;
+  overflow: hidden;
+  margin-top: 1.25rem;
+  padding: clamp(1.75rem, 1.25rem + 2vw, 3.25rem);
+  border-radius: var(--radius);
+  background: var(--teal-deep);
+  color: var(--on-dark);
+  box-shadow: var(--shadow-lift);
+}
+
+.cardPattern {
+  opacity: 0.06;
+}
+
+.cardMain {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 1.1rem;
+}
+
+.place {
+  font-size: var(--step-4);
+  line-height: 1;
+  color: var(--ivory);
+}
+
+.cardText {
+  max-width: 30rem;
+  color: var(--on-dark-2);
+}
+
+.facts {
+  position: relative;
+  display: grid;
+  align-content: center;
+}
+
+.fact {
+  display: grid;
+  gap: 0.25rem;
+  padding-block: 0.95rem;
+}
+
+.fact dt {
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+}
+
+.fact dd {
+  color: var(--ivory);
+}
+
+/* ---- Points clés ---- */
+.highlights {
+  display: grid;
+  gap: 2rem;
+  margin-top: var(--block);
+}
+
+.highlight {
+  display: grid;
+  align-content: start;
+  gap: 0.75rem;
+  padding-top: 1.5rem;
+}
+
+.hlTitle {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-weight: 500;
+  line-height: 1.05;
+  color: var(--teal);
+}
+
+.hlBody {
+  color: var(--ink-2);
+}
+
+@media (min-width: 900px) {
+  .card {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(2rem, 1rem + 3vw, 4.5rem);
+  }
+
+  .highlights {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--gutter);
+  }
+
+  .fact {
+    grid-template-columns: 8.5rem minmax(0, 1fr);
+    gap: 1rem;
+    align-items: baseline;
+  }
+}
+
+@media (max-width: 767px) {
+  .photo {
+    aspect-ratio: 4 / 3 !important;
+  }
+}

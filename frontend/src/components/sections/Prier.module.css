@@ -1,0 +1,348 @@
+.section {
+  position: relative;
+  padding-block: var(--section);
+  background: var(--ivory);
+}
+
+.head {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: var(--block);
+}
+
+.headMain {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.title {
+  font-size: var(--step-6);
+  line-height: 1.06;
+  color: var(--teal);
+}
+
+.intro {
+  max-width: 28rem;
+  font-size: var(--step-1);
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+/* ---- Les cinq prières ---- */
+.prayers {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(15rem, 72%);
+  gap: 0.85rem;
+  margin-inline: calc(var(--gutter) * -1);
+  padding-inline: var(--gutter);
+  padding-bottom: 0.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter);
+  scrollbar-width: none;
+}
+
+.prayers::-webkit-scrollbar {
+  display: none;
+}
+
+.prayer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 25rem;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 1.5rem 1.35rem;
+  border-radius: var(--radius);
+  background: var(--teal-deep);
+  color: var(--on-dark);
+  scroll-snap-align: start;
+}
+
+.prayerImg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease-out), opacity 0.9s var(--ease-out);
+}
+
+.prayerShade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(7, 29, 32, 0.78) 0%, rgba(7, 29, 32, 0.15) 38%, rgba(7, 29, 32, 0.25) 58%, rgba(7, 29, 32, 0.92) 100%);
+}
+
+.prayerAr {
+  font-size: clamp(2rem, 1.6rem + 1.4vw, 2.75rem);
+  line-height: 1.6;
+  text-align: center;
+  color: var(--gold-soft);
+}
+
+.prayerFoot {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 0.9rem;
+}
+
+.prayerName {
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--on-dark-2);
+}
+
+.prayerTime {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--ivory);
+  font-variant-numeric: lining-nums;
+}
+
+@media (hover: hover) {
+  .prayer:hover .prayerImg {
+    transform: scale(1.06);
+  }
+}
+
+/* ---- Jumaah ---- */
+.jumaah {
+  position: relative;
+  margin-top: var(--section);
+}
+
+.jumaahImg {
+  width: 100%;
+}
+
+.jumaahCard {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 1.25rem;
+  overflow: hidden;
+  margin-top: 1.25rem;
+  padding: clamp(1.75rem, 1.25rem + 2vw, 3rem);
+  border-radius: var(--radius);
+  background: var(--teal-deep);
+  color: var(--on-dark);
+  box-shadow: var(--shadow-lift);
+}
+
+.jumaahPattern {
+  opacity: 0.07;
+}
+
+.jumaahRow {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 2rem;
+}
+
+.jumaahAr {
+  font-size: clamp(3rem, 2.2rem + 3vw, 5rem);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--gold-soft);
+}
+
+.jumaahContent {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.jumaahLabel {
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--on-dark-2);
+}
+
+.jumaahTime {
+  font-size: var(--step-4);
+  line-height: 1;
+  color: var(--ivory);
+}
+
+.jumaahNote {
+  position: relative;
+  display: grid;
+  gap: 0.25rem;
+  max-width: 34rem;
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--radius-sm);
+  background: rgba(246, 241, 231, 0.06);
+}
+
+.jumaahNote span {
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+}
+
+.jumaahNote p {
+  color: var(--on-dark-2);
+}
+
+/* ---- Prières spéciales & propres ---- */
+.group {
+  margin-top: var(--section);
+}
+
+.cards {
+  display: grid;
+  gap: clamp(1rem, 0.6rem + 1.5vw, 2rem);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  transition:
+    transform 0.6s var(--ease-out),
+    box-shadow 0.6s var(--ease-out);
+}
+
+.cardMedia {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--ivory-deep);
+}
+
+.cardMedia img {
+  transition: transform 1.2s var(--ease-out), opacity 0.9s var(--ease-out);
+}
+
+.cardBody {
+  display: grid;
+  align-content: start;
+  gap: 0.4rem;
+  padding: clamp(1.4rem, 1rem + 1.2vw, 2rem);
+}
+
+.cardAr {
+  margin-bottom: 0.25rem;
+  font-size: clamp(1.6rem, 1.3rem + 1vw, 2.2rem);
+  line-height: 1.6;
+  text-align: right;
+  color: var(--gold-deep);
+}
+
+.cardName {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--teal);
+}
+
+.cardSub {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-style: normal;
+  color: var(--ink-3);
+}
+
+.cardTime {
+  justify-self: start;
+  margin-top: 0.75rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(18, 62, 67, 0.07);
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--teal);
+}
+
+.cardWhen {
+  margin-top: 0.15rem;
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--gold-deep);
+}
+
+.cardDesc {
+  margin-top: 0.75rem;
+  padding-top: 0.9rem;
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-style: normal;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+
+@media (hover: hover) {
+  .card:hover {
+    box-shadow: var(--shadow-lift);
+  }
+
+  .card:hover .cardMedia img {
+    transform: scale(1.05);
+  }
+}
+
+@media (min-width: 700px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .head {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    align-items: end;
+    gap: var(--gutter);
+  }
+
+  .intro {
+    justify-self: end;
+  }
+
+  .prayers {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    margin-inline: 0;
+    padding-inline: 0;
+    overflow: visible;
+  }
+
+  .prayer {
+    min-height: clamp(22rem, 14rem + 12vw, 30rem);
+  }
+
+  .jumaahCard {
+    position: absolute;
+    right: clamp(1.25rem, 0.5rem + 2vw, 3rem);
+    bottom: clamp(1.25rem, 0.5rem + 2vw, 3rem);
+    width: min(32rem, 46%);
+    margin: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .jumaahImg {
+    aspect-ratio: 4 / 3 !important;
+  }
+}

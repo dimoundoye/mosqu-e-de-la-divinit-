@@ -1,0 +1,105 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding-block: var(--section);
+  background:
+    radial-gradient(ellipse 60% 70% at 100% 50%, rgba(234, 186, 16, 0.08), transparent 70%),
+    var(--teal);
+  color: var(--on-dark);
+}
+
+.pattern {
+  opacity: 0.07;
+}
+
+.grid {
+  position: relative;
+  display: grid;
+  gap: var(--block);
+}
+
+.left {
+  display: grid;
+  justify-items: start;
+  align-content: start;
+  gap: 1.25rem;
+}
+
+.title {
+  font-size: var(--step-6);
+  line-height: 1.06;
+  color: var(--ivory);
+}
+
+.lead {
+  max-width: 34rem;
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-style: normal;
+  line-height: 1.35;
+  color: var(--ivory);
+}
+
+.text {
+  max-width: 34rem;
+  color: var(--on-dark-2);
+}
+
+.cta {
+  margin-top: 0.75rem;
+}
+
+.box {
+  display: grid;
+  align-content: start;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(5rem, 9rem) minmax(0, 1fr);
+  align-items: center;
+  gap: 1.25rem;
+  padding-block: clamp(1.1rem, 0.8rem + 1vw, 1.6rem);
+}
+
+.k {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: var(--step-4);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--gold-soft);
+}
+
+.k svg {
+  width: 0.8em;
+  height: 0.8em;
+}
+
+.spin {
+  animation: spin 9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.v {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-style: normal;
+  line-height: 1.4;
+  color: var(--on-dark-2);
+}
+
+@media (min-width: 960px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(3rem, 1rem + 5vw, 7rem);
+    align-items: center;
+  }
+}

@@ -1,0 +1,57 @@
+# ============================================================
+# Mosquée de la Divinité — fichiers à ne pas versionner
+# (s'applique à tout le dépôt : frontend, backend, outils)
+# ============================================================
+
+# ---- Dépendances ----
+node_modules/
+
+# ---- Builds ----
+dist/
+dist-ssr/
+build/
+out/
+*.vsix
+
+# ---- Variables d'environnement (secrets) ----
+# On garde uniquement les modèles .env.example
+.env
+.env.*
+!.env.example
+*.local
+
+# ---- Journaux ----
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ---- Caches et couverture de tests ----
+.cache/
+.vite/
+.eslintcache
+coverage/
+.vscode-test/
+
+# ---- Images HD originales (ne pas déployer) ----
+_originaux_hd/
+
+# ---- Éditeurs et système ----
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- Claude Code : réglages locaux ----
+.claude/launch.json
+.claude/settings.local.json
