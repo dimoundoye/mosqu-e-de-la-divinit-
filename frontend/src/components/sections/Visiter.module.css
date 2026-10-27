@@ -11,13 +11,14 @@
 }
 
 .title {
-  font-size: var(--step-6);
+  font-size: var(--h2);
   line-height: 1.06;
   color: var(--teal);
 }
 
 .photo {
   width: 100%;
+  border-radius: 0 0 var(--radius) var(--radius);
 }
 
 /* ---- Carte d'informations pratiques ---- */
@@ -27,12 +28,10 @@
   display: grid;
   gap: 2rem;
   overflow: hidden;
-  margin-top: 1.25rem;
   padding: clamp(1.75rem, 1.25rem + 2vw, 3.25rem);
-  border-radius: var(--radius);
+  border-radius: var(--radius) var(--radius) 0 0;
   background: var(--teal-deep);
   color: var(--on-dark);
-  box-shadow: var(--shadow-lift);
 }
 
 .cardPattern {
@@ -47,7 +46,7 @@
 }
 
 .place {
-  font-size: var(--step-4);
+  font-size: var(--h3);
   line-height: 1;
   color: var(--ivory);
 }

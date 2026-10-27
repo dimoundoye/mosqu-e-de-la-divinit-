@@ -75,7 +75,7 @@ export default function Construction() {
         <Pattern fade="right" className={s.siratPattern} />
         <div className={cx('container', s.siratHead)}>
           <div className={s.siratHeadMain}>
-            <LineReveal as="h3" className={s.siratTitle}>
+            <LineReveal as="h2" className={s.siratTitle}>
               <span>{t('Le Pont Al Sirat')}</span>
             </LineReveal>
           </div>

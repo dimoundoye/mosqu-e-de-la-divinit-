@@ -5,95 +5,143 @@
 }
 
 .head {
-  display: grid;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
   gap: 1.25rem;
   margin-bottom: var(--block);
 }
 
 .title {
-  font-size: var(--step-6);
+  font-size: var(--h2);
   line-height: 1.06;
   color: var(--teal);
 }
 
-/* ---- Événements : texte d'un côté, photo de l'autre ---- */
-/* Les lignes se touchent : les photos s'enchaînent sans espace, en damier */
-.rows {
+/* ---- Flèches (grand écran) ---- */
+.arrows {
+  display: none;
+  flex: 0 0 auto;
+  gap: 0.6rem;
+}
+
+.arrow {
   display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: var(--teal);
+  color: var(--ivory);
+  transition:
+    background-color 0.3s var(--ease-out),
+    opacity 0.3s var(--ease-out);
 }
 
-/* Sur mobile (texte puis photo), un écart sépare chaque événement du suivant */
-@media (max-width: 899px) {
-  .rows {
-    gap: var(--section);
-  }
+.arrow svg {
+  width: 1.4rem;
+  height: 1.4rem;
 }
 
-.row {
+.arrow:hover:not(:disabled) {
+  background: var(--teal-2);
+}
+
+.arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* ---- Rail : cartes qui défilent à l'horizontale, collées aux bords de l'écran ---- */
+.rail {
+  display: flex;
+  gap: clamp(1rem, 0.5rem + 1.5vw, 2rem);
+  margin-inline: calc(-1 * var(--gutter));
+  padding-inline: var(--gutter);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter);
+  scrollbar-width: none;
+}
+
+.rail::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  display: flex;
+  flex: 0 0 min(82%, 24rem);
+  flex-direction: column;
+  scroll-snap-align: start;
+}
+
+/* Grande photo verticale */
+.media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--ivory-deep);
+}
+
+.media img {
+  transition: transform 1.2s var(--ease-out);
+}
+
+/* Texte posé sur le fond de la section, sans bloc */
+.text {
   display: grid;
-  gap: var(--block);
-  align-items: center;
+  align-content: start;
+  gap: 0.5rem;
+  padding-top: 1.35rem;
 }
 
-.rowText {
-  display: grid;
-  align-content: center;
-  gap: 1rem;
-}
-
-.rowTitle {
-  font-size: var(--step-4);
+.cardTitle {
+  font-size: var(--h3);
   font-weight: 600;
-  line-height: 1.08;
+  line-height: 1.1;
   letter-spacing: -0.02em;
-  color: var(--ink);
+  color: var(--teal);
+  text-wrap: balance;
 }
 
-.rowMajor .rowTitle {
-  font-size: var(--step-5);
-}
-
-.rowWhen {
-  font-size: var(--step-0);
+.when {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--step--1);
   font-weight: 600;
   color: var(--red);
 }
 
-.rowBody {
-  max-width: 34rem;
+.star {
+  flex: 0 0 auto;
+  width: 1rem;
+  height: 1rem;
+  color: var(--gold);
+}
+
+.body {
+  margin-top: 0.25rem;
   font-size: var(--step-1);
-  line-height: 1.6;
+  line-height: 1.55;
   color: var(--ink-2);
 }
 
-.rowMedia {
-  position: relative;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  background: var(--ivory-deep);
-}
-
-/* Affiche montrée en entier : fond papier autour de l'image */
-.rowMediaContain {
-  background: var(--paper);
+@media (hover: hover) {
+  .card:hover .media img {
+    transform: scale(1.04);
+  }
 }
 
 @media (min-width: 900px) {
-  .row {
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-    gap: clamp(2.5rem, 1rem + 4vw, 6rem);
+  .arrows {
+    display: flex;
   }
 
-  /* Un événement sur deux : la photo passe à gauche */
-  .rowReverse {
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  }
-
-  .rowReverse .rowText {
-    order: 2;
-  }
-
-  .rowMajor .rowMedia {
-    aspect-ratio: 4 / 5;
+  /* Trois cartes visibles, la quatrième dépasse à droite */
+  .card {
+    flex-basis: calc((100% - 3 * clamp(1rem, 0.5rem + 1.5vw, 2rem)) / 3.3);
   }
 }

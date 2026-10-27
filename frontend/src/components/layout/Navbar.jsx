@@ -59,11 +59,7 @@ export default function Navbar({ overDarkHero = false }) {
       >
         <div className={cx('container', s.bar)}>
           <Link to="/" className={s.brand} onClick={handleBrand}>
-            <Logo variant={onDark ? 'frame' : 'tile'} className={s.logo} />
-            <span className={s.brandText}>
-              <span className={s.brandName}>Mosquée de la Divinité</span>
-              <span className={s.brandSub}>Masdjidou Rabbani</span>
-            </span>
+            <Logo variant="full" className={s.logo} label="Mosquée de la Divinité" />
           </Link>
 
           <nav className={s.nav} aria-label={t('Navigation principale')}>

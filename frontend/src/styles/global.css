@@ -96,15 +96,12 @@ h3 em {
   color: var(--accent);
 }
 
-/* Sur fond sombre : le mot d'accent prend le dégradé or de la charte */
+/* Sur fond sombre : le mot d'accent prend l'or de la charte, en couleur unie */
 .on-dark h1 em,
 .on-dark h2 em,
 .on-dark h3 em {
   font-weight: 400;
-  background: var(--grad-gold);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--gold);
 }
 
 p {
@@ -156,12 +153,9 @@ p {
   color: var(--on-dark);
 }
 
-/* Texte en dégradé or (charte) */
+/* Texte or de la charte, en couleur unie */
 .gold-text {
-  background: var(--grad-gold);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--gold);
 }
 
 .sr-only {

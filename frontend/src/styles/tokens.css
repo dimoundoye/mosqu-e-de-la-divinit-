@@ -59,16 +59,24 @@
   --font-display: var(--font-sans);
   --font-arabic: 'Noto Naskh Arabic', 'Traditional Arabic', serif;
 
-  /* Échelle agrandie pour la lisibilité : texte courant ≈ 19–21 px, petits textes ≥ 14 px */
-  --step--2: clamp(0.88rem, 0.86rem + 0.1vw, 0.94rem);
-  --step--1: clamp(1rem, 0.97rem + 0.15vw, 1.08rem);
-  --step-0: clamp(1.2rem, 1.14rem + 0.25vw, 1.32rem);
-  --step-1: clamp(1.32rem, 1.22rem + 0.4vw, 1.52rem);
-  --step-2: clamp(1.36rem, 1.2rem + 0.65vw, 1.72rem);
-  --step-3: clamp(1.6rem, 1.33rem + 1.15vw, 2.35rem);
-  --step-4: clamp(1.9rem, 1.48rem + 1.85vw, 3.1rem);
-  --step-5: clamp(2.2rem, 1.58rem + 2.75vw, 4.1rem);
-  --step-6: clamp(2.5rem, 1.58rem + 4.1vw, 5.4rem);
+  /* Échelle du nombre d'or (φ = 1,618) sur une base de 20 px :
+     un niveau sur deux est multiplié par φ (20 → 32 → 52 → 84 px), les niveaux
+     intermédiaires par √φ ≈ 1,272 (25 → 41 → 66 px). Tailles atteintes à 1440 px ;
+     sur mobile, les titres se réduisent progressivement (petits textes ≥ 14 px). */
+  --step--2: clamp(0.875rem, 0.853rem + 0.094vw, 0.938rem); /* 14 → 15 px */
+  --step--1: 1rem; /* 20 ÷ √φ ≈ 16 px */
+  --step-0: clamp(1.2rem, 1.18rem + 0.075vw, 1.25rem); /* texte courant : 19 → 20 px */
+  --step-1: clamp(1.32rem, 1.22rem + 0.406vw, 1.59rem); /* 20 × √φ : 21 → 25 px */
+  --step-2: clamp(1.4rem, 1.18rem + 0.935vw, 2.02rem); /* 20 × φ : 22 → 32 px */
+  --step-3: clamp(1.6rem, 1.26rem + 1.46vw, 2.57rem); /* 32 × √φ : 26 → 41 px */
+  --step-4: clamp(1.9rem, 1.42rem + 2.06vw, 3.27rem); /* 32 × φ : 30 → 52 px */
+  --step-5: clamp(2.2rem, 1.51rem + 2.95vw, 4.16rem); /* 52 × √φ : 35 → 67 px */
+  --step-6: clamp(2.5rem, 1.52rem + 4.2vw, 5.29rem); /* 52 × φ : 40 → 85 px */
+
+  /* Hiérarchie des titres : chaque niveau = le niveau inférieur × φ */
+  --h1: var(--step-6); /* 84 px : grand titre de page */
+  --h2: var(--step-4); /* 52 px : titre de section */
+  --h3: var(--step-2); /* 32 px : sous-titre */
 
   /* ---- Espacements & grille ---- */
   --gutter: clamp(1.15rem, 0.5rem + 2.6vw, 2.75rem);

@@ -12,7 +12,7 @@
 
 .title {
   max-width: 17ch;
-  font-size: clamp(2.2rem, 1rem + 4vw, 4.9rem);
+  font-size: var(--h1);
   line-height: 1.06;
   color: var(--teal);
 }

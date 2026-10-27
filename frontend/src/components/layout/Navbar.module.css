@@ -38,37 +38,16 @@
   border-radius: var(--radius-sm);
 }
 
-/* Icône de la charte : carré sarcelle sur clair, contour blanc sur la vidéo */
-.logo {
-  width: 2.75rem;
-}
-
-.brandText {
-  display: grid;
-  min-width: 0;
-  line-height: 1.1;
-}
-
-.brandName {
-  font-family: var(--font-display);
-  font-size: 1.02rem;
-  font-weight: 600;
-  letter-spacing: -0.005em;
-  white-space: nowrap;
-}
-
-.brandSub {
-  margin-top: 0.15rem;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
-  color: var(--gold-deep);
+/* Logo complet de la charte : vert sapin sur clair, blanc sur la vidéo */
+.brand .logo {
+  width: auto;
+  height: calc(var(--nav-height) - 0.75rem);
+  color: var(--teal);
   transition: color 0.5s var(--ease-out);
 }
 
-.onDark .brandSub {
-  color: var(--gold-soft);
+.onDark .brand .logo {
+  color: currentColor;
 }
 
 /* ---- Liens ---- */
@@ -184,20 +163,6 @@
 
   .menuLabel {
     display: none;
-  }
-}
-
-@media (max-width: 380px) {
-  .brandName {
-    font-size: 1.12rem;
-  }
-
-  .brandSub {
-    letter-spacing: 0.18em;
-  }
-
-  .logo {
-    width: 2.2rem;
   }
 }
 

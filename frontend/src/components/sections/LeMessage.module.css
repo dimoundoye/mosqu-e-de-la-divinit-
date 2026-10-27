@@ -20,58 +20,118 @@
 .head {
   display: grid;
   justify-items: center;
-  gap: 1.25rem;
+  gap: 1rem;
   margin-bottom: var(--block);
   text-align: center;
 }
 
 .title {
-  font-size: var(--step-6);
+  font-size: var(--h2);
   line-height: 1.06;
   color: var(--ivory);
 }
 
+.lead {
+  font-size: var(--step-1);
+  color: var(--on-dark-2);
+}
+
 .pillars {
   display: grid;
+  gap: var(--section);
 }
 
 .pillar {
   display: grid;
-  justify-items: center;
   align-content: start;
-  gap: 0.6rem;
-  padding: clamp(2rem, 1.5rem + 2vw, 3.5rem) clamp(1rem, 0.5rem + 2vw, 2.5rem);
+  gap: 1.5rem;
+}
+
+/* ---- Le ciel de chaque vision ---- */
+.sky {
+  position: relative;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 0.25rem;
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  padding: 1.5rem;
+  border-radius: var(--radius);
   text-align: center;
 }
 
-/* Calligraphie : chaque pilier sa matière (plein, or, évidé) */
-.ar {
-  margin-bottom: 0.5rem;
-  font-size: clamp(3.4rem, 2.4rem + 4vw, 6rem);
-  font-weight: 700;
-  line-height: 1.5;
+/* « dans le ciel, écrit en noir » : ciel de jour */
+.day {
+  background: linear-gradient(180deg, #dcebf0 0%, #eef5f6 55%, #fbf5e2 100%);
+  color: #0b0b0b;
 }
 
-.emerald {
+/* « dans l'espace, en lettres d'or » : nuit profonde, halo doré */
+.night {
+  background:
+    radial-gradient(circle at 50% 45%, rgba(234, 186, 16, 0.22), transparent 60%),
+    var(--night);
+  color: var(--gold-soft);
+}
+
+/* « dans l'espace, écrit en blanc » : ciel sarcelle de la charte */
+.space {
+  background:
+    radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.14), transparent 60%),
+    var(--grad-teal);
   color: var(--ivory);
 }
 
-.red {
-  background: linear-gradient(180deg, #f8e3a0, var(--gold) 60%, #b8890a);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0 0 22px rgba(234, 186, 16, 0.3));
+.ar {
+  position: relative;
+  font-family: var(--font-arabic);
+  font-size: clamp(3.4rem, 2.2rem + 3.6vw, 5.6rem);
+  font-weight: 700;
+  line-height: 1.6;
+  white-space: nowrap;
 }
 
-.hollow {
-  color: transparent;
-  -webkit-text-stroke: 1.5px var(--gold-soft);
-  paint-order: stroke fill;
+.night .ar {
+  color: var(--gold);
+}
+
+/* Point rouge sous le Dal, posé par Calligraphy */
+.dot {
+  position: absolute;
+  width: 0.15em;
+  height: 0.15em;
+  border-radius: 50%;
+  background: var(--red);
+  transform: translate(-50%, -50%);
+}
+
+.translit {
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.night .translit {
+  color: var(--gold-soft);
+}
+
+/* ---- Paroles du khalife puis sens du pilier ---- */
+.quote p {
+  font-size: var(--step-0);
+  line-height: 1.6;
+  color: var(--on-dark-2);
+}
+
+.meaning {
+  display: grid;
+  gap: 0.5rem;
 }
 
 .name {
-  font-size: var(--step-4);
+  font-size: var(--h3);
   line-height: 1;
   color: var(--ivory);
 }
@@ -85,11 +145,8 @@
 }
 
 .body {
-  max-width: 21rem;
-  margin-top: 0.6rem;
-  font-family: var(--font-display);
+  margin-top: 0.4rem;
   font-size: var(--step-1);
-  font-style: normal;
   line-height: 1.5;
   color: var(--on-dark-2);
 }
@@ -97,9 +154,6 @@
 @media (min-width: 960px) {
   .pillars {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .mid {
-    background: linear-gradient(180deg, rgba(246, 241, 231, 0.05), transparent 70%);
+    gap: var(--gutter);
   }
 }

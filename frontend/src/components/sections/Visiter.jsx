@@ -42,15 +42,7 @@ export default function Visiter() {
           </LineReveal>
         </header>
 
-        <ParallaxImage
-          src={visuelMosquee}
-          alt={t('Vue aérienne de la Mosquée de la Divinité sur la baie de Ouakam')}
-          ratio="21 / 9"
-          className={s.photo}
-          position="50% 55%"
-        />
-
-        {/* Carte sombre — informations pratiques, posée sur la photo */}
+        {/* Carte sombre — informations pratiques, soudée au-dessus de la photo */}
         <Reveal className={cx(s.card, 'on-dark')} y={40}>
           <Pattern fade="right" className={s.cardPattern} />
           <div className={s.cardMain}>
@@ -72,6 +64,14 @@ export default function Visiter() {
             ))}
           </dl>
         </Reveal>
+
+        <ParallaxImage
+          src={visuelMosquee}
+          alt={t('Vue aérienne de la Mosquée de la Divinité sur la baie de Ouakam')}
+          ratio="21 / 9"
+          className={s.photo}
+          position="50% 55%"
+        />
 
         {/* 3 points clés */}
         <ol className={s.highlights}>

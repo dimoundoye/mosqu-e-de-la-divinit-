@@ -6,7 +6,7 @@
 }
 
 .h2 {
-  font-size: var(--step-5);
+  font-size: var(--h2);
   line-height: 1.06;
   color: var(--teal);
 }
@@ -477,7 +477,7 @@
 }
 
 .spiritName {
-  font-size: var(--step-3);
+  font-size: var(--h3);
   font-style: normal;
   color: var(--teal);
 }
